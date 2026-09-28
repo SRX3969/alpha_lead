@@ -1,0 +1,331 @@
+/**
+ * ALPHALEAD ACADEMY — BASE STYLES & FUTURISTIC TYPOGRAPHY
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap');
+
+/* Box sizing and clean baseline */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body-default);
+  line-height: var(--lh-body-default);
+  font-weight: var(--fw-regular);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Subtle Futuristic Ambient Grid Pattern */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: 
+    linear-gradient(to right, rgba(232, 236, 239, 0.35) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(232, 236, 239, 0.35) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Ensure all content sits above background grid */
+header, main, footer, .modal-overlay, .scroll-top-btn, .whatsapp-float {
+  position: relative;
+  z-index: 1;
+}
+
+/* Accessibility: Skip Link */
+.skip-link {
+  position: absolute;
+  top: -60px;
+  left: 24px;
+  background: var(--color-accent-primary);
+  color: #FFFFFF;
+  padding: 12px 24px;
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-body-small);
+  letter-spacing: 0.04em;
+  z-index: 10000;
+  transition: top var(--dur-fast) var(--ease-standard);
+  border-radius: var(--radius-subtle);
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 16px;
+  outline: 2px solid var(--color-accent-secondary);
+  outline-offset: 2px;
+}
+
+/* Futuristic Headings (Space Grotesk & Outfit) */
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+  font-feature-settings: "ss01", "ss02", "cv01";
+}
+
+h1, .text-h1 {
+  font-size: var(--fs-h1);
+  line-height: var(--lh-tight);
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.03em;
+}
+
+h2, .text-h2 {
+  font-size: var(--fs-h2);
+  line-height: var(--lh-heading);
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.025em;
+}
+
+h3, .text-h3 {
+  font-size: var(--fs-h3);
+  line-height: var(--lh-snug);
+  font-weight: var(--fw-semibold);
+  letter-spacing: -0.015em;
+}
+
+h4, .text-h4 {
+  font-size: var(--fs-h4);
+  line-height: var(--lh-heading);
+  font-weight: var(--fw-semibold);
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+p {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-4);
+  max-width: 70ch;
+  line-height: var(--lh-body-default);
+}
+
+p.lead {
+  font-size: var(--fs-body-large);
+  line-height: var(--lh-body-large);
+  color: var(--color-text-secondary);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+small, .text-small {
+  font-size: var(--fs-body-small);
+  line-height: var(--lh-body-small);
+}
+
+/* High-Tech Telemetry Tag */
+.telemetry-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: var(--fs-tag);
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent-primary);
+  background: var(--color-surface-accent);
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border);
+}
+
+.telemetry-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-accent-support);
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+  animation: pulseBeacon 2s infinite ease-in-out;
+}
+
+@keyframes pulseBeacon {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.4;
+  }
+}
+
+/* Links */
+a {
+  color: var(--color-accent-primary);
+  text-decoration: none;
+  transition: all var(--dur-fast) var(--ease-standard);
+}
+
+a:hover {
+  color: var(--color-accent-secondary);
+}
+
+/* Media */
+img, svg, picture {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Keyboard Focus (WCAG AA) */
+:focus-visible {
+  outline: 2px solid var(--color-accent-secondary);
+  outline-offset: 3px;
+}
+
+/* Layout Containers */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+.container-narrow {
+  width: 100%;
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+/* Section Spacing */
+.section {
+  padding-top: var(--space-8);
+  padding-bottom: var(--space-8);
+  position: relative;
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding-top: var(--space-9);
+    padding-bottom: var(--space-9);
+  }
+}
+
+.section-light {
+  background-color: var(--color-surface-light);
+}
+
+.section-accent {
+  background-color: var(--color-surface-accent);
+}
+
+/* Dividers */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-border), transparent);
+  width: 100%;
+  border: none;
+  margin: var(--space-8) 0;
+}
+
+/* Section Header */
+.section-header {
+  margin-bottom: var(--space-7);
+}
+
+.section-header.text-center {
+  text-align: center;
+}
+
+.section-header.text-center p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-accent-primary);
+  font-family: var(--font-display);
+  font-size: var(--fs-tag);
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-3);
+  padding: 4px 10px;
+  background: var(--color-surface-accent);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xs);
+}
+
+.section-title {
+  margin-bottom: var(--space-3);
+  color: var(--color-text-primary);
+}
+
+.section-subtitle {
+  font-family: var(--font-display);
+  font-size: var(--fs-body-large);
+  color: var(--color-accent-primary);
+  font-weight: var(--fw-semibold);
+  letter-spacing: -0.01em;
+}
+
+/* Responsive Grids */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+}
+
+@media (min-width: 640px) {
+  .grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

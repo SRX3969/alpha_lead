@@ -1,0 +1,110 @@
+/**
+ * ALPHALEAD ACADEMY — DESIGN SYSTEM TOKENS
+ * Futuristic Leadership, Aerospace Precision, and Refined Authority Palette
+ */
+
+:root {
+  /* ==========================================================================
+     COLOR SYSTEM (Refined Luxury + Futuristic Precision)
+     ========================================================================== */
+
+  /* Pure White Canvas Foundation */
+  --color-bg: #FFFFFF;
+  --color-text-primary: #12151A;     /* Deepest obsidian charcoal */
+  --color-text-secondary: #5A626E;   /* Sophisticated technical slate */
+  --color-text-tertiary: #9AA2B1;    /* Subtle telemetry gray */
+  --color-border: #E8ECEF;           /* High-precision clean boundary */
+  --color-border-subtle: #F1F4F7;
+  --color-border-glow: rgba(44, 95, 141, 0.25);
+
+  /* Tactical & Authority Accents */
+  --color-accent-primary: #1E4E79;   /* Deep aerospace navy */
+  --color-accent-primary-hover: #143554;
+  --color-accent-secondary: #3B82F6; /* Electric tactical sky */
+  --color-accent-tertiary: #D4AF37;  /* Subtle insignia gold */
+  --color-accent-gold-light: #FBF8EE;
+  --color-accent-support: #10B981;   /* Tactical radar green */
+  --color-status-red: #EF4444;
+  --color-status-green: #10B981;
+
+  /* Surfaces & Glassmorphism */
+  --color-surface-light: #FAFCFE;    /* Clean pristine tint */
+  --color-surface-accent: #F4F7FB;   /* High-tech cockpit tint */
+  --color-surface-card: #FFFFFF;
+  --color-overlay-soft: rgba(18, 21, 26, 0.03);
+  --color-overlay-medium: rgba(18, 21, 26, 0.08);
+  --color-overlay-backdrop: rgba(10, 15, 25, 0.6);
+
+  /* Modern Holographic / Futuristic Shadows */
+  --shadow-subtle: 0 2px 10px rgba(18, 21, 26, 0.04);
+  --shadow-card: 0 8px 30px rgba(18, 21, 26, 0.06);
+  --shadow-hover: 0 16px 40px rgba(30, 78, 121, 0.12);
+  --shadow-glow-cyan: 0 0 25px rgba(59, 130, 246, 0.2);
+  --shadow-glow-gold: 0 0 20px rgba(212, 175, 55, 0.25);
+  --shadow-modal: 0 25px 60px rgba(10, 15, 25, 0.25);
+
+  /* ==========================================================================
+     FUTURISTIC & AEROSPACE TYPOGRAPHY SYSTEM
+     ========================================================================== */
+  --font-display: 'Space Grotesk', -apple-system, sans-serif;
+  --font-modern: 'Outfit', sans-serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Newsreader', Georgia, serif;
+
+  /* Font Weights */
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-black: 800;
+
+  /* Typographic Scales */
+  --fs-h1: clamp(2.5rem, 5vw + 1rem, 3.875rem);      /* 40px - 62px */
+  --fs-h2: clamp(2rem, 3.5vw + 0.5rem, 2.75rem);     /* 32px - 44px */
+  --fs-h3: clamp(1.5rem, 2vw + 0.5rem, 2.125rem);    /* 24px - 34px */
+  --fs-h4: clamp(1.25rem, 1.5vw + 0.25rem, 1.5rem);  /* 20px - 24px */
+  --fs-body-large: 1.125rem;                          /* 18px */
+  --fs-body-default: 1rem;                            /* 16px */
+  --fs-body-small: 0.875rem;                          /* 14px */
+  --fs-caption: 0.75rem;                              /* 12px */
+  --fs-tag: 0.6875rem;                                /* 11px */
+
+  /* Line Heights */
+  --lh-tight: 1.15;
+  --lh-heading: 1.25;
+  --lh-snug: 1.35;
+  --lh-body-large: 1.6;
+  --lh-body-default: 1.65;
+  --lh-body-small: 1.7;
+  --lh-caption: 1.5;
+
+  /* Spacing Tokens (8px Base Grid) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 88px;
+
+  /* Container */
+  --container-max-width: 1220px;
+  --container-padding: 24px;
+
+  /* Precision Radii */
+  --radius-xs: 3px;
+  --radius-subtle: 6px;
+  --radius-card: 12px;
+  --radius-pill: 9999px;
+
+  /* Transitions & Easings */
+  --dur-fast: 0.18s;
+  --dur-standard: 0.35s;
+  --dur-slow: 0.6s;
+
+  --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}

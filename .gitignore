@@ -1,0 +1,13 @@
+# Scraped Raw Dumps & Cache
+corporate_page.html
+defence_page.html
+scraped_content.json
+*.pyc
+__pycache__/
+
+# OS and Editor Files
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
