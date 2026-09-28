@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initPathwaySelector();
   initScrollTop();
   initActiveNavHighlighter();
+  initMobileVerticalTabs();
+  initFoundersMobileCarousel();
+  initReviewsCarousel();
 });
 
 /**
@@ -68,6 +71,20 @@ function initMobileNav() {
     link.addEventListener('click', () => {
       closeMenu();
     });
+  });
+
+  // Close when clicking modal trigger inside drawer
+  drawer.querySelectorAll('[data-modal-open]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      closeMenu();
+    });
+  });
+
+  // Close on click outside drawer and toggle button
+  document.addEventListener('click', (e) => {
+    if (drawer.classList.contains('open') && !drawer.contains(e.target) && !toggle.contains(e.target)) {
+      closeMenu();
+    }
   });
 
   // Close on Escape
@@ -161,3 +178,100 @@ function initActiveNavHighlighter() {
 
   sections.forEach(section => observer.observe(section));
 }
+
+/**
+ * 6. Mobile Vertical Tabs Switcher (Audit Action 6)
+ */
+function initMobileVerticalTabs() {
+  const tabBtns = document.querySelectorAll('.mobile-vertical-tab-btn');
+  const sections = document.querySelectorAll('.tabbed-vertical-section');
+  if (!tabBtns.length || !sections.length) return;
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.getAttribute('data-tab-target');
+
+      // Update button active state
+      tabBtns.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+
+      // Show matching section only (in mobile view)
+      sections.forEach(sec => {
+        if (sec.id === targetId) {
+          sec.classList.add('active');
+        } else {
+          sec.classList.remove('active');
+        }
+      });
+    });
+  });
+}
+
+/**
+ * 7. Founder Stories Mobile Carousel Indicators
+ */
+function initFoundersMobileCarousel() {
+  const carousel = document.getElementById('foundersCarousel');
+  const dots = document.querySelectorAll('.founder-dot');
+  if (!carousel || !dots.length) return;
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const idx = parseInt(dot.getAttribute('data-founder-dot') || '0', 10);
+      const items = carousel.querySelectorAll('.founder-profile-grid');
+      if (items[idx]) {
+        items[idx].scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+      }
+    });
+  });
+
+  carousel.addEventListener('scroll', () => {
+    const scrollLeft = carousel.scrollLeft;
+    const width = carousel.offsetWidth;
+    const activeIndex = Math.round(scrollLeft / width);
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === activeIndex);
+    });
+  }, { passive: true });
+}
+
+/**
+ * 8. Reviews Carousel on Mobile
+ */
+function initReviewsCarousel() {
+  const grid = document.getElementById('reviewsGrid');
+  const prevBtn = document.getElementById('reviewPrevBtn');
+  const nextBtn = document.getElementById('reviewNextBtn');
+  const indicator = document.getElementById('reviewPageIndicator');
+  if (!grid || !prevBtn || !nextBtn || !indicator) return;
+
+  const cards = grid.querySelectorAll('.review-card');
+  const total = cards.length;
+
+  const updateIndicator = () => {
+    if (cards.length === 0) return;
+    const cardWidth = cards[0].offsetWidth + 14; // include gap
+    const scrollLeft = grid.scrollLeft;
+    const currentIndex = Math.min(total, Math.max(1, Math.round(scrollLeft / cardWidth) + 1));
+    indicator.textContent = `${currentIndex} / ${total}`;
+  };
+
+  prevBtn.addEventListener('click', () => {
+    if (cards.length === 0) return;
+    const cardWidth = cards[0].offsetWidth + 14;
+    grid.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+  });
+
+  nextBtn.addEventListener('click', () => {
+    if (cards.length === 0) return;
+    const cardWidth = cards[0].offsetWidth + 14;
+    grid.scrollBy({ left: cardWidth, behavior: 'smooth' });
+  });
+
+  grid.addEventListener('scroll', updateIndicator, { passive: true });
+}
+

@@ -1,117 +1,242 @@
 /**
- * ALPHALEAD ACADEMY — ENHANCED ANIMATION & MICRO-INTERACTION ENGINE
- * 60fps GPU-accelerated micro-interactions, futuristic glows, and spring physics
+ * ALPHALEAD ACADEMY — ANIMATION & MICRO-INTERACTIONS ENGINE
+ * Master Specification (Section 2 - Premium Motion Design System)
+ * Purposeful, Subtle, 60fps GPU-Accelerated, Accessibility-First
  */
 
 /* ==========================================================================
-   KEYFRAME DEFINITIONS
+   1. TIMING & EASING DEFINITIONS (Section 2.1)
+   ========================================================================== */
+:root {
+  --duration-fast: 0.15s;
+  --duration-base: 0.3s;
+  --duration-medium: 0.4s;
+  --duration-slow: 0.5s;
+  --duration-extra-slow: 0.8s;
+
+  --ease-standard: cubic-bezier(0.4, 0.0, 0.2, 1.0);
+  --ease-out: cubic-bezier(0.0, 0.0, 0.2, 1.0);
+  --ease-in: cubic-bezier(0.4, 0.0, 1.0, 1.0);
+  --ease-smooth-enter: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-bounce-light: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+/* ==========================================================================
+   2. KEYFRAME DEFINITIONS
    ========================================================================== */
 
-/* Fade In Up with Spring Feel */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(28px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Subtle Shimmer Bar */
-@keyframes shimmerWave {
+/* Form Success Pulse (Section 2.2 Spec 7) */
+@keyframes success-pulse {
   0% {
-    background-position: -200% 0;
+    box-shadow: 0px 0px 0px 0px rgba(58, 125, 68, 0.7);
+  }
+  70% {
+    box-shadow: 0px 0px 0px 12px rgba(58, 125, 68, 0);
   }
   100% {
-    background-position: 200% 0;
+    box-shadow: 0px 0px 0px 0px rgba(58, 125, 68, 0);
   }
 }
 
-/* Form Error Shake */
-@keyframes shakeError {
+/* Form Error Shake (Section 2.2 Spec 8) */
+@keyframes error-shake {
   0%, 100% {
     transform: translateX(0);
   }
-  20%, 60% {
-    transform: translateX(-7px);
+  25% {
+    transform: translateX(-4px);
   }
-  40%, 80% {
-    transform: translateX(7px);
+  75% {
+    transform: translateX(4px);
   }
 }
 
-/* Success Checkmark Pop */
-@keyframes checkmarkPop {
+/* Checkmark Pop */
+@keyframes checkmark-pop {
   0% {
-    transform: scale(0) rotate(-45deg);
+    transform: translate(-50%, -50%) scale(0);
     opacity: 0;
   }
-  70% {
-    transform: scale(1.25) rotate(0deg);
-  }
-  100% {
-    transform: scale(1) rotate(0deg);
-    opacity: 1;
-  }
-}
-
-/* Pulse Halo for Verified States */
-@keyframes pulseHaloGreen {
-  0% {
-    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5);
-  }
-  70% {
-    box-shadow: 0 0 0 16px rgba(16, 185, 129, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
-  }
-}
-
-/* Radar Beacon for Telemetry */
-@keyframes radarBeacon {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-  }
   50% {
-    transform: scale(1.6);
-    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1.2);
   }
   100% {
-    transform: scale(1);
+    transform: translate(-50%, -50%) scale(1);
     opacity: 1;
   }
 }
 
-/* Continuous Subtle Floating */
-@keyframes subtleFloat {
-  0%, 100% {
-    transform: translateY(0);
+/* Navigation Active Underline (Section 2.2 Spec 12) */
+@keyframes active-underline {
+  from {
+    transform: scaleX(0);
+    opacity: 0;
   }
-  50% {
-    transform: translateY(-6px);
+  to {
+    transform: scaleX(1);
+    opacity: 1;
   }
 }
 
-/* Spinner Rotate */
+/* Loading Skeleton Shimmer (Section 2.2 Spec 8 / Part 5 Spec 5) */
+@keyframes loading-skeleton {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Circular Spinner */
 @keyframes spin {
   to {
     transform: rotate(360deg);
   }
 }
 
+/* Fade In */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Subtle WhatsApp Pulse to draw attention (Audit Part 3 Issue #4) */
+@keyframes whatsapp-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0px 4px 12px rgba(37, 211, 102, 0.3);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 18px rgba(37, 211, 102, 0.45);
+  }
+}
+
 /* ==========================================================================
-   ANIMATION UTILITY CLASSES
+   3. MICRO-INTERACTIONS (Section 2.2 Complete Specs)
    ========================================================================== */
 
-/* Scroll Trigger Hooks */
+/* 1. Primary Button Hover Lift */
+.btn-primary {
+  transition: all var(--duration-base) var(--ease-standard);
+  transform: translateY(0);
+  box-shadow: 0px 2px 8px rgba(44, 95, 141, 0);
+  will-change: transform, box-shadow, background-color;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--color-accent-primary-hover);
+  box-shadow: 0px 4px 12px rgba(44, 95, 141, 0.15);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0px 2px 4px rgba(44, 95, 141, 0.1);
+}
+
+.btn-primary:focus-visible {
+  outline: 2px solid var(--color-accent-secondary);
+  outline-offset: 2px;
+}
+
+/* Secondary Button (Outlined) */
+.btn-secondary {
+  transition: all var(--duration-base) var(--ease-standard);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: var(--color-bg-surface-accent);
+  border-color: var(--color-accent-primary-hover);
+  color: var(--color-accent-primary-hover);
+  box-shadow: 0px 2px 8px rgba(44, 95, 141, 0.08);
+}
+
+.btn-secondary:active:not(:disabled) {
+  background-color: #E8F0F7;
+  box-shadow: inset 0px 1px 3px rgba(44, 95, 141, 0.1);
+}
+
+/* 2. Link Underline Animation (Section 2.2 Spec 2) */
+.link-arrow,
+.link-underlined {
+  position: relative;
+  text-decoration: none;
+  transition: color var(--duration-base) var(--ease-standard);
+}
+
+.link-arrow::before,
+.link-underlined::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--duration-base) var(--ease-standard);
+}
+
+.link-arrow:hover::before,
+.link-underlined:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* 3. Input Focus Glow (Section 2.2 Spec 3) */
+.form-control {
+  border: 1px solid var(--color-border);
+  transition: all var(--duration-base) var(--ease-standard);
+}
+
+.form-control:focus {
+  outline: none;
+  border: 2px solid var(--color-accent-secondary);
+  box-shadow: inset 0px 0px 0px 3px rgba(91, 155, 213, 0.05);
+  background-color: #FFFFFF;
+}
+
+/* 4. Card Hover Lift & Border (Section 2.2 Spec 5 & Part 5) */
+.vertical-card,
+.programme-card,
+.place-photo-card,
+.candidate-card,
+.review-card,
+.blog-card {
+  transition: all var(--duration-base) var(--ease-standard);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  will-change: transform, box-shadow, border-color;
+}
+
+.vertical-card:hover,
+.programme-card:hover,
+.place-photo-card:hover,
+.candidate-card:hover,
+.review-card:hover,
+.blog-card:hover {
+  border-color: var(--color-accent-secondary);
+  box-shadow: 0px 4px 14px rgba(44, 95, 141, 0.12);
+  transform: translateY(-2px);
+  background-color: var(--color-bg-surface-accent);
+}
+
+/* 5. Scroll Fade-In (Section 2.2 Spec 6) */
 .reveal-on-scroll {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.65s var(--ease-standard), transform 0.65s var(--ease-standard);
+  transform: translateY(20px);
+  transition: opacity 0.6s var(--ease-smooth-enter),
+              transform 0.6s var(--ease-smooth-enter);
   will-change: opacity, transform;
 }
 
@@ -120,65 +245,165 @@
   transform: translateY(0);
 }
 
-/* Stagger Delays */
-.delay-1 { transition-delay: 0.08s; }
-.delay-2 { transition-delay: 0.16s; }
-.delay-3 { transition-delay: 0.24s; }
-.delay-4 { transition-delay: 0.32s; }
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
 
-/* Subtle Float on Important Badges */
-.animate-float {
-  animation: subtleFloat 4s ease-in-out infinite;
+/* 6. Form Submission States (Section 2.2 Spec 7 & 8) */
+.btn-submit {
+  position: relative;
+  overflow: hidden;
+  transition: all var(--duration-base) var(--ease-standard);
 }
 
-/* Form Shake On Invalid Submission */
-.shake {
-  animation: shakeError 0.4s var(--ease-standard);
+.btn-submit.loading {
+  pointer-events: none;
+  opacity: 0.7;
 }
 
-/* Form Submission Spinner */
-.spinner {
-  display: inline-block;
-  width: 18px;
-  height: 18px;
+.btn-submit.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  margin: -8px 0 0 -8px;
   border: 2px solid rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
   border-top-color: #FFFFFF;
+  border-radius: 50%;
   animation: spin 0.8s linear infinite;
-  vertical-align: middle;
 }
 
-/* Success Checkmark */
-.success-icon-badge {
-  width: 36px;
-  height: 36px;
+.btn-submit.success {
+  background-color: var(--color-success) !important;
+  animation: success-pulse 0.6s var(--ease-bounce-light);
+}
+
+.btn-submit.error {
+  background-color: var(--color-error) !important;
+  animation: error-shake 0.4s cubic-bezier(0.36, 0, 0.66, -0.56);
+}
+
+/* 7. Modal Scale + Blur (Section 2.2 Spec 9) */
+.modal-overlay {
+  background: rgba(26, 26, 26, 0);
+  backdrop-filter: blur(0px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-base) var(--ease-standard),
+              backdrop-filter var(--duration-base) var(--ease-standard);
+}
+
+.modal-overlay.open {
+  opacity: 1;
+  backdrop-filter: blur(4px);
+  background: var(--overlay-dark);
+  pointer-events: auto;
+}
+
+.modal-container {
+  transform: scale(0.95);
+  opacity: 0;
+  transition: all var(--duration-base) var(--ease-standard);
+}
+
+.modal-overlay.open .modal-container {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* 8. Mobile Menu Slide-Out (Controlled by components.css with hardware-accelerated transform) */
+
+/* 9. Floating WhatsApp Button (Audit Part 3 Issue #4 & Part 7 Action 2) */
+.whatsapp-float {
+  position: fixed;
+  right: 20px;
+  bottom: 80px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
-  background: var(--color-status-green);
+  background-color: #25D366;
   color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: checkmarkPop 0.5s var(--ease-spring) forwards, pulseHaloGreen 1.8s infinite;
-  flex-shrink: 0;
+  box-shadow: 0px 4px 12px rgba(37, 211, 102, 0.3);
+  z-index: 999;
+  text-decoration: none;
+  transition: all var(--duration-base) var(--ease-standard);
+  animation: fade-in 0.5s var(--ease-smooth-enter), whatsapp-pulse 6s ease-in-out infinite 3s;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 6px 16px rgba(37, 211, 102, 0.4);
+}
+
+.whatsapp-float svg {
+  width: 30px;
+  height: 30px;
+}
+
+@media (max-width: 640px) {
+  .whatsapp-float {
+    right: 16px;
+    bottom: 70px;
+    width: 52px;
+    height: 52px;
+  }
+  .whatsapp-float svg {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* 10. Scroll Top Button */
+.scroll-top-btn {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  z-index: 990;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all var(--duration-base) var(--ease-standard);
+}
+
+.scroll-top-btn.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-top-btn:hover {
+  background-color: var(--color-bg-surface-accent);
+  border-color: var(--color-accent-primary);
+  color: var(--color-accent-primary);
 }
 
 /* ==========================================================================
-   ACCESSIBILITY: PREFERS-REDUCED-MOTION
+   4. ACCESSIBILITY: PREFERS-REDUCED-MOTION (Section 2.3 - Mandatory)
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.001s !important;
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.001s !important;
+    transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
-  }
-
-  .reveal-on-scroll {
-    opacity: 1 !important;
-    transform: none !important;
-  }
-
-  .animate-float {
-    animation: none !important;
   }
 }

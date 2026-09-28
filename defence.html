@@ -11,47 +11,30 @@
 
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- Top Telemetry Bar -->
-  <div class="topbar">
-    <div class="container topbar-content">
-      <div class="topbar-left">
-        <span class="telemetry-tag"><span class="telemetry-dot"></span> Next SSB Batch</span>
-        <span>Batch starts <strong>October 12, 2026</strong> · Capped strictly at 15 candidates</span>
-      </div>
-      <div class="topbar-right">
-        <span>📍 Around 300m from 2 AFSB Mysuru</span>
-        <a href="tel:9019353966" class="topbar-link">📞 9019353966</a>
-      </div>
-    </div>
-  </div>
 
-  <!-- Header -->
+  <!-- Sticky Minimal Institutional Navigation -->
   <header class="site-header" role="banner">
     <div class="container nav-container">
       <a href="index.html" class="brand" aria-label="Alpha Lead Academy Home">
-        <img src="assets/images/live/logo.png" alt="Alpha Lead Academy Logo" class="brand-logo-img" width="180" height="48">
+        <img src="assets/images/live/logo.png" alt="Alpha Lead Academy" class="brand-logo-img" width="160" height="42">
         <div class="brand-text">
           <span class="brand-name">ALPHA LEAD</span>
-          <span class="brand-sub">ACADEMY</span>
+          <span class="brand-sub">ACADEMY · MYSURU</span>
         </div>
       </a>
 
       <nav class="nav-menu" aria-label="Primary Navigation">
-        <a href="index.html" class="nav-link">Home</a>
+        <a href="index.html#about" class="nav-link">About</a>
         <a href="defence.html" class="nav-link active">Defence</a>
         <a href="corporate.html" class="nav-link">Corporate</a>
         <a href="career.html" class="nav-link">Career Launchpad</a>
         <a href="ssb-stay.html" class="nav-link">SSB Stay</a>
-        <a href="blog.html" class="nav-link">Blog</a>
-        <a href="#faculty" class="nav-link">Faculty</a>
-        <a href="#infrastructure" class="nav-link">Facilities</a>
-        <a href="#faqs" class="nav-link">FAQs</a>
-        <a href="#enroll" class="nav-link">Enroll</a>
+        <a href="blog.html" class="nav-link">Resources</a>
       </nav>
 
       <div class="nav-actions">
         <button type="button" class="btn btn-primary btn-sm" data-modal-open="callbackModal">
-          Request Callback
+          Talk to Alpha Lead
         </button>
         <button type="button" class="mobile-nav-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
           <span></span><span></span><span></span>
@@ -60,16 +43,20 @@
     </div>
   </header>
 
-  <!-- Mobile Drawer -->
+  <!-- Clean Mobile Navigation Drawer -->
   <div class="mobile-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
     <a href="index.html" class="nav-link">Home</a>
+    <a href="index.html#about" class="nav-link">About Alpha Lead</a>
     <a href="defence.html" class="nav-link active">Alpha Lead Defence</a>
     <a href="corporate.html" class="nav-link">Alpha Lead Corporate</a>
     <a href="career.html" class="nav-link">Career Launchpad</a>
-    <a href="ssb-stay.html" class="nav-link">SSB Stay Mysuru</a>
-    <a href="#faculty" class="nav-link">Our Faculty</a>
-    <a href="#results" class="nav-link">Recommended Candidates</a>
-    <a href="#enroll" class="nav-link">Apply Now</a>
+    <a href="ssb-stay.html" class="nav-link">SSB Stay, Mysuru</a>
+    <a href="blog.html" class="nav-link">Resources & Articles</a>
+    <div style="margin-top: 20px;">
+      <button type="button" class="btn btn-primary btn-block" data-modal-open="callbackModal">
+        Talk to Alpha Lead
+      </button>
+    </div>
   </div>
 
   <main id="main-content">
@@ -80,29 +67,29 @@
         <div class="hero-grid">
           <div class="hero-content reveal-on-scroll">
             <div class="hero-eyebrow">
-              <span class="telemetry-tag"><span class="telemetry-dot"></span> DEFENCE ENTRANCE</span>
-              <span style="font-family: var(--font-display); font-size: 0.75rem; color: var(--color-text-tertiary); letter-spacing: 0.1em;">AFSB-02 // SSB COACHING</span>
+              <span class="eyebrow" style="margin-bottom: 0;">DEFENCE ENTRANCE</span>
+              <span class="hero-location-tag">Mysuru, Karnataka · Around 300m from 2 AFSB</span>
             </div>
             <h1 class="hero-title">
               Alpha Lead Defence
-              <span class="hero-title-accent">Defence Entrance</span>
+              <span class="hero-title-break" style="font-size: 0.6em; color: var(--color-accent-navy); font-weight: 500;">SSB Interviews & Written Coaching</span>
             </h1>
             <p class="hero-lead">
               We prepare aspirants for SSB, NDA, CDS, AFCAT, and Agniveer through structured teaching, disciplined practice and personalised guidance. Our training combines written examination preparation, complete SSB interview coaching, individual assessment and feedback.
             </p>
             <div class="hero-actions">
               <a href="#curriculum" class="btn btn-primary">5-Day SSB Architecture</a>
-              <a href="#enroll" class="btn btn-secondary">Apply for Batch &rarr;</a>
+              <button type="button" class="btn btn-secondary" data-modal-open="callbackModal">Talk to Assessor &rarr;</button>
             </div>
           </div>
           <div class="hero-visual reveal-on-scroll delay-1">
-            <div class="hero-image-wrapper">
+            <div class="hero-image-frame">
               <img src="assets/images/live/why-alpha-defence.webp" alt="Group Captain Abhinav Chaturvedi (Retd) with SSB Candidates at Alpha Lead Academy" class="hero-image" width="640" height="427" style="object-position: center;">
-              <div class="hero-quote-card">
-                <p class="hero-quote-text">
-                  “Proven ranks, experienced ex-officers and practical mentoring help candidates prepare with clarity, confidence and the mindset required for a successful defence career.”
-                </p>
-                <span class="hero-quote-author">Group Captain Abhinav Chaturvedi (Retd) · Founder & Chief Assessor</span>
+              <div class="hero-image-caption">
+                <div class="hero-caption-text">
+                  <span class="hero-caption-author">Group Captain Abhinav Chaturvedi (Retd)</span><br>
+                  Founder & Chief Assessor with SSB Candidates
+                </div>
               </div>
             </div>
           </div>
@@ -110,109 +97,243 @@
       </div>
     </section>
 
-    <!-- Faculty & Mentors (Exact Real Live Faculty) -->
-    <section id="faculty" class="section section-light">
+    <!-- 5-Day SSB Architecture Section -->
+    <section id="curriculum" class="section section-light">
       <div class="container">
         <div class="section-header text-center reveal-on-scroll">
-          <span class="section-tag">Direct Evaluation</span>
-          <h2 class="section-title">Meet Our Distinguished Faculty</h2>
-          <p class="lead">Experienced ex-officers, board assessors, and DIPR senior scientists.</p>
+          <span class="eyebrow">Selection Architecture</span>
+          <h2 class="section-title">The 5-Day SSB Architecture</h2>
+          <p class="section-subtitle">
+            Detailed breakdown of Stage-1 Screening, Psychological Testing, GTO Ground Tasks, and Personal Interview.
+          </p>
+        </div>
+
+        <div class="pathway-grid pathway-grid-5 reveal-on-scroll">
+          <div class="pathway-step">
+            <div class="pathway-step-num">Day 1</div>
+            <div class="pathway-step-title">Stage-1 Screening</div>
+            <p class="text-small text-muted" style="margin-top: 6px; margin-bottom: 0;">OIR verbal/non-verbal testing, PPDT perception, individual story narration, and group consensus discussion.</p>
+          </div>
+          <div class="pathway-step">
+            <div class="pathway-step-num">Day 2</div>
+            <div class="pathway-step-title">Psychology Battery</div>
+            <p class="text-small text-muted" style="margin-top: 6px; margin-bottom: 0;">12 TAT stories, 60 Word Association words, 60 Situation Reactions, and comprehensive Self-Description profiling.</p>
+          </div>
+          <div class="pathway-step">
+            <div class="pathway-step-num">Day 3</div>
+            <div class="pathway-step-title">GTO Outdoor — Part 1</div>
+            <p class="text-small text-muted" style="margin-top: 6px; margin-bottom: 0;">Group Discussion, Group Planning Exercise (GPE), Progressive Group Task (PGT), and Snake Race teamwork.</p>
+          </div>
+          <div class="pathway-step">
+            <div class="pathway-step-num">Day 4</div>
+            <div class="pathway-step-title">GTO Part 2 & Interview</div>
+            <p class="text-small text-muted" style="margin-top: 6px; margin-bottom: 0;">Individual Obstacles, Command Task leadership, Lecturette poise, and deep Personal Interview with Board IO.</p>
+          </div>
+          <div class="pathway-step">
+            <div class="pathway-step-num">Day 5</div>
+            <div class="pathway-step-title">Board Conference</div>
+            <p class="text-small text-muted" style="margin-top: 6px; margin-bottom: 0;">Joint evaluation by President, IO, Psych and GTO, individual candidate appearance, and recommendations.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Defence Programmes Section -->
+    <section id="programmes" class="section">
+      <div class="container">
+        <div class="section-header text-center reveal-on-scroll">
+          <span class="eyebrow">Defence Training Pathways</span>
+          <h2 class="section-title">Coaching & Mentorship Programmes</h2>
+          <p class="section-subtitle">
+            Structured batches combining written examination excellence with military personality development.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="programme-card reveal-on-scroll">
+            <div>
+              <div class="programme-header">
+                <h3 class="programme-name">SSB Interview Coaching</h3>
+                <span class="programme-badge">5-Day Battery</span>
+              </div>
+              <div class="programme-target">For NDA, CDS, AFCAT, NCC & Direct Entries</div>
+              <p class="programme-desc">
+                Intensive assessor-led preparation across Stage-1 Screening, DIPR Psych battery, real obstacle GTO ground tasks, and full-length mock interviews with personal feedback.
+              </p>
+            </div>
+            <div>
+              <a href="#enroll" class="link-arrow">Enquire Next Batch &rarr;</a>
+            </div>
+          </div>
+
+          <div class="programme-card reveal-on-scroll delay-1">
+            <div>
+              <div class="programme-header">
+                <h3 class="programme-name">NDA Written Coaching</h3>
+                <span class="programme-badge">Classroom & Hybrid</span>
+              </div>
+              <div class="programme-target">For Class 11, 12 Students & Passouts</div>
+              <p class="programme-desc">
+                Comprehensive Mathematics and General Ability Test (GAT) curriculum. Rigorous mock tests, shortcuts, and foundation building for National Defence Academy entry.
+              </p>
+            </div>
+            <div>
+              <a href="#enroll" class="link-arrow">Enquire Next Batch &rarr;</a>
+            </div>
+          </div>
+
+          <div class="programme-card reveal-on-scroll delay-2">
+            <div>
+              <div class="programme-header">
+                <h3 class="programme-name">CDS Written Coaching</h3>
+                <span class="programme-badge">Graduates</span>
+              </div>
+              <div class="programme-target">For IMA, INA, AFA & OTA Aspirants</div>
+              <p class="programme-desc">
+                Advanced English, General Knowledge, and Elementary Mathematics. Targeted time-management drills and previous year paper strategies.
+              </p>
+            </div>
+            <div>
+              <a href="#enroll" class="link-arrow">Enquire Next Batch &rarr;</a>
+            </div>
+          </div>
+
+          <div class="programme-card reveal-on-scroll">
+            <div>
+              <div class="programme-header">
+                <h3 class="programme-name">AFCAT Written Coaching</h3>
+                <span class="programme-badge">IAF Entry</span>
+              </div>
+              <div class="programme-target">Flying, Technical & Ground Duty Branches</div>
+              <p class="programme-desc">
+                Mastery in Numerical Ability, Reasoning & Military Aptitude, Verbal Ability, and Current Affairs with computer-based simulated tests.
+              </p>
+            </div>
+            <div>
+              <a href="#enroll" class="link-arrow">Enquire Next Batch &rarr;</a>
+            </div>
+          </div>
+
+          <div class="programme-card reveal-on-scroll delay-1">
+            <div>
+              <div class="programme-header">
+                <h3 class="programme-name">SSB for Working Professionals</h3>
+                <span class="programme-badge">Executive / Weekend</span>
+              </div>
+              <div class="programme-target">For Corporate Employees Appearing for Direct SSB</div>
+              <p class="programme-desc">
+                Flexible weekend and evening modules tailored for working professionals appearing for TGC, SSC Tech, INET, and Territorial Army selection boards.
+              </p>
+            </div>
+            <div>
+              <a href="#enroll" class="link-arrow">Enquire Next Batch &rarr;</a>
+            </div>
+          </div>
+
+          <div class="programme-card reveal-on-scroll delay-2">
+            <div>
+              <div class="programme-header">
+                <h3 class="programme-name">Agniveer Coaching</h3>
+                <span class="programme-badge">Armed Forces</span>
+              </div>
+              <div class="programme-target">For Army, Navy & Air Force Enrolment</div>
+              <p class="programme-desc">
+                Common Entrance Examination (CEE) guidance, physical fitness benchmarks, and trade selection mentoring under veteran military instructors.
+              </p>
+            </div>
+            <div>
+              <a href="#enroll" class="link-arrow">Enquire Next Batch &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Faculty & Mentors (Exact Real Live Faculty) -->
+    <section id="faculty" class="section section-warm">
+      <div class="container">
+        <div class="section-header text-center reveal-on-scroll">
+          <span class="eyebrow">Direct Evaluation</span>
+          <h2 class="section-title">Distinguished Defence Faculty</h2>
+          <p class="section-subtitle">Experienced ex-officers, board assessors, and DIPR senior scientists.</p>
         </div>
 
         <div class="grid-3">
           
-          <!-- Assessor 01: Group Captain Abhinav Chaturvedi (Retd) - Sir -->
-          <div class="futuristic-card reveal-on-scroll" style="border-top: 4px solid var(--color-accent-tertiary);">
-            <div class="card-hud-header">
-              <span class="card-hud-code">// ASSESSOR.01</span>
-              <span class="card-hud-badge" style="background:#FFFDF5; color:#8C6F12;">Founder & CEO</span>
-            </div>
+          <!-- Assessor 01: Group Captain Abhinav Chaturvedi (Retd) -->
+          <div class="programme-card reveal-on-scroll" style="border-top: 3px solid var(--color-accent-gold);">
             <div class="faculty-img-wrap">
-              <img src="assets/images/live/founder-abhinav-portrait.webp" alt="Group Captain Abhinav Chaturvedi (Retd)" class="faculty-img" style="height: 100%; width: 100%; object-fit: cover;">
+              <img src="assets/images/live/founder-abhinav-portrait.webp" alt="Group Captain Abhinav Chaturvedi (Retd)" class="faculty-img">
             </div>
-            <h3 class="card-title">Group Captain Abhinav Chaturvedi (Retd)</h3>
-            <p class="card-tagline">Former IAF Pilot · Qualified Flying Instructor · Kargil Star</p>
-            <p class="card-desc">
+            <div class="programme-badge" style="align-self: flex-start; margin-bottom: 8px; background: var(--color-accent-gold-bg); border-color: var(--color-accent-gold-border); color: var(--color-accent-gold);">Founder & CEO</div>
+            <h3 class="programme-name">Group Captain Abhinav Chaturvedi (Retd)</h3>
+            <p class="text-small text-muted" style="margin-bottom: 8px; font-weight: 500;">Former IAF Pilot · Qualified Flying Instructor · Kargil Star</p>
+            <p class="programme-desc">
               Trained in behavioural assessment at the Defence Institute of Psychological Research (DIPR). Combines operational flying leadership with deep psychometric profiling.
             </p>
           </div>
 
-          <!-- Assessor 02: Group Captain Manoj Dayal - Sir -->
-          <div class="futuristic-card reveal-on-scroll delay-1">
-            <div class="card-hud-header">
-              <span class="card-hud-code">// ASSESSOR.02</span>
-              <span class="card-hud-badge">Interview Officer</span>
-            </div>
+          <!-- Assessor 02: Group Captain Manoj Dayal -->
+          <div class="programme-card reveal-on-scroll delay-1" style="border-top: 3px solid var(--color-accent-navy);">
             <div class="faculty-img-wrap">
               <img src="assets/images/live/gp-cpt-M-Dayal.png" alt="Group Captain Manoj Dayal" class="faculty-img">
             </div>
-            <h3 class="card-title">Group Captain Manoj Dayal (Retd)</h3>
-            <p class="card-tagline">Senior Interviewing Officer · Ex-Selection Board Officer</p>
-            <p class="card-desc">
+            <div class="programme-badge" style="align-self: flex-start; margin-bottom: 8px;">Senior Interviewing Officer</div>
+            <h3 class="programme-name">Group Captain Manoj Dayal (Retd)</h3>
+            <p class="text-small text-muted" style="margin-bottom: 8px; font-weight: 500;">Senior Interviewing Officer · Ex-Selection Board Officer</p>
+            <p class="programme-desc">
               Decades of experience conducting Interviewing Officer evaluations across front-line selection boards. Expert in PIQ alignment, stress dynamics, and candidate depth.
             </p>
           </div>
 
-          <!-- Assessor 03: Colonel Surendranath (Retd) - Sir -->
-          <div class="futuristic-card reveal-on-scroll delay-2">
-            <div class="card-hud-header">
-              <span class="card-hud-code">// ASSESSOR.03</span>
-              <span class="card-hud-badge">GTO Specialist</span>
-            </div>
+          <!-- Assessor 03: Colonel Surendranath -->
+          <div class="programme-card reveal-on-scroll delay-2" style="border-top: 3px solid var(--color-accent-navy);">
             <div class="faculty-img-wrap">
               <img src="assets/images/live/Col-Surendranath.png" alt="Colonel Surendranath (Retd)" class="faculty-img">
             </div>
-            <h3 class="card-title">Colonel Surendranath (Retd)</h3>
-            <p class="card-tagline">Senior GTO Specialist · Indian Army Veteran</p>
-            <p class="card-desc">
+            <div class="programme-badge" style="align-self: flex-start; margin-bottom: 8px;">GTO Specialist</div>
+            <h3 class="programme-name">Colonel Surendranath (Retd)</h3>
+            <p class="text-small text-muted" style="margin-bottom: 8px; font-weight: 500;">Senior GTO Specialist · Indian Army Veteran</p>
+            <p class="programme-desc">
               Renowned military Group Testing Officer who has evaluated thousands of candidates. Specializes in outdoor tasks, PGT, HGT, and command problem-solving.
             </p>
           </div>
 
-          <!-- Assessor 04: Wing Commander Rajagopal (Retd) - Sir -->
-          <div class="futuristic-card reveal-on-scroll">
-            <div class="card-hud-header">
-              <span class="card-hud-code">// ASSESSOR.04</span>
-              <span class="card-hud-badge">Flight Commander</span>
-            </div>
+          <!-- Assessor 04: Wing Commander Rajagopal -->
+          <div class="programme-card reveal-on-scroll" style="border-top: 3px solid var(--color-accent-navy);">
             <div class="faculty-img-wrap">
               <img src="assets/images/live/wng-cdr-Rajagopal.png" alt="Wing Commander Rajagopal (Retd)" class="faculty-img">
             </div>
-            <h3 class="card-title">Wg Cdr Rajagopal (Retd)</h3>
-            <p class="card-tagline">Former IAF Flight Commander & GTO Assessor</p>
-            <p class="card-desc">
+            <div class="programme-badge" style="align-self: flex-start; margin-bottom: 8px;">Flight Commander</div>
+            <h3 class="programme-name">Wg Cdr Rajagopal (Retd)</h3>
+            <p class="text-small text-muted" style="margin-bottom: 8px; font-weight: 500;">Former IAF Flight Commander & GTO Assessor</p>
+            <p class="programme-desc">
               Operational military aviator specializing in strategic reasoning, lecturette mastery, current geopolitical affairs, and group discussion poise.
             </p>
           </div>
 
-          <!-- Assessor 05: Dr. Gajendran Scientist 'F' - Sir -->
-          <div class="futuristic-card reveal-on-scroll delay-1">
-            <div class="card-hud-header">
-              <span class="card-hud-code">// ASSESSOR.05</span>
-              <span class="card-hud-badge">DIPR Scientist</span>
-            </div>
+          <!-- Assessor 05: Dr. Gajendran Scientist 'F' -->
+          <div class="programme-card reveal-on-scroll delay-1" style="border-top: 3px solid var(--color-accent-navy);">
             <div class="faculty-img-wrap">
               <img src="assets/images/live/gajendran.png" alt="Dr. Gajendran Scientist 'F'" class="faculty-img">
             </div>
-            <h3 class="card-title">Dr. Gajendran Scientist 'F'</h3>
-            <p class="card-tagline">Former Senior Scientist 'F' · DIPR Ministry of Defence</p>
-            <p class="card-desc">
+            <div class="programme-badge" style="align-self: flex-start; margin-bottom: 8px;">DIPR Scientist</div>
+            <h3 class="programme-name">Dr. Gajendran Scientist 'F'</h3>
+            <p class="text-small text-muted" style="margin-bottom: 8px; font-weight: 500;">Former Senior Scientist 'F' · DIPR Ministry of Defence</p>
+            <p class="programme-desc">
               Pioneer in psychological assessment criteria for Indian Armed Forces. In-depth psych analysis for TAT, WAT, SRT, and Self-Description batteries.
             </p>
           </div>
 
-          <!-- Assessor 06: Flight Lieutenant Namrata Chaturvedi - Ma'am -->
-          <div class="futuristic-card reveal-on-scroll delay-2" style="border-top: 4px solid var(--color-accent-primary);">
-            <div class="card-hud-header">
-              <span class="card-hud-code">// ASSESSOR.06</span>
-              <span class="card-hud-badge">Co-Founder</span>
-            </div>
+          <!-- Assessor 06: Flight Lieutenant Namrata Chaturvedi -->
+          <div class="programme-card reveal-on-scroll delay-2" style="border-top: 3px solid var(--color-accent-gold);">
             <div class="faculty-img-wrap">
-              <img src="assets/images/live/founder-namrata-portrait.webp" alt="Flight Lieutenant Namrata Chaturvedi" class="faculty-img" style="height: 100%; width: 100%; object-fit: cover;">
+              <img src="assets/images/live/founder-namrata-portrait.webp" alt="Flight Lieutenant Namrata Chaturvedi" class="faculty-img">
             </div>
-            <h3 class="card-title">Flight Lieutenant Namrata Chaturvedi</h3>
-            <p class="card-tagline">Pioneering IAF Woman Aviator · Psychologist & Counsellor</p>
-            <p class="card-desc">
+            <div class="programme-badge" style="align-self: flex-start; margin-bottom: 8px; background: var(--color-accent-gold-bg); border-color: var(--color-accent-gold-border); color: var(--color-accent-gold);">Co-Founder</div>
+            <h3 class="programme-name">Flight Lieutenant Namrata Chaturvedi (Retd.)</h3>
+            <p class="text-small text-muted" style="margin-bottom: 8px; font-weight: 500;">Early Women Officer to Fly in IAF · Psychologist</p>
+            <p class="programme-desc">
               Empowering candidates to overcome anxiety, refine emotional congruence, and project genuine, articulate confidence during intense selection phases.
             </p>
           </div>
@@ -225,9 +346,9 @@
     <section id="results" class="section">
       <div class="container">
         <div class="section-header text-center reveal-on-scroll">
-          <span class="section-tag">Proven Track Record</span>
+          <span class="eyebrow">Proven Track Record</span>
           <h2 class="section-title">Success Stories & Recommended Candidates</h2>
-          <p class="lead">Every portrait verified directly from our selection board recommendation records.</p>
+          <p class="section-subtitle">Every portrait verified directly from our selection board recommendation records.</p>
         </div>
 
         <!-- Featured Landmark Spotlight Banner: CT Kumar Balaji (AIR 1) -->
@@ -258,7 +379,7 @@
         <div class="grid-4">
           
           <!-- 1. Shivaprasad -->
-          <div class="futuristic-card candidate-card reveal-on-scroll">
+          <div class="candidate-card reveal-on-scroll">
             <div class="candidate-avatar-wrap">
               <img src="assets/images/live/shivaprasad.png" alt="Shivaprasad - Recommended AFCAT" class="candidate-avatar-img">
             </div>
@@ -270,7 +391,7 @@
           </div>
 
           <!-- 2. Swathi Shet (Ma'am / Female Candidate) -->
-          <div class="futuristic-card candidate-card reveal-on-scroll delay-1">
+          <div class="candidate-card reveal-on-scroll delay-1">
             <div class="candidate-avatar-wrap">
               <img src="assets/images/live/swathi-shet.png" alt="Swathi Shet - Recommended NCC & JAG" class="candidate-avatar-img">
             </div>
@@ -282,7 +403,7 @@
           </div>
 
           <!-- 3. Jiswan -->
-          <div class="futuristic-card candidate-card reveal-on-scroll delay-2">
+          <div class="candidate-card reveal-on-scroll delay-2">
             <div class="candidate-avatar-wrap">
               <img src="assets/images/live/jiswan.png" alt="Jiswan - Recommended NDA" class="candidate-avatar-img">
             </div>
@@ -294,7 +415,7 @@
           </div>
 
           <!-- 4. Narendran -->
-          <div class="futuristic-card candidate-card reveal-on-scroll delay-3">
+          <div class="candidate-card reveal-on-scroll delay-3">
             <div class="candidate-avatar-wrap">
               <img src="assets/images/live/narendran.png" alt="Narendran - Recommended NDA" class="candidate-avatar-img">
             </div>
@@ -306,7 +427,7 @@
           </div>
 
           <!-- 5. Anush Kumar -->
-          <div class="futuristic-card candidate-card reveal-on-scroll">
+          <div class="candidate-card reveal-on-scroll">
             <div class="candidate-avatar-wrap">
               <img src="assets/images/live/anush-kumar.png" alt="Anush Kumar - Recommended NDA" class="candidate-avatar-img">
             </div>
@@ -318,7 +439,7 @@
           </div>
 
           <!-- 6. Kumar Balaji -->
-          <div class="futuristic-card candidate-card reveal-on-scroll delay-1">
+          <div class="candidate-card reveal-on-scroll delay-1">
             <div class="candidate-avatar-wrap">
               <img src="assets/images/live/kumar-balaji.png" alt="Kumar Balaji - Recommended AFCAT" class="candidate-avatar-img">
             </div>
@@ -330,7 +451,7 @@
           </div>
 
           <!-- 7. Ashuthosh -->
-          <div class="futuristic-card candidate-card reveal-on-scroll delay-2">
+          <div class="candidate-card reveal-on-scroll delay-2">
             <div class="candidate-avatar-wrap">
               <img src="assets/images/live/ashuthosh.png" alt="Ashuthosh - Recommended AFCAT" class="candidate-avatar-img">
             </div>
@@ -342,7 +463,7 @@
           </div>
 
           <!-- 8. Kanishk -->
-          <div class="futuristic-card candidate-card reveal-on-scroll delay-3">
+          <div class="candidate-card reveal-on-scroll delay-3">
             <div class="candidate-avatar-wrap">
               <img src="assets/images/live/kanishk.png" alt="Kanishk - Recommended CDSE OTA" class="candidate-avatar-img">
             </div>
@@ -354,7 +475,7 @@
           </div>
 
           <!-- 9. Kishan -->
-          <div class="futuristic-card candidate-card reveal-on-scroll">
+          <div class="candidate-card reveal-on-scroll">
             <div class="candidate-avatar-wrap">
               <img src="assets/images/live/kishan.png" alt="Kishan - Recommended CDS & NCC INA" class="candidate-avatar-img">
             </div>
@@ -366,7 +487,7 @@
           </div>
 
           <!-- 10. Anudeep -->
-          <div class="futuristic-card candidate-card reveal-on-scroll delay-1">
+          <div class="candidate-card reveal-on-scroll delay-1">
             <div class="candidate-avatar-wrap">
               <img src="assets/images/live/anudeep.png" alt="Anudeep - Recommended Army Tech" class="candidate-avatar-img">
             </div>
@@ -378,7 +499,7 @@
           </div>
 
           <!-- 11. Sanghavi (Ma'am / Female Candidate) -->
-          <div class="futuristic-card candidate-card reveal-on-scroll delay-2">
+          <div class="candidate-card reveal-on-scroll delay-2">
             <div class="candidate-avatar-wrap">
               <img src="assets/images/live/sanghavi.png" alt="Sanghavi - Recommended AFCAT" class="candidate-avatar-img">
             </div>
@@ -390,7 +511,7 @@
           </div>
 
           <!-- 12. Sani Kumar -->
-          <div class="futuristic-card candidate-card reveal-on-scroll delay-3">
+          <div class="candidate-card reveal-on-scroll delay-3">
             <div class="candidate-avatar-wrap">
               <img src="assets/images/live/sani-kumar.png" alt="Sani Kumar - Recommended NDA" class="candidate-avatar-img">
             </div>
@@ -409,9 +530,9 @@
     <section id="infrastructure" class="section">
       <div class="container">
         <div class="section-header text-center reveal-on-scroll">
-          <span class="section-tag">SSB Testing Infrastructure</span>
+          <span class="eyebrow">SSB Testing Infrastructure</span>
           <h2 class="section-title">Outdoor Grounds & Assessment Facilities</h2>
-          <p class="lead">Built to exact Services Selection Board specifications in Mysuru. Click any place to explore photographs.</p>
+          <p class="section-subtitle">Built to exact Services Selection Board specifications in Mysuru. Click any place to explore photographs.</p>
         </div>
 
         <div class="place-gallery-grid">
@@ -482,9 +603,9 @@
       <div class="container">
         
         <div class="section-header text-center reveal-on-scroll">
-          <span class="section-tag">Candidate Testimonials</span>
+          <span class="eyebrow">Candidate Testimonials</span>
           <h2 id="reviews-heading" class="section-title">Verified Google Reviews & Student Feedback</h2>
-          <p class="lead">Unfiltered experiences from SSB aspirants and recommended officers trained at Alpha Lead Academy.</p>
+          <p class="section-subtitle">Unfiltered experiences from SSB aspirants and recommended officers trained at Alpha Lead Academy.</p>
         </div>
 
         <div class="review-summary-banner reveal-on-scroll">
@@ -638,9 +759,9 @@
       <div class="container container-narrow">
         
         <div class="section-header text-center reveal-on-scroll">
-          <span class="section-tag">Direct Clarifications</span>
+          <span class="eyebrow">Direct Clarifications</span>
           <h2 id="defence-faqs-heading" class="section-title">Frequently Asked Questions</h2>
-          <p class="lead">Everything you need to know about our Defence training and SSB batches.</p>
+          <p class="section-subtitle">Everything you need to know about our Defence training and SSB batches.</p>
         </div>
 
         <div class="faq-accordion reveal-on-scroll">
@@ -759,9 +880,9 @@
     <section id="enroll" class="section">
       <div class="container container-narrow">
         <div class="contact-card reveal-on-scroll">
-          <span class="section-tag">Cohort Admission</span>
-          <h2 class="serif-heading" style="margin-bottom: 8px;">Apply for Upcoming SSB Mentorship Batch</h2>
-          <p class="text-small" style="margin-bottom: 24px;">Batches are capped at 15 candidates. Reserve your slot early.</p>
+          <span class="eyebrow">Cohort Admission</span>
+          <h2 class="section-title" style="margin-bottom: 8px;">Apply for Upcoming SSB Mentorship Batch</h2>
+          <p class="section-subtitle" style="margin-bottom: 24px;">Batches are capped at 15 candidates. Reserve your slot early.</p>
 
           <form id="contactForm" novalidate>
             <div class="form-row">
@@ -805,7 +926,7 @@
             </div>
 
             <button type="submit" class="btn btn-primary btn-block">
-              SUBMIT DEFENCE APPLICATION &rarr;
+              Submit Defence Application &rarr;
             </button>
           </form>
         </div>
@@ -820,8 +941,8 @@
       <button type="button" class="modal-close" data-modal-close aria-label="Close dialog">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
       </button>
-      <span class="telemetry-tag" style="margin-bottom: 12px;"><span class="telemetry-dot"></span> DIRECT FACULTY RESPONSE</span>
-      <h3 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 8px;">Request a Call-Back</h3>
+      <div class="eyebrow" style="margin-bottom: 8px;">Direct Response</div>
+      <h3 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 8px;">Talk to Alpha Lead</h3>
       <p class="text-small" style="margin-bottom: 24px;">Our defence mentors will contact you directly within 24 hours.</p>
       <form id="callbackModalForm" novalidate>
         <div class="form-group">
@@ -841,49 +962,96 @@
     </div>
   </div>
 
-  <!-- Real Footer & Site Map -->
+  <!-- Standard Institutional Footer -->
   <footer class="site-footer" role="contentinfo">
     <div class="container">
       <div class="footer-grid">
+        
+        <!-- Column 1: Brand & Positioning -->
         <div>
           <a href="index.html" class="brand" style="margin-bottom: 16px;">
             <img src="assets/images/live/logo.png" alt="Alpha Lead Academy" class="brand-logo-img" width="160" height="42">
           </a>
-          <p style="font-size: 0.875rem; line-height: 1.6;">
+          <p style="font-size: 0.875rem; line-height: 1.65; margin-bottom: 16px;">
             Alpha Lead Defence prepares aspirants for SSB Interviews and Defence Examinations through structured teaching, ex-officer faculty, and DIPR psychometrics.
           </p>
+          <p style="font-size: 0.8125rem; color: var(--color-text-primary); font-weight: 500;">
+            📍 Bannur Road, Chamundi Vihar Layout, Mysuru 570010
+          </p>
         </div>
+
+        <!-- Column 2: Explore -->
         <div class="footer-col">
-          <h4>📁 Defence Links</h4>
+          <h4>Explore</h4>
           <ul class="footer-links">
-            <li><a href="defence.html">SSB Coaching</a></li>
-            <li><a href="defence.html">SSB for Working Professionals</a></li>
-            <li><a href="defence.html">NDA CDS AFCAT</a></li>
-            <li><a href="defence.html">Agniveer</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>📁 Other Verticals</h4>
-          <ul class="footer-links">
+            <li><a href="index.html#about">About Alpha Lead</a></li>
+            <li><a href="defence.html">Defence Training</a></li>
             <li><a href="corporate.html">Corporate Solutions</a></li>
-            <li><a href="career.html">Career Launcher</a></li>
-            <li><a href="ssb-stay.html">SSB Dormitory Stay</a></li>
-            <li><a href="blog.html">Blog & Knowledge Hub</a></li>
+            <li><a href="career.html">Career Launchpad</a></li>
+            <li><a href="ssb-stay.html">SSB Stay Mysuru</a></li>
+            <li><a href="blog.html">Resources & Articles</a></li>
           </ul>
         </div>
+
+        <!-- Column 3: Defence Programmes -->
         <div class="footer-col">
-          <h4>Contact Details</h4>
-          <p style="font-size: 0.8125rem; margin-bottom: 6px;">Alpha Lead Academy, Bannur Road, Chamundi Vihar Layout, Mysuru 570010</p>
-          <p style="font-size: 0.8125rem; font-weight: var(--fw-bold); margin-bottom: 4px;">Phone: 9019353966</p>
-          <p style="font-size: 0.8125rem; color: var(--color-accent-primary);">office@alphalead.co.in</p>
+          <h4>Defence Programmes</h4>
+          <ul class="footer-links">
+            <li><a href="#faculty">SSB Interview Coaching</a></li>
+            <li><a href="#curriculum">5-Day SSB Architecture</a></li>
+            <li><a href="#programmes">NDA Written Coaching</a></li>
+            <li><a href="#programmes">CDS Written Coaching</a></li>
+            <li><a href="#programmes">AFCAT Written Coaching</a></li>
+            <li><a href="#programmes">Agniveer Guidance</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Contact -->
+        <div class="footer-col">
+          <h4>Contact Defence Wing</h4>
+          <div style="font-size: 0.875rem; line-height: 1.7;">
+            <p style="margin-bottom: 6px;">
+              <strong>Phone:</strong> <a href="tel:9019353966" style="color: var(--color-accent-navy); text-decoration: none;">9019353966</a>
+            </p>
+            <p style="margin-bottom: 6px;">
+              <strong>Email:</strong> <a href="mailto:office@alphalead.co.in" style="color: var(--color-accent-navy); text-decoration: none;">office@alphalead.co.in</a>
+            </p>
+            <p style="margin-bottom: 12px; color: var(--color-text-muted); font-size: 0.8125rem;">
+              Mon – Fri: 10:00 – 20:00<br>Sat: 10:00 – 18:00
+            </p>
+            <a href="https://wa.me/919019353966" target="_blank" rel="noopener noreferrer" class="link-arrow" style="color: #15803D;">
+              WhatsApp: +91 90193 53966 &rarr;
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Alpha Lead Academy. Defence Mentorship Division.
+        </div>
+        <div>
+          <span>Bannur Road, Chamundi Vihar Layout, Mysuru 570010 · Around 300m from 2 AFSB Mysuru</span>
         </div>
       </div>
-      <div class="footer-bottom">
-        <div>&copy; 2026 Alpha Lead Academy. Defence Mentorship Division.</div>
-        <div>Around 300m from 2 AFSB Mysuru Selection Centre</div>
-      </div>
+
     </div>
   </footer>
+
+  <!-- Floating WhatsApp Quick Button -->
+  <a href="https://wa.me/919019353966" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat with Alpha Lead on WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+    </svg>
+  </a>
+
+  <!-- Floating Scroll To Top -->
+  <button type="button" class="scroll-top-btn" aria-label="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
 
   <script src="js/animations.js"></script>
   <script src="js/forms.js"></script>

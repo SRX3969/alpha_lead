@@ -219,29 +219,7 @@ function initStatCounters() {
  * 5. Futuristic Subtle 3D Card Tilt on Desktop
  */
 function initCardTilt() {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  if (window.innerWidth < 1024) return;
-
-  const tiltCards = document.querySelectorAll('.futuristic-card');
-
-  tiltCards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      
-      const rotateX = ((y - centerY) / centerY) * -4;
-      const rotateY = ((x - centerX) / centerX) * 4;
-
-      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
-    });
-
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = '';
-    });
-  });
+  // Disabled per institutional design principles (restrained, dignified interactions without cursor gimmicks)
 }
 
 /**
