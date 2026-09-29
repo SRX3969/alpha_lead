@@ -3,7 +3,7 @@
  * Clean, White, Dignified Institutional Foundation
  */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 /* Box sizing and clean baseline */
 *, *::before, *::after {
@@ -32,6 +32,23 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   position: relative;
+}
+
+/* Global Smooth Micro-Interaction Transitions */
+button,
+.btn,
+a,
+.card,
+.programme-card,
+.faculty-card,
+.founder-card,
+.discipline-card,
+.candidate-card,
+.hero-pillar-card,
+.review-card,
+.blog-card,
+.faq-trigger {
+  transition: all 0.3s ease-in-out;
 }
 
 /* Accessible Skip Link */
@@ -152,10 +169,10 @@ p:last-child {
   max-width: var(--container-narrow);
 }
 
-/* Section Foundation */
+/* Section Foundation — Enhanced Negative Space */
 .section {
-  padding-top: clamp(48px, 6vw, var(--space-9));
-  padding-bottom: clamp(48px, 6vw, var(--space-9));
+  padding-top: clamp(64px, 7vw, 100px);
+  padding-bottom: clamp(64px, 7vw, 100px);
   position: relative;
   background-color: var(--color-bg);
 }
