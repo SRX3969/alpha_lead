@@ -363,16 +363,9 @@
   height: 30px;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .whatsapp-float {
-    right: 16px;
-    bottom: 70px;
-    width: 52px;
-    height: 52px;
-  }
-  .whatsapp-float svg {
-    width: 28px;
-    height: 28px;
+    display: none !important;
   }
 }
 
