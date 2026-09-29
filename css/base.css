@@ -17,6 +17,8 @@ html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
@@ -264,10 +266,10 @@ p:last-child {
     margin-bottom: 20px !important;
   }
 
-  /* Audit Issue #2: 2-Column Mobile Grid for Cards */
+  /* Mobile Single Column Grid for Cards to avoid overflow */
   .grid-4 {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 12px !important;
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
   }
   .grid-3 {
     grid-template-columns: 1fr !important;

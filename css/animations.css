@@ -240,6 +240,24 @@
   will-change: opacity, transform;
 }
 
+/* Above-the-fold hero elements are immediately visible to prevent blank screens on mobile */
+.hero .reveal-on-scroll,
+.hero-content,
+.hero-visual,
+.hero-pillars-grid {
+  opacity: 1;
+  transform: none;
+}
+
+/* Mobile & Touch Devices: Instant readability without waiting for scroll triggers */
+@media (max-width: 768px) {
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
 .reveal-on-scroll.revealed {
   opacity: 1;
   transform: translateY(0);
