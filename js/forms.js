@@ -14,7 +14,7 @@ const FORM_CONFIG = {
   recipientEmail: 'shreeram.3969@gmail.com',
   
   // 1. Google Sheets Webhook URL (Paste your Google Apps Script Web App URL here)
-  googleScriptUrl: '',
+  googleScriptUrl: 'https://script.google.com/macros/s/AKfycbyQJNOuDNNhnPuSfnGErFYHiBeAphZZl7n2DiwAi-fEadNx-4XZQROi7iTP9_mqY8D9dw/exec',
   
   // 2. Web3Forms Access Key (Paste your free access key from https://web3forms.com here)
   web3formsAccessKey: ''
