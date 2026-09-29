@@ -629,53 +629,212 @@
   line-height: 1;
 }
 
-/* Hero Visual Box */
+.meta-text-short {
+  display: none;
+}
+
+/* Hero Visual Box & In-Frame Slideshow */
 .hero-visual {
   position: relative;
 }
 
+.hero-slideshow-frame,
 .hero-image-frame {
   position: relative;
   border-radius: var(--radius-md);
   overflow: hidden;
   border: 1px solid var(--color-border);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 12px 32px rgba(12, 30, 54, 0.09);
   background-color: var(--color-bg-subtle);
 }
 
-.hero-image {
+.hero-slides-wrapper {
+  position: relative;
   width: 100%;
   height: 480px;
+  overflow: hidden;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.6s ease;
+  z-index: 1;
+}
+
+.hero-slide.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 2;
+}
+
+.hero-slide-img,
+.hero-image {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  object-position: center 35%;
   display: block;
 }
 
+.slide-focus-classroom {
+  object-position: center 60%;
+}
+
+.slide-focus-ground {
+  object-position: center 50%;
+}
+
+.slide-focus-result {
+  object-position: center 30%;
+}
+
+/* Frosted Live Status Badge */
+.hero-slide-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 4;
+  background: rgba(12, 30, 54, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  letter-spacing: 0.02em;
+}
+
+.pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #EF4444;
+  box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+  animation: heroPulseRed 2s infinite;
+}
+
+@keyframes heroPulseRed {
+  0% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(239, 68, 68, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+  }
+}
+
+.badge-icon-custom {
+  font-size: 0.85rem;
+}
+
+/* Bottom Caption Bar */
 .hero-image-caption {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  padding: 12px 16px;
-  border-top: 1px solid var(--color-border);
+  background: linear-gradient(to top, rgba(12, 30, 54, 0.94) 0%, rgba(12, 30, 54, 0.8) 60%, rgba(12, 30, 54, 0) 100%);
+  padding: 24px 18px 12px 18px;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
   gap: 12px;
+  z-index: 4;
 }
 
 .hero-caption-text {
-  font-size: 0.75rem;
-  color: var(--color-text-secondary);
+  font-size: 0.78125rem;
+  color: rgba(255, 255, 255, 0.88);
   line-height: 1.4;
 }
 
 .hero-caption-author {
-  font-weight: var(--fw-semibold);
-  color: var(--color-text-primary);
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.hero-image-caption .link-arrow {
+  color: #D4AF37 !important;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.hero-image-caption .link-arrow:hover {
+  color: #F3E8B2 !important;
+}
+
+/* Slideshow Controls (Floating top right) */
+.hero-slides-controls {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(12, 30, 54, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 20px;
+  padding: 4px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.hero-slide-nav {
+  background: transparent;
+  border: none;
+  color: #FFFFFF;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.hero-slide-nav:hover {
+  background: rgba(255, 255, 255, 0.25);
+  color: #D4AF37;
+}
+
+.hero-slide-dots {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 4px;
+}
+
+.hero-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.hero-dot.active {
+  width: 16px;
+  border-radius: 4px;
+  background: #D4AF37;
 }
 
 @media (max-width: 960px) {
@@ -683,28 +842,9 @@
     grid-template-columns: 1fr;
     gap: var(--space-6);
   }
+  .hero-slides-wrapper,
   .hero-image {
     height: 380px;
-  }
-}
-
-@media (max-width: 640px) {
-  .hero-grid {
-    gap: 20px;
-  }
-  .hero-visual {
-    margin-top: 14px;
-    margin-bottom: 18px;
-  }
-  .hero-image {
-    height: 200px;
-    object-position: center 25%;
-  }
-  .hero-image-caption {
-    padding: 8px 12px;
-  }
-  .hero-caption-text {
-    font-size: 0.6875rem;
   }
 }
 
@@ -2439,29 +2579,29 @@ textarea.form-control {
 /* E. Mobile Hero Height & Vertical Space Compression (Audit Action 3) */
 @media (max-width: 640px) {
   .hero {
-    padding-top: 36px !important;
-    padding-bottom: 28px !important;
+    padding-top: 24px !important;
+    padding-bottom: 20px !important;
   }
   .hero-eyebrow {
-    margin-bottom: 8px !important;
+    margin-bottom: 6px !important;
     gap: 6px !important;
   }
   .hero-title {
-    font-size: 32px !important;
-    line-height: 1.18 !important;
-    margin-bottom: 12px !important;
+    font-size: 29px !important;
+    line-height: 1.15 !important;
+    margin-bottom: 8px !important;
   }
   .hero-lead {
-    font-size: 0.9375rem !important;
-    line-height: 1.5 !important;
-    margin-bottom: 16px !important;
+    font-size: 0.875rem !important;
+    line-height: 1.45 !important;
+    margin-bottom: 12px !important;
   }
   .nav-cta-btn {
     display: none !important;
   }
   .hero-actions {
-    margin-bottom: 18px !important;
-    gap: 10px !important;
+    margin-bottom: 12px !important;
+    gap: 8px !important;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -2470,27 +2610,123 @@ textarea.form-control {
     width: 100% !important;
     justify-content: center;
     text-align: center;
+    padding: 12px 18px !important;
+    font-size: 0.9rem !important;
   }
   .hero-secondary-cta {
     justify-content: center;
-    padding: 6px 12px;
-    font-size: 0.85rem;
+    padding: 4px 10px;
+    font-size: 0.8125rem;
     color: var(--color-text-muted);
   }
+  
+  .hero-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* 1-Line 3-Column Micro Trust Strip on Mobile */
   .hero-micro-meta {
-    padding-top: 14px !important;
-    gap: 8px !important;
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    gap: 6px !important;
+    padding: 6px !important;
+    background: rgba(12, 30, 54, 0.03) !important;
+    border: 1px solid rgba(12, 30, 54, 0.08) !important;
+    border-radius: 8px !important;
+    margin-bottom: 12px !important;
+    border-top: none !important;
   }
   .hero-meta-item {
-    font-size: 0.75rem !important;
-    padding: 5px 10px !important;
-    border-radius: 16px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 6px 2px !important;
+    background: #FFFFFF !important;
+    border: 1px solid rgba(12, 30, 54, 0.06) !important;
+    border-radius: 6px !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03) !important;
+    gap: 2px !important;
+    min-width: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
-  .hero-image {
-    height: auto !important;
+  .hero-meta-icon {
+    font-size: 0.95rem !important;
+    line-height: 1 !important;
+  }
+  .meta-text-full {
+    display: none !important;
+  }
+  .meta-text-short {
+    display: block !important;
+    font-size: 0.6875rem !important;
+    line-height: 1.2 !important;
+    font-weight: 600 !important;
+    color: var(--color-accent-navy) !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  /* Compact Hero Visual & Slideshow on Mobile */
+  .hero-visual {
+    margin-top: 0 !important;
+    margin-bottom: 12px !important;
+  }
+  .hero-slides-wrapper {
+    height: 220px !important;
     aspect-ratio: 16/10 !important;
-    max-height: 250px !important;
-    object-position: center 35% !important;
+  }
+  .slide-focus-classroom {
+    object-position: center 65% !important;
+  }
+  .slide-focus-ground {
+    object-position: center 50% !important;
+  }
+  .slide-focus-result {
+    object-position: center 25% !important;
+  }
+  .hero-slide-badge {
+    top: 8px !important;
+    left: 8px !important;
+    padding: 4px 9px !important;
+    font-size: 0.6875rem !important;
+  }
+  .hero-slides-controls {
+    top: 8px !important;
+    right: 8px !important;
+    padding: 3px 6px !important;
+  }
+  .hero-slide-nav {
+    width: 18px !important;
+    height: 18px !important;
+    font-size: 0.625rem !important;
+  }
+  .hero-dot {
+    width: 5px !important;
+    height: 5px !important;
+  }
+  .hero-dot.active {
+    width: 12px !important;
+  }
+  .hero-image-caption {
+    padding: 18px 10px 8px 10px !important;
+  }
+  .hero-caption-text {
+    font-size: 0.6875rem !important;
+    line-height: 1.3 !important;
+  }
+  .hero-caption-author {
+    font-size: 0.72rem !important;
+  }
+  .hero-image-caption .link-arrow {
+    font-size: 0.6875rem !important;
   }
   .section {
     padding-top: 36px !important;

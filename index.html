@@ -149,37 +149,105 @@
             <div class="hero-micro-meta">
               <div class="hero-meta-item">
                 <span class="hero-meta-icon">🎖️</span>
-                <span><strong>Kargil Star</strong> &amp; Ex-IAF Pilots</span>
+                <span class="meta-text-full"><strong>Kargil Star</strong> &amp; Ex-IAF Pilots</span>
+                <span class="meta-text-short"><strong>Kargil</strong> Pilots</span>
               </div>
               <div class="hero-meta-item">
                 <span class="hero-meta-icon">🧠</span>
-                <span><strong>DIPR-Trained</strong> SSB Assessors</span>
+                <span class="meta-text-full"><strong>DIPR-Trained</strong> SSB Assessors</span>
+                <span class="meta-text-short"><strong>DIPR</strong> Team</span>
               </div>
               <div class="hero-meta-item">
                 <span class="hero-meta-icon">📍</span>
-                <span><strong>~300m</strong> from 2 AFSB Gate</span>
+                <span class="meta-text-full"><strong>~300m</strong> from 2 AFSB Gate</span>
+                <span class="meta-text-short"><strong>~300m</strong> Gate</span>
               </div>
             </div>
           </div>
 
-          <!-- Hero Large Authentic Photograph -->
+          <!-- Hero Large Authentic Photograph & Interactive In-Frame Slideshow -->
           <div class="hero-visual">
-            <div class="hero-image-frame">
-              <img 
-                src="assets/images/live/why-alpha-defence.webp" 
-                alt="Group Captain Abhinav Chaturvedi (Retd) mentoring candidates at Alpha Lead Academy" 
-                class="hero-image"
-                width="640" 
-                height="480"
-                loading="eager"
-              >
-              <div class="hero-image-caption">
-                <div class="hero-caption-text">
-                  <span class="hero-caption-author">Direct Mentorship &amp; Assessor-Led Guidance</span><br>
-                  Alpha Lead Academy · Live SSB Batch (Next: Oct 12)
+            <div class="hero-slideshow-frame" id="heroSlideshow" aria-label="Alpha Lead Academy Facilities and Training">
+              
+              <div class="hero-slides-wrapper" id="heroSlidesWrapper">
+                <!-- Slide 1: Live Classroom Mentorship -->
+                <div class="hero-slide active" data-slide="0">
+                  <img 
+                    src="assets/images/live/why-alpha-defence.webp" 
+                    alt="Group Captain Abhinav Chaturvedi (Retd) mentoring candidates at Alpha Lead Academy" 
+                    class="hero-slide-img slide-focus-classroom"
+                    width="640" 
+                    height="480"
+                    loading="eager"
+                  >
+                  <div class="hero-slide-badge">
+                    <span class="pulse-dot"></span> Live SSB Classroom Batch
+                  </div>
+                  <div class="hero-image-caption">
+                    <div class="hero-caption-text">
+                      <span class="hero-caption-author">Direct Assessor Mentorship</span><br>
+                      Group Captain Abhinav Chaturvedi · Mysuru Campus
+                    </div>
+                    <a href="#founders" class="link-arrow" style="font-size: 0.75rem;">Meet Mentors &rarr;</a>
+                  </div>
                 </div>
-                <a href="#founders" class="link-arrow" style="font-size: 0.75rem;">Meet Mentors &rarr;</a>
+
+                <!-- Slide 2: Real Outdoor GTO Ground -->
+                <div class="hero-slide" data-slide="1">
+                  <img 
+                    src="assets/images/live/gto-obstacles.webp" 
+                    alt="Full-Scale Outdoor GTO Obstacle Training Ground at Alpha Lead Academy" 
+                    class="hero-slide-img slide-focus-ground"
+                    width="640" 
+                    height="480"
+                    loading="lazy"
+                  >
+                  <div class="hero-slide-badge">
+                    <span class="badge-icon-custom">⚔️</span> Full-Scale Outdoor GTO Ground
+                  </div>
+                  <div class="hero-image-caption">
+                    <div class="hero-caption-text">
+                      <span class="hero-caption-author">Progressive Group Obstacles</span><br>
+                      Outdoor Training Grounds · Mysuru Campus
+                    </div>
+                    <a href="#stay" class="link-arrow" style="font-size: 0.75rem;">View Ground &rarr;</a>
+                  </div>
+                </div>
+
+                <!-- Slide 3: Proven Recommendations & AIR 1 -->
+                <div class="hero-slide" data-slide="2">
+                  <img 
+                    src="assets/images/live/kumar-balaji-ct-1.webp" 
+                    alt="CT Kumar Balaji (AIR 1 Merit) with Alpha Lead IAF Assessors" 
+                    class="hero-slide-img slide-focus-result"
+                    width="640" 
+                    height="480"
+                    loading="lazy"
+                  >
+                  <div class="hero-slide-badge">
+                    <span class="badge-icon-custom">🏆</span> AIR 1 National Merit Selections
+                  </div>
+                  <div class="hero-image-caption">
+                    <div class="hero-caption-text">
+                      <span class="hero-caption-author">Verified Officer Selections</span><br>
+                      CT Balaji (AIR 1) with Group Captain Abhinav &amp; Col Surendranath
+                    </div>
+                    <a href="#results" class="link-arrow" style="font-size: 0.75rem;">View Results &rarr;</a>
+                  </div>
+                </div>
               </div>
+
+              <!-- Slideshow Navigation Overlay -->
+              <div class="hero-slides-controls" aria-label="Slideshow Controls">
+                <button class="hero-slide-nav hero-slide-prev" id="heroSlidePrev" aria-label="Previous image">&#10094;</button>
+                <div class="hero-slide-dots" id="heroSlideDots">
+                  <button class="hero-dot active" data-index="0" aria-label="Go to Slide 1: Live Classroom"></button>
+                  <button class="hero-dot" data-index="1" aria-label="Go to Slide 2: GTO Ground"></button>
+                  <button class="hero-dot" data-index="2" aria-label="Go to Slide 3: Recommendations"></button>
+                </div>
+                <button class="hero-slide-nav hero-slide-next" id="heroSlideNext" aria-label="Next image">&#10095;</button>
+              </div>
+
             </div>
           </div>
 
