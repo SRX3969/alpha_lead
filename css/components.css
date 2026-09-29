@@ -3110,3 +3110,240 @@ textarea.form-control {
     font-size: 0.8125rem;
   }
 }
+
+/* ==========================================================================
+   21. MOBILE HORIZONTAL SWIPEABLE RAILS (High-Speed App-Like Touch UX)
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* Universal Horizontal Swipe Rail */
+  .mobile-swipe-rail,
+  .faculty-grid,
+  .defence-programmes-grid,
+  .disciplines-grid,
+  .candidates-grid,
+  .pathway-grid-5,
+  .place-gallery-grid {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    gap: 14px !important;
+    padding: 6px 16px 18px 4px !important;
+    margin-left: -16px !important;
+    margin-right: -16px !important;
+    box-sizing: border-box !important;
+  }
+
+  .mobile-swipe-rail::-webkit-scrollbar,
+  .faculty-grid::-webkit-scrollbar,
+  .defence-programmes-grid::-webkit-scrollbar,
+  .disciplines-grid::-webkit-scrollbar,
+  .candidates-grid::-webkit-scrollbar,
+  .pathway-grid-5::-webkit-scrollbar,
+  .place-gallery-grid::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  /* Specific Card Sizing in Swipe Rails */
+  .place-gallery-grid .place-photo-card {
+    flex: 0 0 85% !important;
+    max-width: 320px !important;
+    scroll-snap-align: start !important;
+  }
+
+  .faculty-grid .faculty-card {
+    flex: 0 0 82% !important;
+    max-width: 300px !important;
+    scroll-snap-align: start !important;
+    scroll-snap-stop: normal;
+  }
+
+  .defence-programmes-grid .programme-card {
+    flex: 0 0 84% !important;
+    max-width: 310px !important;
+    scroll-snap-align: start !important;
+  }
+
+  .disciplines-grid .discipline-card {
+    flex: 0 0 84% !important;
+    max-width: 310px !important;
+    scroll-snap-align: start !important;
+  }
+
+  .candidates-grid .candidate-card {
+    flex: 0 0 65% !important;
+    max-width: 220px !important;
+    scroll-snap-align: start !important;
+    padding: 16px 12px !important;
+  }
+
+  .pathway-grid-5 .pathway-step {
+    flex: 0 0 74% !important;
+    max-width: 260px !important;
+    scroll-snap-align: start !important;
+    padding: 16px 14px !important;
+  }
+
+  /* Swipe Hint Cue */
+  .swipe-hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-accent-navy);
+    margin-top: 4px;
+    margin-bottom: 12px;
+    opacity: 0.85;
+  }
+
+  /* Compact Founder Cards on Mobile */
+  .founder-card {
+    padding: 20px 16px !important;
+    border-radius: 14px !important;
+  }
+  .founder-card-portrait {
+    width: 120px !important;
+    height: 120px !important;
+    margin: 0 auto 12px !important;
+    border-radius: 12px !important;
+  }
+  .founder-name {
+    font-size: 1.15rem !important;
+    margin-bottom: 8px !important;
+  }
+  .founder-creds {
+    margin-bottom: 12px !important;
+    gap: 4px !important;
+  }
+  .founder-cred-badge {
+    font-size: 0.65rem !important;
+    padding: 2px 7px !important;
+  }
+  .founder-text {
+    font-size: 0.8125rem !important;
+    line-height: 1.55 !important;
+    margin-bottom: 8px !important;
+  }
+  .founder-quote {
+    font-size: 0.78rem !important;
+    line-height: 1.45 !important;
+    padding: 8px 12px !important;
+    margin: 8px 0 12px !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .swipe-hint {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   22. MOBILE STICKY QUICK ACTION BAR & BACK-TO-TOP BUTTON
+   ========================================================================== */
+.mobile-sticky-action-bar {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-sticky-action-bar {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid var(--color-border);
+    padding: 10px 16px env(safe-area-inset-bottom, 10px);
+    gap: 12px;
+    z-index: 999;
+    box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+  }
+
+  .mobile-action-btn {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    height: 44px;
+    border-radius: var(--radius-btn);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .mobile-call-btn {
+    background: #FFFFFF;
+    color: var(--color-accent-navy) !important;
+    border: 1.5px solid var(--color-accent-navy);
+  }
+
+  .mobile-call-btn:hover {
+    background: var(--color-accent-blue-light);
+  }
+
+  .mobile-wa-btn {
+    background: #25D366;
+    color: #FFFFFF !important;
+    border: 1.5px solid #25D366;
+  }
+
+  .mobile-wa-btn:hover {
+    background: #1EBE5D;
+  }
+
+  /* Prevent bottom content from being obscured by sticky bar */
+  body {
+    padding-bottom: 70px;
+  }
+}
+
+/* Floating Back To Top Button */
+.back-to-top-btn {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-accent-navy);
+  color: #FFFFFF;
+  border: none;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 990;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease, background-color 0.2s ease;
+}
+
+.back-to-top-btn.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top-btn:hover {
+  background: var(--color-accent-primary-hover);
+  transform: translateY(-2px);
+}
+
+@media (min-width: 769px) {
+  .back-to-top-btn {
+    bottom: 24px;
+    right: 24px;
+  }
+}

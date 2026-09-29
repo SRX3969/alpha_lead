@@ -171,10 +171,20 @@ p:last-child {
 
 /* Section Foundation — Enhanced Negative Space */
 .section {
-  padding-top: clamp(64px, 7vw, 100px);
-  padding-bottom: clamp(64px, 7vw, 100px);
+  padding-top: clamp(56px, 6vw, 90px);
+  padding-bottom: clamp(56px, 6vw, 90px);
   position: relative;
   background-color: var(--color-bg);
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding-top: 36px !important;
+    padding-bottom: 36px !important;
+  }
+  .hide-on-mobile {
+    display: none !important;
+  }
 }
 
 .section-warm {
@@ -197,6 +207,12 @@ p:last-child {
 
 .section-header {
   margin-bottom: clamp(32px, 4vw, var(--space-7));
+}
+
+@media (max-width: 768px) {
+  .section-header {
+    margin-bottom: 22px !important;
+  }
 }
 
 .section-header.text-center {
