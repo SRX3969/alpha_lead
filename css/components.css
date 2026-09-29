@@ -542,17 +542,19 @@
 }
 
 .hero-title {
-  font-family: var(--font-serif);
+  font-family: 'Plus Jakarta Sans', var(--font-sans), sans-serif;
   font-size: var(--fs-hero);
-  line-height: 1.12;
-  font-weight: 700;
-  color: var(--color-text-primary);
-  margin-bottom: var(--space-5);
-  letter-spacing: -0.02em;
+  line-height: 1.1;
+  font-weight: 800;
+  color: #0C1E36;
+  margin-bottom: var(--space-4);
+  letter-spacing: -0.03em;
 }
 
 .hero-title-break {
   display: block;
+  color: #1E3A8A;
+  font-weight: 800;
 }
 
 .hero-lead {
@@ -683,6 +685,10 @@
 }
 
 .slide-focus-ground {
+  object-position: center 50%;
+}
+
+.slide-focus-hall {
   object-position: center 50%;
 }
 
@@ -2603,46 +2609,56 @@ textarea.form-control {
 /* E. Mobile Hero Height & Visual-Proof-First Flow (Audit Action 3) */
 @media (max-width: 640px) {
   .hero {
-    padding-top: 20px !important;
-    padding-bottom: 20px !important;
+    padding-top: 24px !important;
+    padding-bottom: 28px !important;
   }
   .hero-eyebrow {
     order: 1 !important;
-    margin-bottom: 6px !important;
+    margin-bottom: 10px !important;
     gap: 6px !important;
   }
   .hero-title {
     order: 2 !important;
-    font-size: 29px !important;
-    line-height: 1.15 !important;
-    margin-bottom: 8px !important;
+    font-family: 'Plus Jakarta Sans', var(--font-sans), sans-serif !important;
+    font-size: 33px !important;
+    line-height: 1.12 !important;
+    font-weight: 800 !important;
+    color: #0C1E36 !important;
+    letter-spacing: -0.03em !important;
+    margin-bottom: 12px !important;
+  }
+  .hero-title-break {
+    display: block !important;
+    color: #1E3A8A !important;
+    font-weight: 800 !important;
   }
   .hero-lead {
     order: 3 !important;
-    font-size: 0.875rem !important;
-    line-height: 1.45 !important;
-    margin-bottom: 14px !important;
+    font-size: 0.9375rem !important;
+    line-height: 1.55 !important;
+    color: #475569 !important;
+    margin-bottom: 22px !important; /* Generous breathing room */
   }
   
   /* Compact Hero Visual & Slideshow directly below lead text */
   .hero-visual {
     order: 4 !important;
     margin-top: 0 !important;
-    margin-bottom: 16px !important;
+    margin-bottom: 22px !important; /* Generous breathing room */
     width: 100% !important;
   }
   .hero-slides-wrapper {
-    height: 220px !important;
+    height: 225px !important;
     aspect-ratio: 16/10 !important;
   }
   .slide-focus-classroom {
-    object-position: center 65% !important;
+    object-position: center 60% !important;
   }
   .slide-focus-ground {
     object-position: center 50% !important;
   }
-  .slide-focus-result {
-    object-position: center 25% !important;
+  .slide-focus-hall {
+    object-position: center 50% !important;
   }
   .hero-slide-badge {
     top: 8px !important;
@@ -2686,25 +2702,38 @@ textarea.form-control {
   }
   .hero-actions {
     order: 5 !important;
-    margin-bottom: 12px !important;
-    gap: 8px !important;
+    margin-bottom: 8px !important;
+    gap: 10px !important;
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 100%;
   }
   .hero-main-cta {
     width: 100% !important;
     justify-content: center;
     text-align: center;
-    padding: 13px 20px !important;
-    font-size: 0.9375rem !important;
+    padding: 14px 22px !important;
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 16px rgba(30, 58, 138, 0.28) !important;
   }
   .hero-secondary-cta {
     justify-content: center;
-    padding: 4px 10px;
-    font-size: 0.8125rem;
-    color: var(--color-text-muted);
+    padding: 6px 14px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-accent-navy);
+    margin-top: 4px;
   }
+}
+
+.section-pillars {
+  padding-top: 48px !important;
+  padding-bottom: 48px !important;
+  border-top: 1px solid var(--color-border);
+  background-color: var(--color-bg);
 }
   .section {
     padding-top: 36px !important;
