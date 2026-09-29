@@ -485,6 +485,55 @@
   flex-wrap: wrap;
 }
 
+.hero-rating-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  color: #8C6F12;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  padding: 5px 14px;
+  border-radius: 20px;
+  letter-spacing: 0.02em;
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.08);
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.hero-rating-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .hero-rating-desktop {
+    display: none;
+  }
+  .hero-rating-mobile {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .hero-rating-badge {
+    font-size: 0.74rem;
+    padding: 4px 10px;
+    letter-spacing: 0.01em;
+  }
+}
+
+.hero-rating-badge:hover {
+  background: rgba(212, 175, 55, 0.18);
+  border-color: rgba(212, 175, 55, 0.5);
+  transform: translateY(-1px);
+}
+
+.hero-rating-badge .star-rating {
+  color: #D97706;
+  font-size: 0.875rem;
+  letter-spacing: 1px;
+}
+
 .hero-location-tag {
   font-size: 0.75rem;
   font-weight: var(--fw-medium);
@@ -516,33 +565,68 @@
 .hero-actions {
   display: flex;
   align-items: center;
-  gap: var(--space-4);
+  gap: 16px;
   flex-wrap: wrap;
   margin-bottom: var(--space-7);
+}
+
+.hero-main-cta {
+  font-weight: 600;
+  padding: 13px 28px !important;
+  box-shadow: 0 4px 14px rgba(30, 58, 138, 0.25) !important;
+}
+
+.hero-secondary-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-accent-navy);
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.hero-secondary-cta:hover {
+  color: #1E3A8A;
+  background: rgba(12, 30, 54, 0.05);
+  transform: translateY(1px);
 }
 
 .hero-micro-meta {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
   padding-top: var(--space-5);
   border-top: 1px solid var(--color-border);
   flex-wrap: wrap;
 }
 
 .hero-meta-item {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
   font-size: 0.8125rem;
-  color: var(--color-text-secondary);
+  font-weight: 500;
+  color: var(--color-accent-navy);
+  background: rgba(12, 30, 54, 0.04);
+  border: 1px solid rgba(12, 30, 54, 0.1);
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: all 0.25s ease;
 }
 
-.hero-meta-dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background-color: var(--color-accent-navy);
+.hero-meta-item:hover {
+  background: rgba(12, 30, 54, 0.08);
+  border-color: rgba(12, 30, 54, 0.2);
+  transform: translateY(-1px);
+}
+
+.hero-meta-icon {
+  font-size: 0.95rem;
+  line-height: 1;
 }
 
 /* Hero Visual Box */
@@ -563,7 +647,7 @@
   width: 100%;
   height: 480px;
   object-fit: cover;
-  object-position: center top;
+  object-position: center 35%;
   display: block;
 }
 
@@ -2372,20 +2456,41 @@ textarea.form-control {
     line-height: 1.5 !important;
     margin-bottom: 16px !important;
   }
+  .nav-cta-btn {
+    display: none !important;
+  }
   .hero-actions {
     margin-bottom: 18px !important;
     gap: 10px !important;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
   }
-  .hero-actions .btn {
-    padding: 10px 20px !important;
-    font-size: 0.875rem !important;
+  .hero-main-cta {
+    width: 100% !important;
+    justify-content: center;
+    text-align: center;
+  }
+  .hero-secondary-cta {
+    justify-content: center;
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
   }
   .hero-micro-meta {
-    padding-top: 12px !important;
-    gap: 12px !important;
+    padding-top: 14px !important;
+    gap: 8px !important;
+  }
+  .hero-meta-item {
+    font-size: 0.75rem !important;
+    padding: 5px 10px !important;
+    border-radius: 16px !important;
   }
   .hero-image {
-    height: 220px !important;
+    height: auto !important;
+    aspect-ratio: 16/10 !important;
+    max-height: 250px !important;
+    object-position: center 35% !important;
   }
   .section {
     padding-top: 36px !important;
@@ -2401,15 +2506,6 @@ textarea.form-control {
   .section-subtitle {
     font-size: 0.875rem !important;
     line-height: 1.5 !important;
-  }
-  .hero-actions {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
-  .hero-actions .btn {
-    width: 100%;
-    justify-content: center;
   }
 }
 
