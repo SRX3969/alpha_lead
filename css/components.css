@@ -872,6 +872,9 @@
     width: 100% !important;
     margin-bottom: 24px !important;
   }
+  .hero-content > *:not(.hero-eyebrow):not(.hero-title):not(.hero-lead):not(.hero-actions) {
+    order: 6 !important;
+  }
   .hero-slides-wrapper,
   .hero-image {
     height: 360px;
