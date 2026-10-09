@@ -335,6 +335,7 @@ function initPlaceGalleryLightbox() {
         </div>
       </div>
     `;
+    overlay.style.display = 'none';
     document.body.appendChild(overlay);
   }
 
@@ -394,12 +395,14 @@ function initPlaceGalleryLightbox() {
     });
 
     renderPhoto(startIndex);
+    overlay.style.display = 'flex';
     overlay.classList.add('open');
     document.body.style.overflow = 'hidden';
   }
 
   function closePlaceLightbox() {
     overlay.classList.remove('open');
+    overlay.style.display = 'none';
     document.body.style.overflow = '';
   }
 
