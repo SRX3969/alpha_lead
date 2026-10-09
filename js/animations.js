@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCardTilt();
   initPlaceGalleryLightbox();
   initBlogController();
+  initSsbDayTabs();
 });
 
 /**
@@ -731,5 +732,32 @@ function initBlogController() {
       });
     });
   }
+}
+
+/**
+ * 8. Interactive 5-Day SSB Architecture Tab Controller
+ */
+function initSsbDayTabs() {
+  const tabBtns = document.querySelectorAll('.ssb-day-tab-btn');
+  const panes = document.querySelectorAll('.ssb-day-tab-pane');
+  if (!tabBtns.length || !panes.length) return;
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetDay = btn.getAttribute('data-day');
+      const targetPane = document.getElementById(`${targetDay}Pane`);
+      if (!targetPane) return;
+
+      tabBtns.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      panes.forEach(p => p.classList.remove('active'));
+
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+      targetPane.classList.add('active');
+    });
+  });
 }
 
