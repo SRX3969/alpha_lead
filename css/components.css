@@ -1959,11 +1959,11 @@ textarea.form-control {
   border-radius: var(--radius-md);
   padding: clamp(24px, 4vw, var(--space-7));
   display: grid;
-  grid-template-columns: 1.3fr 0.7fr;
+  grid-template-columns: 1.15fr 0.85fr;
   gap: clamp(24px, 4vw, var(--space-6));
   align-items: center;
   margin-bottom: var(--space-7);
-  box-shadow: 0 10px 30px rgba(12, 30, 54, 0.12);
+  box-shadow: 0 12px 36px rgba(12, 30, 54, 0.18);
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -1988,27 +1988,37 @@ textarea.form-control {
 }
 
 .spotlight-img-wrap {
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   overflow: hidden;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: #0B192C;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
 }
 
 .spotlight-img {
   width: 100%;
-  height: 320px;
+  height: auto;
+  aspect-ratio: 16 / 11;
   object-fit: cover;
-  object-position: center center;
+  object-position: center 25%;
   display: block;
+  transition: transform 0.4s ease;
 }
 
-@media (max-width: 800px) {
+.spotlight-banner-card:hover .spotlight-img {
+  transform: scale(1.02);
+}
+
+@media (max-width: 860px) {
   .spotlight-banner-card {
     grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 24px 20px;
   }
   .spotlight-img {
-    height: 240px;
-    object-position: center center;
+    aspect-ratio: 16 / 11;
+    max-height: 280px;
+    object-position: center 20%;
   }
 }
 
@@ -3423,6 +3433,197 @@ textarea.form-control {
     font-size: 0.8125rem;
     padding: 8px 12px;
   }
+}
+
+/* Section 04: About Vision & Mission */
+.about-vision-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: clamp(24px, 4vw, 48px);
+  align-items: center;
+  margin-bottom: var(--space-6);
+}
+
+.about-vision-img-frame {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(12, 30, 54, 0.12);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg-surface-accent);
+}
+
+.about-vision-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.about-vision-img-frame:hover .about-vision-img {
+  transform: scale(1.03);
+}
+
+.about-vision-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 12px 18px;
+  background: linear-gradient(to top, rgba(10, 25, 47, 0.9) 0%, rgba(10, 25, 47, 0.4) 70%, transparent 100%);
+  color: #FFFFFF;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.about-vision-caption span {
+  font-weight: 700;
+  color: #F3E5AB;
+}
+
+.about-vision-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-vision-content .eyebrow {
+  margin-bottom: 8px;
+  align-self: flex-start;
+}
+
+.about-vision-content .section-title {
+  text-align: left;
+  margin-bottom: 16px;
+}
+
+.about-lead {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  line-height: 1.55;
+  color: var(--color-text-primary);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.about-text {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--color-text-secondary);
+  margin-bottom: 12px;
+}
+
+@media (max-width: 860px) {
+  .about-vision-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .about-vision-content .section-title {
+    font-size: 1.75rem;
+  }
+  .about-vision-img {
+    aspect-ratio: 16 / 10;
+  }
+}
+
+/* Discipline Card Images */
+.discipline-img-wrapper {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin-bottom: 16px;
+  background-color: var(--color-bg-surface-accent);
+  border: 1px solid var(--color-border);
+}
+
+.discipline-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.discipline-card:hover .discipline-card-img {
+  transform: scale(1.05);
+}
+
+/* Location & Proximity Grid */
+.proximity-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+@media (max-width: 900px) {
+  .proximity-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .proximity-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+.proximity-card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 20px 16px;
+  text-align: center;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.proximity-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(30, 58, 138, 0.3);
+}
+
+.proximity-dist {
+  font-family: var(--font-display);
+  font-size: 1.625rem;
+  font-weight: 700;
+  color: var(--color-accent-navy);
+  margin-bottom: 4px;
+}
+
+.proximity-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 4px;
+}
+
+.proximity-desc {
+  font-size: 0.78125rem;
+  color: var(--color-text-secondary);
+}
+
+.map-embed-frame {
+  width: 100%;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+  margin-bottom: 16px;
+  background-color: var(--color-bg-surface-accent);
+}
+
+.map-embed-frame iframe {
+  width: 100%;
+  height: 340px;
+  border: 0;
+  display: block;
 }
 
 /* What We Do Best Discipline Cards */

@@ -1,3 +1,20 @@
 {
-  "cleanUrls": true
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/defence-training(.*)", "destination": "/defence", "permanent": true },
+    { "source": "/ssb-dormitory-stay(.*)", "destination": "/ssb-stay", "permanent": true },
+    { "source": "/ssb-stay.html", "destination": "/ssb-stay", "permanent": true },
+    { "source": "/defence.html", "destination": "/defence", "permanent": true },
+    { "source": "/corporate.html", "destination": "/corporate", "permanent": true },
+    { "source": "/career.html", "destination": "/career", "permanent": true },
+    { "source": "/blog.html", "destination": "/blog", "permanent": true },
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/corporate-solutions(.*)", "destination": "/corporate", "permanent": true },
+    { "source": "/career-launcher(.*)", "destination": "/career", "permanent": true },
+    { "source": "/ssb-coaching(.*)", "destination": "/defence", "permanent": true },
+    { "source": "/nda-cds-afcat(.*)", "destination": "/defence", "permanent": true },
+    { "source": "/agniveer(.*)", "destination": "/defence", "permanent": true },
+    { "source": "/about-us(.*)", "destination": "/", "permanent": true }
+  ]
 }

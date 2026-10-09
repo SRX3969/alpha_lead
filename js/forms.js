@@ -9,7 +9,7 @@
  */
 
 const FORM_CONFIG = {
-  // Test contact details requested by user:
+  // Active test contact details:
   whatsappNumber: '919902500649',
   recipientEmail: 'shreeram.3969@gmail.com',
   
