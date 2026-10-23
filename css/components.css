@@ -74,19 +74,21 @@
 .site-header {
   position: sticky;
   top: 0;
-  background-color: rgba(255, 255, 255, 0.98);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--color-border);
+  background: rgba(10, 18, 32, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   z-index: 1000;
   transition: all var(--dur-normal);
 }
 
 .site-header.scrolled {
-  box-shadow: 0 4px 20px rgba(12, 30, 54, 0.04);
+  background: rgba(10, 18, 32, 0.98);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
 }
 
-/* Luxury Frosted Nav Header merging seamlessly into Hero Slideshow (Attachment 2 Style) */
+/* Luxury Frosted Nav Header merging seamlessly into Hero Slideshow on Homepage */
 .site-header.header-cinematic {
   position: fixed;
   top: 0;
@@ -100,63 +102,11 @@
 }
 
 .site-header.header-cinematic.scrolled {
-  background: rgba(10, 18, 32, 0.88);
+  background: rgba(10, 18, 32, 0.94);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
-}
-
-.site-header.header-cinematic .brand-name {
-  color: #FFFFFF;
-  font-family: var(--font-display);
-  font-weight: 800;
-  letter-spacing: 0.04em;
-}
-
-.site-header.header-cinematic .brand-sub {
-  color: #F59E0B;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-}
-
-.site-header.header-cinematic .nav-link {
-  color: rgba(241, 245, 249, 0.82);
-  font-weight: 500;
-  font-size: 0.875rem;
-  letter-spacing: 0.01em;
-  transition: all 0.2s ease;
-}
-
-.site-header.header-cinematic .nav-link:hover,
-.site-header.header-cinematic .nav-link.active {
-  color: #FFFFFF;
-}
-
-.site-header.header-cinematic .nav-link.active::after {
-  background-color: #F59E0B;
-}
-
-/* Warm Gold Luxury CTA Button in Nav (Like Attachment 2) */
-.site-header.header-cinematic .nav-cta-btn {
-  background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%) !important;
-  color: #0F172A !important;
-  font-weight: 700 !important;
-  border: none !important;
-  border-radius: 8px !important;
-  padding: 8px 18px !important;
-  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35) !important;
-  transition: all 0.2s ease;
-}
-
-.site-header.header-cinematic .nav-cta-btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5) !important;
-  background: linear-gradient(135deg, #FBBF24 0%, #D97706 100%) !important;
-}
-
-.site-header.header-cinematic .mobile-nav-toggle span {
-  background-color: #FFFFFF;
 }
 
 .nav-container {
@@ -193,20 +143,22 @@
   flex-direction: column;
 }
 
+.site-header .brand-name,
 .brand-name {
-  font-family: var(--font-serif);
+  font-family: var(--font-display, var(--font-serif));
   font-size: 1.15rem;
-  font-weight: var(--fw-bold);
-  color: var(--color-text-primary);
-  letter-spacing: 0.05em;
+  font-weight: 800;
+  color: #FFFFFF !important;
+  letter-spacing: 0.04em;
   line-height: 1.1;
 }
 
+.site-header .brand-sub,
 .brand-sub {
   font-family: var(--font-sans);
   font-size: 0.625rem;
-  font-weight: var(--fw-semibold);
-  color: var(--color-accent-navy);
+  font-weight: 700;
+  color: #F59E0B !important;
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
@@ -218,21 +170,26 @@
   gap: clamp(16px, 1.8vw, 28px);
 }
 
+.site-header .nav-link,
 .nav-link {
-  font-size: var(--fs-body-small);
-  font-weight: var(--fw-medium);
-  color: var(--color-text-secondary);
+  font-size: var(--fs-body-small, 0.875rem);
+  font-weight: 500;
+  color: rgba(241, 245, 249, 0.82) !important;
+  letter-spacing: 0.01em;
   text-decoration: none;
   position: relative;
   padding: 6px 0;
   transition: color var(--dur-fast);
 }
 
+.site-header .nav-link:hover,
+.site-header .nav-link.active,
 .nav-link:hover,
 .nav-link.active {
-  color: var(--color-accent-navy);
+  color: #FFFFFF !important;
 }
 
+.site-header .nav-link.active::after,
 .nav-link.active::after {
   content: '';
   position: absolute;
@@ -240,22 +197,54 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: var(--color-accent-navy);
+  background-color: #F59E0B !important;
+  border-radius: 2px;
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.6);
 }
 
+/* Nav Actions & Warm Gold Luxury CTA Buttons across all pages */
 .nav-actions {
   display: flex;
   align-items: center;
   gap: 14px;
 }
 
+.site-header .nav-actions .btn,
+.site-header .nav-actions .btn-primary,
+.site-header .nav-cta-btn {
+  background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%) !important;
+  color: #0F172A !important;
+  font-family: var(--font-sans) !important;
+  font-weight: 700 !important;
+  font-size: 0.875rem !important;
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 8px 18px !important;
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35) !important;
+  transition: all 0.2s ease !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  white-space: nowrap !important;
+}
+
+.site-header .nav-actions .btn:hover,
+.site-header .nav-actions .btn-primary:hover,
+.site-header .nav-cta-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5) !important;
+  background: linear-gradient(135deg, #FBBF24 0%, #D97706 100%) !important;
+  color: #0F172A !important;
+}
+
 /* Mobile Toggle */
 .mobile-nav-toggle {
   display: none;
-  background: transparent;
-  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
   padding: 8px;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-sm, 6px);
   cursor: pointer;
   width: 40px;
   height: 40px;
@@ -263,13 +252,20 @@
   justify-content: center;
   align-items: center;
   gap: 5px;
+  transition: all 0.2s ease;
+}
+
+.mobile-nav-toggle:hover {
+  background: rgba(255, 255, 255, 0.14) !important;
+  border-color: rgba(255, 255, 255, 0.28) !important;
 }
 
 .mobile-nav-toggle span {
   display: block;
   width: 20px;
   height: 2px;
-  background-color: var(--color-text-primary);
+  background-color: #FFFFFF !important;
+  border-radius: 2px;
   transition: transform var(--dur-fast), opacity var(--dur-fast);
 }
 
@@ -283,21 +279,23 @@
   transform: translateY(-7px) rotate(-45deg);
 }
 
-/* Mobile Drawer */
+/* Mobile Drawer - Luxurious Dark Frosted Glass */
 .mobile-drawer {
   position: fixed;
-  top: 76px;
+  top: 56px;
   left: 0;
   right: 0;
   bottom: 0;
   width: 100%;
-  height: calc(100dvh - 76px);
-  background-color: #FFFFFF;
-  border-top: 1px solid var(--color-border);
+  height: calc(100dvh - 56px);
+  background: rgba(10, 18, 32, 0.98) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
   padding: 24px 20px 48px;
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
+  gap: var(--space-4, 16px);
   transform: translateX(100%);
   opacity: 0;
   visibility: hidden;
@@ -314,8 +312,8 @@
 
 .site-header.scrolled + .mobile-drawer,
 .site-header.scrolled ~ .mobile-drawer {
-  top: 68px;
-  height: calc(100dvh - 68px);
+  top: 50px;
+  height: calc(100dvh - 50px);
 }
 
 .mobile-drawer.open {
@@ -327,11 +325,31 @@
 }
 
 .mobile-drawer .nav-link {
-  font-size: 1.125rem;
-  font-weight: var(--fw-medium);
+  font-size: 1.05rem;
+  font-weight: 500;
   padding: 12px 0;
-  border-bottom: 1px solid var(--color-border-subtle);
-  color: var(--color-text-primary);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  color: rgba(241, 245, 249, 0.88) !important;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.mobile-drawer .nav-link:hover,
+.mobile-drawer .nav-link.active {
+  color: #F59E0B !important;
+  font-weight: 700;
+}
+
+.mobile-drawer .btn-primary,
+.mobile-drawer .btn {
+  background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%) !important;
+  color: #0F172A !important;
+  font-weight: 700 !important;
+  border-radius: 8px !important;
+  border: none !important;
+  padding: 12px 20px !important;
+  text-align: center;
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35) !important;
 }
 
 @media (min-width: 961px) {
