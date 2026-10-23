@@ -51,6 +51,28 @@
         "url": "https://alphalead.co.in",
         "telephone": "+919019353966",
         "email": "office@alphalead.co.in",
+        "hasMap": "https://maps.google.com/?q=Alpha+Lead+Academy+Mysuru",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "124",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "10:00",
+            "closes": "20:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Saturday",
+            "opens": "10:00",
+            "closes": "18:00"
+          }
+        ],
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Bannur Road, Chamundi Vihar Layout",
@@ -85,7 +107,8 @@
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SSB Interview & Written Coaching (NDA, CDS, AFCAT)" } },
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Candidate Stay Near 2 AFSB Mysuru" } },
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Corporate Leadership & Executive Training" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Career Launchpad & Employability Guidance" } }
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Career Launchpad & Employability Guidance" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Institutional & College MoU Partnerships" } }
           ]
         }
       }
@@ -612,11 +635,11 @@
             </p>
             <ul class="discipline-bullets">
               <li>Senior leadership clarity & crisis decision-making</li>
-              <li>Team dynamics, communication & conflict resolution</li>
+              <li>College & Institutional MoUs: Campus-to-Corporate school</li>
               <li>Workplace conduct, ethics & POSH sensitisation</li>
             </ul>
-            <a href="corporate.html" class="btn btn-outline btn-sm">
-              Explore Corporate Solutions &rarr;
+            <a href="corporate.html#partnerships" class="btn btn-outline btn-sm">
+              Corporate & College MoUs &rarr;
             </a>
           </article>
 
@@ -1186,7 +1209,7 @@
               <div class="contact-icon-box">📞</div>
               <div class="contact-detail-text">
                 <h5>Telephone / Admissions</h5>
-                <p><a href="tel:9902500649" style="font-weight: 600; color: var(--color-accent-navy);">+91 99025 00649</a></p>
+                <p><a href="tel:9019353966" style="font-weight: 600; color: var(--color-accent-navy);">+91 90193 53966</a></p>
               </div>
             </div>
 
@@ -1194,7 +1217,7 @@
               <div class="contact-icon-box">✉️</div>
               <div class="contact-detail-text">
                 <h5>Official Email</h5>
-                <p><a href="mailto:shreeram.3969@gmail.com" style="font-weight: 600; color: var(--color-accent-navy);">shreeram.3969@gmail.com</a></p>
+                <p><a href="mailto:office@alphalead.co.in" style="font-weight: 600; color: var(--color-accent-navy);">office@alphalead.co.in</a></p>
               </div>
             </div>
 
@@ -1207,16 +1230,16 @@
             </div>
 
             <div class="contact-actions-grid">
-              <a href="tel:9902500649" class="btn btn-secondary btn-sm">
+              <a href="tel:9019353966" class="btn btn-secondary btn-sm" id="contactCallBtn">
                 📞 Call Us
               </a>
-              <a href="https://wa.me/919902500649" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="background-color: #25D366; border-color: #25D366;">
+              <a href="https://wa.me/919019353966" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="background-color: #25D366; border-color: #25D366;" id="contactWaBtn">
                 💬 WhatsApp
               </a>
-              <a href="mailto:shreeram.3969@gmail.com" class="btn btn-secondary btn-sm">
+              <a href="mailto:office@alphalead.co.in" class="btn btn-secondary btn-sm" id="contactEmailBtn">
                 ✉️ Email
               </a>
-              <a href="https://maps.google.com/?q=Alpha+Lead+Academy+Mysuru" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+              <a href="https://maps.google.com/?q=Alpha+Lead+Academy+Mysuru" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" id="contactMapBtn">
                 🧭 Directions
               </a>
             </div>
@@ -1247,20 +1270,14 @@
       <form id="callbackModalForm" novalidate>
         <div class="form-group">
           <label class="form-label">Full Name <span style="color:var(--color-error);">*</span></label>
-          <input type="text" class="form-control" placeholder="Your name" required>
+          <input type="text" class="form-control" placeholder="Your full name" required>
           <div class="form-error-msg">Please enter your name</div>
         </div>
 
         <div class="form-group">
           <label class="form-label">Mobile Number / WhatsApp <span style="color:var(--color-error);">*</span></label>
-          <input type="tel" class="form-control" placeholder="10-digit number" required>
+          <input type="tel" class="form-control" placeholder="10-digit mobile number" required>
           <div class="form-error-msg">Please enter your mobile number</div>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label">Email Address <span style="color:var(--color-error);">*</span></label>
-          <input type="email" class="form-control" placeholder="name@example.com" required>
-          <div class="form-error-msg">Please enter a valid email</div>
         </div>
 
         <div class="form-group">
@@ -1268,15 +1285,20 @@
           <select class="form-control" required>
             <option value="">Select Programme</option>
             <option value="defence">Defence Training (SSB, NDA, CDS, AFCAT)</option>
-            <option value="corporate">Corporate Solutions</option>
-            <option value="career">Career Launchpad</option>
+            <option value="corporate">Corporate Solutions & Leadership</option>
+            <option value="career">Career Launchpad (Campus to Corporate)</option>
             <option value="stay">SSB Dormitory Stay (2 AFSB Mysuru)</option>
+            <option value="institutional">College / Institutional Partnership (MoU)</option>
           </select>
           <div class="form-error-msg">Please select an option</div>
         </div>
 
+        <p class="text-small text-muted" style="margin-top: 10px; font-size: 0.78rem;">
+          🔒 Strictly confidential. Ex-IAF mentors will connect directly via WhatsApp/Call. No sales spam.
+        </p>
+
         <button type="submit" class="btn btn-primary btn-block" style="margin-top: 16px;">
-          Submit Request
+          Request Express Callback &rarr;
         </button>
       </form>
     </div>
@@ -1332,16 +1354,16 @@
           <h4>Contact</h4>
           <div style="font-size: 0.875rem; line-height: 1.7;">
             <p style="margin-bottom: 6px;">
-              <strong>Phone:</strong> <a href="tel:9902500649" style="color: var(--color-accent-navy); text-decoration: none;">+91 99025 00649</a>
+              <strong>Phone:</strong> <a href="tel:9019353966" style="color: var(--color-accent-navy); text-decoration: none;">+91 90193 53966</a>
             </p>
             <p style="margin-bottom: 6px;">
-              <strong>Email:</strong> <a href="mailto:shreeram.3969@gmail.com" style="color: var(--color-accent-navy); text-decoration: none;">shreeram.3969@gmail.com</a>
+              <strong>Email:</strong> <a href="mailto:office@alphalead.co.in" style="color: var(--color-accent-navy); text-decoration: none;">office@alphalead.co.in</a>
             </p>
             <p style="margin-bottom: 12px; color: var(--color-text-muted); font-size: 0.8125rem;">
               Mon – Fri: 10:00 – 20:00<br>Sat: 10:00 – 18:00
             </p>
-            <a href="https://wa.me/919902500649" target="_blank" rel="noopener noreferrer" class="link-arrow" style="color: #15803D;">
-              WhatsApp: +91 99025 00649 &rarr;
+            <a href="https://wa.me/919019353966" target="_blank" rel="noopener noreferrer" class="link-arrow" style="color: #15803D;">
+              WhatsApp: +91 90193 53966 &rarr;
             </a>
           </div>
         </div>
@@ -1365,7 +1387,7 @@
   </footer>
 
   <!-- Floating WhatsApp Quick Button -->
-  <a href="https://wa.me/919902500649" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat with Alpha Lead on WhatsApp">
+  <a href="https://wa.me/919019353966" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat with Alpha Lead on WhatsApp">
     <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
       <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
     </svg>
@@ -1380,11 +1402,11 @@
 
   <!-- Mobile Sticky Quick Action Bar (Call + WhatsApp) -->
   <div class="mobile-sticky-action-bar" aria-label="Mobile quick actions">
-    <a href="tel:9902500649" class="mobile-action-btn mobile-call-btn">
+    <a href="tel:9019353966" class="mobile-action-btn mobile-call-btn">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
       <span>Call Mentors</span>
     </a>
-    <a href="https://wa.me/919902500649?text=Hello%20Alpha%20Lead%20Academy,%20I%20would%20like%20to%20know%20more%20about%20your%20programmes." target="_blank" rel="noopener noreferrer" class="mobile-action-btn mobile-wa-btn">
+    <a href="https://wa.me/919019353966?text=Hello%20Alpha%20Lead%20Academy,%20I%20would%20like%20to%20know%20more%20about%20your%20programmes." target="_blank" rel="noopener noreferrer" class="mobile-action-btn mobile-wa-btn">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
       <span>WhatsApp Us</span>
     </a>

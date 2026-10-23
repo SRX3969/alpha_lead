@@ -2,21 +2,22 @@
  * ALPHALEAD ACADEMY — FORM HANDLING & MULTI-CHANNEL INQUIRY DISPATCHER
  * 
  * Channels:
- * 1. Immediate WhatsApp Direct Forwarding (+91 9902500649)
+ * 1. Immediate WhatsApp Direct Forwarding (+91 90193 53966)
  * 2. Automated Google Sheets Webhook Logging
- * 3. Web3Forms Direct Email Delivery (shreeram.3969@gmail.com)
+ * 3. Web3Forms Direct Email Delivery (office@alphalead.co.in)
  * 4. LocalStorage offline backup cache
+ * 5. GA4 Conversion Event Tracking
  */
 
 const FORM_CONFIG = {
-  // Active test contact details:
-  whatsappNumber: '919902500649',
-  recipientEmail: 'shreeram.3969@gmail.com',
+  // Official Alpha Lead Academy Admissions & Mentorship Contact:
+  whatsappNumber: '919019353966',
+  recipientEmail: 'office@alphalead.co.in',
   
-  // 1. Google Sheets Webhook URL (Paste your Google Apps Script Web App URL here)
+  // 1. Google Sheets Webhook URL
   googleScriptUrl: 'https://script.google.com/macros/s/AKfycbyQJNOuDNNhnPuSfnGErFYHiBeAphZZl7n2DiwAi-fEadNx-4XZQROi7iTP9_mqY8D9dw/exec',
   
-  // 2. Web3Forms Access Key (Paste your free access key from https://web3forms.com here)
+  // 2. Web3Forms Access Key
   web3formsAccessKey: ''
 };
 
@@ -104,6 +105,21 @@ function initFormValidation(formId) {
       sourcePage: document.title || window.location.pathname,
       timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
     };
+
+    // 0. GA4 Conversion Event Tracking (Track lead generation KPI)
+    if (typeof window.gtag === 'function') {
+      try {
+        window.gtag('event', 'generate_lead', {
+          event_category: 'Admissions Lead',
+          event_label: leadData.programme,
+          form_type: leadData.formType,
+          page_path: window.location.pathname,
+          value: 1
+        });
+      } catch (gtagErr) {
+        console.warn('GA4 dispatch notice:', gtagErr);
+      }
+    }
 
     // 1. LocalStorage Offline Backup (inquiries are never lost)
     try {

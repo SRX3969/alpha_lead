@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFoundersMobileCarousel();
   initReviewsCarousel();
   initHeroSlideshow();
+  initAnalyticsTracking();
 });
 
 /**
@@ -397,3 +398,68 @@ function initHeroSlideshow() {
   startTimer();
 }
 
+/**
+ * 10. Global GA4 Event Instrumentation
+ * Monitors Call clicks, WhatsApp clicks, Modal opens, and Map queries
+ */
+function initAnalyticsTracking() {
+  // Track Click-to-Call
+  document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+    link.addEventListener('click', () => {
+      if (typeof window.gtag === 'function') {
+        try {
+          window.gtag('event', 'contact_call_click', {
+            event_category: 'Contact',
+            phone_number: link.getAttribute('href').replace('tel:', ''),
+            page_location: window.location.pathname
+          });
+        } catch (e) {}
+      }
+    });
+  });
+
+  // Track WhatsApp clicks
+  document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+    link.addEventListener('click', () => {
+      if (typeof window.gtag === 'function') {
+        try {
+          window.gtag('event', 'whatsapp_click', {
+            event_category: 'Messaging',
+            link_url: link.href,
+            page_location: window.location.pathname
+          });
+        } catch (e) {}
+      }
+    });
+  });
+
+  // Track Directions / Map clicks
+  document.querySelectorAll('a[href*="maps.google"]').forEach(link => {
+    link.addEventListener('click', () => {
+      if (typeof window.gtag === 'function') {
+        try {
+          window.gtag('event', 'directions_click', {
+            event_category: 'Local SEO',
+            destination: '2 AFSB Mysuru Campus',
+            page_location: window.location.pathname
+          });
+        } catch (e) {}
+      }
+    });
+  });
+
+  // Track Modal Opens
+  document.querySelectorAll('[data-modal-open]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (typeof window.gtag === 'function') {
+        try {
+          window.gtag('event', 'open_inquiry_modal', {
+            event_category: 'Lead Engagement',
+            button_text: (btn.innerText || '').trim(),
+            page_location: window.location.pathname
+          });
+        } catch (e) {}
+      }
+    });
+  });
+}
