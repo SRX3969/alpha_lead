@@ -10,11 +10,11 @@
  */
 
 const FORM_CONFIG = {
-  // Official Alpha Lead Academy Admissions & Mentorship Contact:
-  whatsappNumber: '919019353966',
-  recipientEmail: 'office@alphalead.co.in',
+  // Test contact details requested by user:
+  whatsappNumber: '919902500649',
+  recipientEmail: 'shreeram.3969@gmail.com',
   
-  // 1. Google Sheets Webhook URL
+  // 1. Google Sheets Webhook URL (Kept as before)
   googleScriptUrl: 'https://script.google.com/macros/s/AKfycbyQJNOuDNNhnPuSfnGErFYHiBeAphZZl7n2DiwAi-fEadNx-4XZQROi7iTP9_mqY8D9dw/exec',
   
   // 2. Web3Forms Access Key
