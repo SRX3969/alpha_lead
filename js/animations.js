@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initPlaceGalleryLightbox();
   initBlogController();
   initSsbDayTabs();
+  initSmoothAnchors();
 });
 
 /**
@@ -760,4 +761,38 @@ function initSsbDayTabs() {
     });
   });
 }
+
+/**
+ * 9. Smooth Anchor Scrolling with Precise Fixed Header Offset
+ */
+function initSmoothAnchors() {
+  document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (!targetId || targetId === '#') return;
+      try {
+        const targetEl = document.querySelector(targetId);
+        if (targetEl) {
+          e.preventDefault();
+          const header = document.querySelector('.site-header');
+          const headerOffset = header ? header.offsetHeight + 18 : 80;
+          const elementPosition = targetEl.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+          window.scrollTo({
+            top: Math.max(0, offsetPosition),
+            behavior: 'smooth'
+          });
+
+          if (history.pushState) {
+            history.pushState(null, null, targetId);
+          }
+        }
+      } catch (err) {
+        // Fallback for complex selectors
+      }
+    });
+  });
+}
+
 

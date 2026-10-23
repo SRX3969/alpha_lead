@@ -21,6 +21,11 @@ html {
   width: 100%;
 }
 
+/* Scroll margin offset to prevent sticky/fixed header from obscuring anchor targets */
+[id] {
+  scroll-margin-top: 80px;
+}
+
 body {
   background-color: var(--color-bg);
   color: var(--color-text-secondary);
