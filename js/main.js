@@ -4,6 +4,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initHeroViewportFix();
   initHeader();
   initMobileNav();
   initPathwaySelector();
@@ -397,6 +398,20 @@ function initHeroSlideshow() {
   }, { passive: true });
 
   startTimer();
+}
+
+/**
+ * 9b. Dynamic Viewport Height Handler
+ * Ensures hero is 100% full screen on all mobile devices with no bottom white gap
+ */
+function initHeroViewportFix() {
+  const updateVh = () => {
+    const vh = window.innerHeight;
+    document.documentElement.style.setProperty('--hero-vh', `${vh}px`);
+  };
+  updateVh();
+  window.addEventListener('resize', updateVh, { passive: true });
+  window.addEventListener('orientationchange', updateVh, { passive: true });
 }
 
 /**

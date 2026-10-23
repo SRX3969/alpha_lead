@@ -976,9 +976,13 @@
   position: relative;
   width: 100%;
   height: 100vh;
+  height: 100svh;
   height: 100dvh;
+  height: var(--hero-vh, 100dvh);
   min-height: 100vh;
+  min-height: 100svh;
   min-height: 100dvh;
+  min-height: var(--hero-vh, 100dvh);
   max-height: none;
   display: flex;
   flex-direction: column;
@@ -988,20 +992,37 @@
   padding-top: clamp(72px, 10vh, 92px);
   padding-bottom: clamp(10px, 1.6vh, 20px);
   border-bottom: none;
+  margin-bottom: -10px !important;
+  z-index: 5;
+}
+
+#heroSlideshow + #founders,
+.hero-cinematic + .section,
+.hero-cinematic + #founders,
+#founders {
+  border-top: none !important;
+  position: relative;
+  z-index: 1;
 }
 
 .hero-bg-slides-wrapper {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: -20px;
   width: 100%;
-  height: 100%;
+  height: calc(100% + 20px);
   z-index: 1;
   overflow: hidden;
 }
 
 .hero-bg-slide {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   width: 100%;
   height: 100%;
   opacity: 0;
@@ -1044,7 +1065,12 @@
 /* Luxury Multi-Stop Vignette Scrim (Balanced for photo clarity + typography contrast) */
 .hero-bg-overlay {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: -20px;
+  width: 100%;
+  height: calc(100% + 20px);
   z-index: 3;
   background: 
     linear-gradient(180deg, rgba(8, 16, 30, 0.62) 0%, rgba(8, 16, 30, 0.12) 20%, transparent 40%),
@@ -1398,15 +1424,22 @@
 @media (max-width: 960px) {
   .hero-cinematic {
     height: 100vh !important;
+    height: 100svh !important;
     height: 100dvh !important;
+    height: var(--hero-vh, 100dvh) !important;
     min-height: 100vh !important;
+    min-height: 100svh !important;
     min-height: 100dvh !important;
+    min-height: var(--hero-vh, 100dvh) !important;
     max-height: none !important;
-    padding-top: 76px !important;
-    padding-bottom: 14px !important;
+    margin-bottom: -10px !important;
+    padding-top: 68px !important;
+    padding-bottom: 12px !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: space-between !important;
+    z-index: 5 !important;
+    overflow: hidden !important;
   }
   .hero-cinematic-container {
     flex: 1 1 auto !important;
