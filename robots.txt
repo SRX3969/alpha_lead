@@ -1,5 +1,11 @@
 User-agent: *
 Allow: /
 
+# Disallow scrapings, dev artifacts, and raw scripts
+Disallow: /*_page.html
+Disallow: /design-preview.html
+Disallow: /*.py
+Disallow: /*.json
+
 # Sitemaps
 Sitemap: https://alphalead.co.in/sitemap.xml
