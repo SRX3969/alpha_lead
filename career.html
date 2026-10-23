@@ -242,41 +242,41 @@
           <h2 style="font-size: 1.5rem; margin-bottom: 8px;">Apply for Career Guidance</h2>
           <p class="text-small text-muted" style="margin-bottom: 24px;">Submit your details to schedule an initial diagnostic consultation.</p>
 
-          <form id="contactForm" novalidate>
+          <form id="contactForm" data-form-category="career" novalidate>
             <div class="form-row">
               <div class="form-group">
-                <label class="form-label">Full Name <span style="color:var(--color-error);">*</span></label>
-                <input type="text" class="form-control" placeholder="Your name" required>
+                <label for="career-name" class="form-label">Full Name <span style="color:var(--color-error);">*</span></label>
+                <input type="text" id="career-name" name="fullName" class="form-control" placeholder="Your name" required>
                 <div class="form-error-msg">Please enter your name</div>
               </div>
               <div class="form-group">
-                <label class="form-label">Mobile Number <span style="color:var(--color-error);">*</span></label>
-                <input type="tel" class="form-control" placeholder="10-digit number" required>
+                <label for="career-phone" class="form-label">Mobile Number <span style="color:var(--color-error);">*</span></label>
+                <input type="tel" id="career-phone" name="phone" class="form-control" placeholder="10-digit number" required>
                 <div class="form-error-msg">Please enter your mobile number</div>
               </div>
             </div>
 
             <div class="form-row">
               <div class="form-group">
-                <label class="form-label">Email Address <span style="color:var(--color-error);">*</span></label>
-                <input type="email" class="form-control" placeholder="name@example.com" required>
+                <label for="career-email" class="form-label">Email Address <span style="color:var(--color-error);">*</span></label>
+                <input type="email" id="career-email" name="email" class="form-control" placeholder="name@example.com" required>
                 <div class="form-error-msg">Please enter a valid email</div>
               </div>
               <div class="form-group">
-                <label class="form-label">Current Academic / Professional Status <span style="color:var(--color-error);">*</span></label>
-                <select class="form-control" required>
+                <label for="career-status" class="form-label">Current Academic / Professional Status <span style="color:var(--color-error);">*</span></label>
+                <select id="career-status" name="academicStatus" class="form-control" required>
                   <option value="">Select Status</option>
-                  <option value="college">College Student / Recent Graduate</option>
-                  <option value="jobseeker">Job Seeker / Early Career Professional</option>
-                  <option value="transition">Mid-Career Professional Transitioning</option>
+                  <option value="College Student / Recent Graduate">College Student / Recent Graduate</option>
+                  <option value="Job Seeker / Early Career Professional">Job Seeker / Early Career Professional</option>
+                  <option value="Mid-Career Professional Transitioning">Mid-Career Professional Transitioning</option>
                 </select>
                 <div class="form-error-msg">Please select an option</div>
               </div>
             </div>
 
             <div class="form-group">
-              <label class="form-label">Target Roles or Challenges</label>
-              <textarea class="form-control" placeholder="Mention your target roles, upcoming interviews, or specific areas you want to develop..."></textarea>
+              <label for="career-goals" class="form-label">Target Roles or Challenges</label>
+              <textarea id="career-goals" name="targetGoals" class="form-control" placeholder="Mention your target roles, upcoming interviews, or specific areas you want to develop..."></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary btn-block">
@@ -303,22 +303,22 @@
       <h3 id="modal-head" style="font-size: 1.45rem; margin-bottom: 8px;">Talk to Alpha Lead</h3>
       <p class="text-small text-muted" style="margin-bottom: 24px;">Leave your contact details and our team will get in touch directly.</p>
 
-      <form id="callbackModalForm" novalidate>
+      <form id="callbackModalForm" data-form-category="callback" novalidate>
         <div class="form-group">
-          <label class="form-label">Full Name <span style="color:var(--color-error);">*</span></label>
-          <input type="text" class="form-control" placeholder="Your name" required>
+          <label for="career-m-name" class="form-label">Full Name <span style="color:var(--color-error);">*</span></label>
+          <input type="text" id="career-m-name" name="fullName" class="form-control" placeholder="Your name" required>
           <div class="form-error-msg">Please enter your name</div>
         </div>
 
         <div class="form-group">
-          <label class="form-label">Mobile Number / WhatsApp <span style="color:var(--color-error);">*</span></label>
-          <input type="tel" class="form-control" placeholder="10-digit number" required>
+          <label for="career-m-phone" class="form-label">Mobile Number / WhatsApp <span style="color:var(--color-error);">*</span></label>
+          <input type="tel" id="career-m-phone" name="phone" class="form-control" placeholder="10-digit number" required>
           <div class="form-error-msg">Please enter your mobile number</div>
         </div>
 
         <div class="form-group">
-          <label class="form-label">Email Address <span style="color:var(--color-error);">*</span></label>
-          <input type="email" class="form-control" placeholder="name@example.com" required>
+          <label for="career-m-email" class="form-label">Email Address <span style="color:var(--color-error);">*</span></label>
+          <input type="email" id="career-m-email" name="email" class="form-control" placeholder="name@example.com" required>
           <div class="form-error-msg">Please enter a valid email</div>
         </div>
 

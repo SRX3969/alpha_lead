@@ -755,41 +755,41 @@
             Reserve your bed in advance during peak 2 AFSB testing cycles. Our warden will confirm bed availability via WhatsApp.
           </p>
 
-          <form id="contactForm" novalidate>
+          <form id="contactForm" data-form-category="stay" novalidate>
             <div class="form-row">
               <div class="form-group">
-                <label class="form-label">Candidate Full Name <span style="color:var(--color-status-red);">*</span></label>
-                <input type="text" class="form-control" placeholder="Candidate Name" required>
+                <label for="stay-name" class="form-label">Candidate Full Name <span style="color:var(--color-status-red);">*</span></label>
+                <input type="text" id="stay-name" name="fullName" class="form-control" placeholder="Candidate Name" required>
                 <div class="form-error-msg">Please enter your name</div>
               </div>
               <div class="form-group">
-                <label class="form-label">WhatsApp Number <span style="color:var(--color-status-red);">*</span></label>
-                <input type="tel" class="form-control" placeholder="9902500649" required>
+                <label for="stay-phone" class="form-label">WhatsApp Number <span style="color:var(--color-status-red);">*</span></label>
+                <input type="tel" id="stay-phone" name="phone" class="form-control" placeholder="9902500649" required>
                 <div class="form-error-msg">Please enter your WhatsApp number</div>
               </div>
             </div>
 
             <div class="form-row">
               <div class="form-group">
-                <label class="form-label">Email Address <span style="color:var(--color-status-red);">*</span></label>
-                <input type="email" class="form-control" placeholder="name@example.com" required>
+                <label for="stay-email" class="form-label">Email Address <span style="color:var(--color-status-red);">*</span></label>
+                <input type="email" id="stay-email" name="email" class="form-control" placeholder="name@example.com" required>
                 <div class="form-error-msg">Please enter a valid email</div>
               </div>
               <div class="form-group">
-                <label class="form-label">Check-In Date <span style="color:var(--color-status-red);">*</span></label>
-                <input type="date" class="form-control" required>
+                <label for="stay-checkin" class="form-label">Check-In Date <span style="color:var(--color-status-red);">*</span></label>
+                <input type="date" id="stay-checkin" name="checkInDate" class="form-control" required>
                 <div class="form-error-msg">Please select a check-in date</div>
               </div>
             </div>
 
             <div class="form-group">
-              <label class="form-label">2 AFSB Reporting Date & Call-Up Batch</label>
-              <input type="text" class="form-control" placeholder="e.g. Reporting Oct 14, 2 AFSB Mysuru, AFCAT entry">
+              <label for="stay-batch" class="form-label">2 AFSB Reporting Date & Call-Up Batch</label>
+              <input type="text" id="stay-batch" name="reportingBatch" class="form-control" placeholder="e.g. Reporting Oct 14, 2 AFSB Mysuru, AFCAT entry">
             </div>
 
             <div class="form-group">
-              <label class="form-label">Arrival Notes / Dietary Requirements</label>
-              <textarea class="form-control" placeholder="Let us know your expected arrival time from railway station or bus stand..."></textarea>
+              <label for="stay-notes" class="form-label">Arrival Notes / Dietary Requirements</label>
+              <textarea id="stay-notes" name="notes" class="form-control" placeholder="Let us know your expected arrival time from railway station or bus stand..."></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary btn-block">
@@ -812,18 +812,18 @@
       <div class="eyebrow" style="margin-bottom: 8px;">Direct Response</div>
       <h3 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 8px;">Talk to Alpha Lead</h3>
       <p class="text-small" style="margin-bottom: 24px;">Our mentoring team will contact you directly within 24 hours.</p>
-      <form id="callbackModalForm" novalidate>
+      <form id="callbackModalForm" data-form-category="callback" novalidate>
         <div class="form-group">
-          <label class="form-label">Full Name <span style="color:var(--color-status-red);">*</span></label>
-          <input type="text" class="form-control" placeholder="Your name" required>
+          <label for="stay-m-name" class="form-label">Full Name <span style="color:var(--color-status-red);">*</span></label>
+          <input type="text" id="stay-m-name" name="fullName" class="form-control" placeholder="Your name" required>
         </div>
         <div class="form-group">
-          <label class="form-label">WhatsApp Number <span style="color:var(--color-status-red);">*</span></label>
-          <input type="tel" class="form-control" placeholder="9902500649" required>
+          <label for="stay-m-phone" class="form-label">WhatsApp Number <span style="color:var(--color-status-red);">*</span></label>
+          <input type="tel" id="stay-m-phone" name="phone" class="form-control" placeholder="9902500649" required>
         </div>
         <div class="form-group">
-          <label class="form-label">Email Address <span style="color:var(--color-status-red);">*</span></label>
-          <input type="email" class="form-control" placeholder="name@example.com" required>
+          <label for="stay-m-email" class="form-label">Email Address <span style="color:var(--color-status-red);">*</span></label>
+          <input type="email" id="stay-m-email" name="email" class="form-control" placeholder="name@example.com" required>
         </div>
         <button type="submit" class="btn btn-primary btn-block">Confirm Request</button>
       </form>

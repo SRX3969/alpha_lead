@@ -1126,16 +1126,16 @@
             <h3 style="font-size: 1.35rem; margin-bottom: 6px;">Send an Inquiry</h3>
             <p class="text-small text-muted" style="margin-bottom: 24px;">Please complete the form below. Our mentors will respond promptly.</p>
             
-            <form id="contactForm" novalidate>
+            <form id="contactForm" data-form-category="general" novalidate>
               <div class="form-row">
                 <div class="form-group">
                   <label for="contact-name" class="form-label">Full Name <span style="color:var(--color-error);">*</span></label>
-                  <input type="text" id="contact-name" class="form-control" placeholder="Your full name" required>
+                  <input type="text" id="contact-name" name="fullName" class="form-control" placeholder="Your full name" required>
                   <div class="form-error-msg">Please enter your name</div>
                 </div>
                 <div class="form-group">
                   <label for="contact-phone" class="form-label">Phone / WhatsApp <span style="color:var(--color-error);">*</span></label>
-                  <input type="tel" id="contact-phone" class="form-control" placeholder="10-digit mobile number" required>
+                  <input type="tel" id="contact-phone" name="phone" class="form-control" placeholder="10-digit mobile number" required>
                   <div class="form-error-msg">Please enter a valid 10-digit number</div>
                 </div>
               </div>
@@ -1143,22 +1143,22 @@
               <div class="form-row">
                 <div class="form-group">
                   <label for="contact-email" class="form-label">Email Address <span style="color:var(--color-error);">*</span></label>
-                  <input type="email" id="contact-email" class="form-control" placeholder="name@example.com" required>
+                  <input type="email" id="contact-email" name="email" class="form-control" placeholder="name@example.com" required>
                   <div class="form-error-msg">Please enter a valid email</div>
                 </div>
                 <div class="form-group">
                   <label for="contact-vertical" class="form-label">I'm interested in <span style="color:var(--color-error);">*</span></label>
-                  <select id="contact-vertical" class="form-control" required>
+                  <select id="contact-vertical" name="programme" class="form-control" required>
                     <option value="">Select Programme / Service</option>
-                    <option value="ssb">SSB Interview Coaching</option>
-                    <option value="nda">NDA Written Coaching</option>
-                    <option value="cds">CDS Written Coaching</option>
-                    <option value="afcat">AFCAT Written Coaching</option>
-                    <option value="agniveer">Agniveer Guidance</option>
-                    <option value="corporate">Corporate Leadership Training</option>
-                    <option value="career">Career Launchpad (Employability)</option>
-                    <option value="stay">SSB Stay Mysuru (Near 2 AFSB)</option>
-                    <option value="other">Other Inquiry</option>
+                    <option value="SSB Interview Coaching">SSB Interview Coaching</option>
+                    <option value="NDA Written Coaching">NDA Written Coaching</option>
+                    <option value="CDS Written Coaching">CDS Written Coaching</option>
+                    <option value="AFCAT Written Coaching">AFCAT Written Coaching</option>
+                    <option value="Agniveer Guidance">Agniveer Guidance</option>
+                    <option value="Corporate Leadership Training">Corporate Leadership Training</option>
+                    <option value="Career Launchpad (Employability)">Career Launchpad (Employability)</option>
+                    <option value="SSB Stay Mysuru (Near 2 AFSB)">SSB Stay Mysuru (Near 2 AFSB)</option>
+                    <option value="Other Inquiry">Other Inquiry</option>
                   </select>
                   <div class="form-error-msg">Please select your area of interest</div>
                 </div>
@@ -1166,7 +1166,7 @@
 
               <div class="form-group">
                 <label for="contact-message" class="form-label">Message / Background</label>
-                <textarea id="contact-message" class="form-control" placeholder="Share your upcoming SSB date, board, corporate requirement or specific questions..."></textarea>
+                <textarea id="contact-message" name="message" class="form-control" placeholder="Share your upcoming SSB date, board, corporate requirement or specific questions..."></textarea>
               </div>
 
               <button type="submit" class="btn btn-primary btn-block">
@@ -1249,28 +1249,28 @@
       <h3 id="modal-head" style="font-size: 1.45rem; margin-bottom: 8px;">Talk to Alpha Lead</h3>
       <p class="text-small text-muted" style="margin-bottom: 24px;">Leave your contact details and our team will get in touch directly.</p>
 
-      <form id="callbackModalForm" novalidate>
+      <form id="callbackModalForm" data-form-category="callback" novalidate>
         <div class="form-group">
-          <label class="form-label">Full Name <span style="color:var(--color-error);">*</span></label>
-          <input type="text" class="form-control" placeholder="Your full name" required>
+          <label for="modal-name" class="form-label">Full Name <span style="color:var(--color-error);">*</span></label>
+          <input type="text" id="modal-name" name="fullName" class="form-control" placeholder="Your full name" required>
           <div class="form-error-msg">Please enter your name</div>
         </div>
 
         <div class="form-group">
-          <label class="form-label">Mobile Number / WhatsApp <span style="color:var(--color-error);">*</span></label>
-          <input type="tel" class="form-control" placeholder="10-digit mobile number" required>
+          <label for="modal-phone" class="form-label">Mobile Number / WhatsApp <span style="color:var(--color-error);">*</span></label>
+          <input type="tel" id="modal-phone" name="phone" class="form-control" placeholder="10-digit mobile number" required>
           <div class="form-error-msg">Please enter your mobile number</div>
         </div>
 
         <div class="form-group">
-          <label class="form-label">Area of Interest <span style="color:var(--color-error);">*</span></label>
-          <select class="form-control" required>
+          <label for="modal-vertical" class="form-label">Area of Interest <span style="color:var(--color-error);">*</span></label>
+          <select id="modal-vertical" name="interest" class="form-control" required>
             <option value="">Select Programme</option>
-            <option value="defence">Defence Training (SSB, NDA, CDS, AFCAT)</option>
-            <option value="corporate">Corporate Solutions & Leadership</option>
-            <option value="career">Career Launchpad (Campus to Corporate)</option>
-            <option value="stay">SSB Dormitory Stay (2 AFSB Mysuru)</option>
-            <option value="institutional">College / Institutional Partnership (MoU)</option>
+            <option value="Defence Training (SSB, NDA, CDS, AFCAT)">Defence Training (SSB, NDA, CDS, AFCAT)</option>
+            <option value="Corporate Solutions & Leadership">Corporate Solutions & Leadership</option>
+            <option value="Career Launchpad (Campus to Corporate)">Career Launchpad (Campus to Corporate)</option>
+            <option value="SSB Dormitory Stay (2 AFSB Mysuru)">SSB Dormitory Stay (2 AFSB Mysuru)</option>
+            <option value="College / Institutional Partnership (MoU)">College / Institutional Partnership (MoU)</option>
           </select>
           <div class="form-error-msg">Please select an option</div>
         </div>

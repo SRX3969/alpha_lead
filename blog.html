@@ -407,18 +407,18 @@
       <div class="eyebrow" style="margin-bottom: 8px;">Direct Response</div>
       <h3 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 8px;">Talk to Alpha Lead</h3>
       <p class="text-small" style="margin-bottom: 24px;">Our defence mentors will contact you directly within 24 hours.</p>
-      <form id="callbackModalForm" novalidate>
+      <form id="callbackModalForm" data-form-category="callback" novalidate>
         <div class="form-group">
-          <label class="form-label">Full Name <span style="color:var(--color-status-red);">*</span></label>
-          <input type="text" class="form-control" placeholder="Your name" required>
+          <label for="blog-m-name" class="form-label">Full Name <span style="color:var(--color-status-red);">*</span></label>
+          <input type="text" id="blog-m-name" name="fullName" class="form-control" placeholder="Your name" required>
         </div>
         <div class="form-group">
-          <label class="form-label">WhatsApp Number <span style="color:var(--color-status-red);">*</span></label>
-          <input type="tel" class="form-control" placeholder="9902500649" required>
+          <label for="blog-m-phone" class="form-label">WhatsApp Number <span style="color:var(--color-status-red);">*</span></label>
+          <input type="tel" id="blog-m-phone" name="phone" class="form-control" placeholder="9902500649" required>
         </div>
         <div class="form-group">
-          <label class="form-label">Email Address <span style="color:var(--color-status-red);">*</span></label>
-          <input type="email" class="form-control" placeholder="name@example.com" required>
+          <label for="blog-m-email" class="form-label">Email Address <span style="color:var(--color-status-red);">*</span></label>
+          <input type="email" id="blog-m-email" name="email" class="form-control" placeholder="name@example.com" required>
         </div>
         <button type="submit" class="btn btn-primary btn-block">Confirm Callback</button>
       </form>

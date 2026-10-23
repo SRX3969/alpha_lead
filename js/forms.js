@@ -2,30 +2,55 @@
  * ALPHALEAD ACADEMY — FORM HANDLING & MULTI-CHANNEL INQUIRY DISPATCHER
  * 
  * Channels:
- * 1. Immediate WhatsApp Direct Forwarding (+91 90193 53966)
- * 2. Automated Google Sheets Webhook Logging
- * 3. Web3Forms Direct Email Delivery (office@alphalead.co.in)
+ * 1. Immediate WhatsApp Direct Forwarding (+91 99025 00649)
+ * 2. Automated Google Sheets Multi-Tab CRM Router
+ * 3. Web3Forms Direct Email Delivery (optional fallback)
  * 4. LocalStorage offline backup cache
  * 5. GA4 Conversion Event Tracking
  */
 
 const FORM_CONFIG = {
-  // Test contact details requested by user:
+  // Active contact details
   whatsappNumber: '919902500649',
   recipientEmail: 'shreeram.3969@gmail.com',
   
-  // 1. Google Sheets Webhook URL (Kept as before)
+  // Google Sheets Webhook URL
   googleScriptUrl: 'https://script.google.com/macros/s/AKfycbyQJNOuDNNhnPuSfnGErFYHiBeAphZZl7n2DiwAi-fEadNx-4XZQROi7iTP9_mqY8D9dw/exec',
   
-  // 2. Web3Forms Access Key
+  // Web3Forms Access Key (optional)
   web3formsAccessKey: ''
+};
+
+// Sheet tab mapping per category
+const SHEET_TAB_MAPPING = {
+  general: 'General Inquiries',
+  defence: 'Defence & SSB',
+  career: 'Career Guidance',
+  corporate: 'Corporate Solutions',
+  stay: 'SSB Stay (2 AFSB)',
+  callback: 'Express Callbacks'
 };
 
 document.addEventListener('DOMContentLoaded', () => {
   initFormValidation('contactForm');
   initFormValidation('callbackModalForm');
-  initFormValidation('quickBookingForm');
 });
+
+function detectCategory(form, formId) {
+  if (formId === 'callbackModalForm') {
+    return 'callback';
+  }
+  const explicitCategory = form.getAttribute('data-form-category');
+  if (explicitCategory) {
+    return explicitCategory.toLowerCase();
+  }
+  const path = window.location.pathname.toLowerCase();
+  if (path.includes('defence')) return 'defence';
+  if (path.includes('career')) return 'career';
+  if (path.includes('corporate')) return 'corporate';
+  if (path.includes('stay')) return 'stay';
+  return 'general';
+}
 
 function initFormValidation(formId) {
   const form = document.getElementById(formId);
@@ -33,7 +58,7 @@ function initFormValidation(formId) {
 
   const inputs = form.querySelectorAll('.form-control[required]');
 
-  // Clear error state on input
+  // Clear error state on user input
   inputs.forEach(input => {
     input.addEventListener('input', () => {
       if (input.classList.contains('error')) {
@@ -88,30 +113,63 @@ function initFormValidation(formId) {
       return;
     }
 
-    // Extract submission values accurately across different form schemas
-    const nameEl = form.querySelector('input[type="text"], #contact-name');
-    const phoneEl = form.querySelector('input[type="tel"], #contact-phone');
-    const emailEl = form.querySelector('input[type="email"], #contact-email');
-    const selectEl = form.querySelector('select, #contact-vertical');
-    const msgEl = form.querySelector('textarea, #contact-message');
+    const category = detectCategory(form, formId);
+    const sheetTab = SHEET_TAB_MAPPING[category] || 'General Inquiries';
 
-    const leadData = {
-      name: nameEl ? nameEl.value.trim() : 'Candidate',
-      phone: phoneEl ? phoneEl.value.trim() : '',
-      email: emailEl ? emailEl.value.trim() : '',
-      programme: selectEl && selectEl.selectedOptions && selectEl.selectedOptions[0] ? selectEl.selectedOptions[0].text : 'General Inquiry',
-      message: msgEl && msgEl.value.trim() ? msgEl.value.trim() : 'Callback requested',
-      formType: formId === 'contactForm' ? 'Main Contact Form' : 'Callback Modal Request',
-      sourcePage: document.title || window.location.pathname,
-      timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+    // Helper to safely extract input values by name or fallback
+    const getVal = (name, selector) => {
+      const el = form.querySelector(`[name="${name}"]`) || (selector ? form.querySelector(selector) : null);
+      if (!el) return '';
+      if (el.tagName === 'SELECT') {
+        return el.selectedOptions && el.selectedOptions[0] ? el.selectedOptions[0].text : el.value;
+      }
+      return el.value.trim();
     };
 
-    // 0. GA4 Conversion Event Tracking (Track lead generation KPI)
+    // Extract all fields reliably across specific page schemas
+    const fullName = getVal('fullName', 'input[type="text"]');
+    const phone = getVal('phone', 'input[type="tel"]');
+    const email = getVal('email', 'input[type="email"]');
+    const programme = getVal('programme', 'select');
+    const entryType = getVal('entryType', '#def-entry');
+    const academicStatus = getVal('academicStatus', '#career-status');
+    const company = getVal('company', '#corp-company');
+    const focusArea = getVal('focusArea', '#corp-focus');
+    const checkInDate = getVal('checkInDate', 'input[type="date"]');
+    const reportingBatch = getVal('reportingBatch', '#stay-batch');
+    const interest = getVal('interest', '#modal-vertical');
+    const message = getVal('message', '#contact-message');
+    const notes = getVal('notes', 'textarea');
+
+    const leadData = {
+      category: category,
+      sheetTab: sheetTab,
+      formType: formId === 'contactForm' ? `Main Form (${sheetTab})` : 'Quick Callback Modal',
+      sourcePage: document.title || window.location.pathname,
+      timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
+      
+      // Captured form fields
+      fullName: fullName || 'Candidate',
+      phone: phone || '',
+      email: email || '',
+      programme: programme || '',
+      entryType: entryType || '',
+      academicStatus: academicStatus || '',
+      company: company || '',
+      focusArea: focusArea || '',
+      checkInDate: checkInDate || '',
+      reportingBatch: reportingBatch || '',
+      interest: interest || '',
+      message: message || '',
+      notes: notes || ''
+    };
+
+    // 0. GA4 Conversion Event Tracking
     if (typeof window.gtag === 'function') {
       try {
         window.gtag('event', 'generate_lead', {
           event_category: 'Admissions Lead',
-          event_label: leadData.programme,
+          event_label: sheetTab,
           form_type: leadData.formType,
           page_path: window.location.pathname,
           value: 1
@@ -130,15 +188,34 @@ function initFormValidation(formId) {
       console.warn('LocalStorage error:', err);
     }
 
-    // 2. Prepare WhatsApp Forwarding URL
-    const waText = 
-      `*New Alpha Lead Inquiry*\n\n` +
-      `*Name:* ${leadData.name}\n` +
+    // 2. Prepare Tailored WhatsApp Message
+    let waText = `*New Alpha Lead Inquiry — ${sheetTab}*\n\n` +
+      `*Name:* ${leadData.fullName}\n` +
       `*Phone:* ${leadData.phone}\n` +
-      `*Email:* ${leadData.email}\n` +
-      `*Programme:* ${leadData.programme}\n` +
-      `*Message:* ${leadData.message}\n` +
-      `*Source:* ${leadData.sourcePage}`;
+      `*Email:* ${leadData.email || 'N/A'}\n`;
+
+    if (category === 'defence') {
+      waText += `*Target Entry:* ${leadData.entryType || 'SSB Training'}\n` +
+        `*Candidate Notes:* ${leadData.notes || 'None'}\n`;
+    } else if (category === 'career') {
+      waText += `*Academic / Status:* ${leadData.academicStatus || 'Candidate'}\n` +
+        `*Target Goals:* ${leadData.notes || leadData.message || 'General'}\n`;
+    } else if (category === 'corporate') {
+      waText += `*Company:* ${leadData.company || 'Corporate'}\n` +
+        `*Focus Area:* ${leadData.focusArea || 'Executive Development'}\n` +
+        `*Objectives / Team:* ${leadData.notes || 'N/A'}\n`;
+    } else if (category === 'stay') {
+      waText += `*Check-In Date:* ${leadData.checkInDate || 'TBD'}\n` +
+        `*2 AFSB Reporting Batch:* ${leadData.reportingBatch || 'Mysuru Board'}\n` +
+        `*Arrival Notes:* ${leadData.notes || 'None'}\n`;
+    } else if (category === 'callback') {
+      waText += `*Interest Area:* ${leadData.interest || sheetTab}\n`;
+    } else {
+      waText += `*Programme:* ${leadData.programme || 'General Inquiry'}\n` +
+        `*Message:* ${leadData.message || 'N/A'}\n`;
+    }
+
+    waText += `*Source Page:* ${leadData.sourcePage}`;
     const waUrl = `https://wa.me/${FORM_CONFIG.whatsappNumber}?text=${encodeURIComponent(waText)}`;
 
     // Show loading state
@@ -154,7 +231,7 @@ function initFormValidation(formId) {
       `;
     }
 
-    // 3. Dispatch to Google Sheets Webhook (if URL configured)
+    // 3. Dispatch to Google Sheets Webhook
     if (FORM_CONFIG.googleScriptUrl) {
       fetch(FORM_CONFIG.googleScriptUrl, {
         method: 'POST',
@@ -164,33 +241,32 @@ function initFormValidation(formId) {
       }).catch(err => console.warn('Google Sheets dispatch error:', err));
     }
 
-    // 4. Dispatch to Web3Forms Email Service (if key configured)
+    // 4. Dispatch to Web3Forms Email Service (if configured)
     if (FORM_CONFIG.web3formsAccessKey) {
       fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({
           access_key: FORM_CONFIG.web3formsAccessKey,
-          subject: `New Lead: ${leadData.name} - ${leadData.programme}`,
+          subject: `New Lead [${sheetTab}]: ${leadData.fullName}`,
           from_name: 'Alpha Lead Academy Admissions',
-          name: leadData.name,
+          name: leadData.fullName,
           phone: leadData.phone,
           email: leadData.email,
-          programme: leadData.programme,
-          message: leadData.message,
+          programme: sheetTab,
+          message: waText,
           source_page: leadData.sourcePage
         })
       }).catch(err => console.warn('Web3Forms dispatch error:', err));
     }
 
-    // Wait short simulated time for UI feedback
+    // Render Rich Success Feedback
     setTimeout(() => {
       if (submitBtn) {
         submitBtn.disabled = false;
         submitBtn.innerHTML = originalBtnText;
       }
 
-      // Render Rich Success Feedback
       feedbackBox.className = 'form-feedback success';
       feedbackBox.setAttribute('role', 'alert');
       feedbackBox.setAttribute('aria-live', 'polite');
@@ -205,7 +281,7 @@ function initFormValidation(formId) {
             Inquiry Received Successfully!
           </strong>
           <span style="display:block; color:var(--color-text-secondary, #475569); font-size:0.875rem; line-height:1.5;">
-            Thank you, <strong>${escapeHtml(leadData.name)}</strong>. Your details have been sent to our Senior Mentors. We will reach you at <strong>${escapeHtml(leadData.phone)}</strong> within 24 hours.
+            Thank you, <strong>${escapeHtml(leadData.fullName)}</strong>. Your details have been routed directly to our Mentorship Team. We will connect with you at <strong>${escapeHtml(leadData.phone)}</strong> within 24 hours.
           </span>
           <div style="margin-top: 12px;">
             <a href="${waUrl}" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-direct">
@@ -239,6 +315,6 @@ function createFeedbackBox(form) {
 
 function escapeHtml(str) {
   const div = document.createElement('div');
-  div.innerText = str;
+  div.innerText = str || '';
   return div.innerHTML;
 }
