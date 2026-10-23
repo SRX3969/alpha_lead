@@ -189,8 +189,37 @@ p:last-child {
 
 .section-warm {
   background-color: var(--color-bg-warm);
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
+  border-top: 1px solid var(--color-border-warm);
+  border-bottom: 1px solid var(--color-border-warm);
+}
+
+.section-ice {
+  background-color: var(--color-bg-ice);
+  border-top: 1px solid var(--color-border-ice);
+  border-bottom: 1px solid var(--color-border-ice);
+}
+
+.section-hall-of-fame,
+.section-dark {
+  background-color: var(--color-bg-dark-navy);
+  color: #FFFFFF;
+  border-top: 1px solid var(--color-border-dark-surface);
+  border-bottom: 1px solid var(--color-border-dark-surface);
+}
+
+.section-hall-of-fame .section-title,
+.section-dark .section-title {
+  color: #FFFFFF;
+}
+
+.section-hall-of-fame .section-subtitle,
+.section-dark .section-subtitle {
+  color: #94A3B8;
+}
+
+.section-hall-of-fame .eyebrow,
+.section-dark .eyebrow {
+  color: var(--color-gold-accent);
 }
 
 .section-subtle {

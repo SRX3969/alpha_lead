@@ -11,3 +11,8 @@ Thumbs.db
 desktop.ini
 .vscode/
 .idea/
+
+# Local Previews & Scratch Mockups
+design-preview.html
+previews/
+

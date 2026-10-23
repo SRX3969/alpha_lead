@@ -50,14 +50,28 @@
   --color-bg-primary: #FFFFFF;         /* Pure white foundation */
   --color-bg-surface-light: #F8FAFC;   /* Slate 50 off-white */
   --color-bg-surface-accent: #EFF6FF;  /* Soft light blue tint */
-  --color-bg-warm: #F8FAFC;            /* Clean light gray / off-white */
+  --color-bg-warm: #FAF8F5;            /* Warm Sandstone / Alabaster */
+  --color-bg-ice: #F0F5FA;             /* Ice-Blue / Cadet tint */
+  --color-bg-dark-navy: #0B192C;       /* Midnight Navy for Hall of Fame */
+  --color-bg-dark-surface: #112240;    /* Elevated dark card surface */
   --color-bg-subtle: #F1F5F9;          /* Slate 100 */
   --color-bg-tint: #EFF6FF;
   --color-bg-card: #FFFFFF;
   --color-surface-hover: #F1F5F9;
 
+  /* Vertical Pillars Brand Colors */
+  --color-pillar-defence: #1E3A8A;     /* Navy */
+  --color-pillar-corporate: #0284C7;   /* Vibrant Cyan / Corporate */
+  --color-pillar-career: #D97706;      /* Amber / Career */
+  --color-pillar-stay: #059669;        /* Emerald / Stay */
+  --color-gold-accent: #F59E0B;        /* Gold Merit Accent */
+  --color-gold-glow: rgba(245, 158, 11, 0.25);
+
   /* Border / Divider */
   --color-border: #E2E8F0;             /* Clean subtle slate border */
+  --color-border-warm: #EDE8DE;        /* Warm parchment border */
+  --color-border-ice: #DCE7F3;         /* Ice blue border */
+  --color-border-dark-surface: rgba(255, 255, 255, 0.12);
   --color-border-subtle: #F1F5F9;
   --color-border-dark: #CBD5E1;
 

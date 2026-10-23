@@ -99,7 +99,7 @@
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- Sticky Minimal Institutional Navigation (Section 01) -->
-  <header class="site-header" role="banner">
+  <header class="site-header header-cinematic" role="banner">
     <div class="container nav-container">
       
       <!-- Brand Logo -->
@@ -167,129 +167,155 @@
   <main id="main-content">
 
     <!-- 01. Landing Page Hero + 4 Pillars Quick Access -->
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="container">
-        
-        <div class="hero-grid">
+    <!-- 01. Cinematic Full-Bleed Slideshow Hero (Option 1) -->
+    <section class="hero hero-cinematic" id="heroSlideshow" aria-labelledby="hero-title">
+      
+      <!-- Background Photographs Slideshow Layer -->
+      <div class="hero-bg-slides-wrapper" id="heroSlidesWrapper">
+        <div class="hero-bg-slide active" data-slide="0" data-facility="Live SSB Classroom Mentorship · Mysuru Campus">
+          <img 
+            src="assets/images/live/why-alpha-defence.webp" 
+            alt="Live SSB Classroom Mentorship by Group Captain Abhinav Chaturvedi" 
+            class="hero-bg-img"
+            width="1920" 
+            height="1080"
+            loading="eager"
+          >
+        </div>
+        <div class="hero-bg-slide" data-slide="1" data-facility="Full-Scale Outdoor GTO Obstacle Training Ground">
+          <img 
+            src="assets/images/live/gto-obstacles.webp" 
+            alt="Full-Scale Outdoor GTO Obstacle Training Ground at Alpha Lead Academy" 
+            class="hero-bg-img"
+            width="1920" 
+            height="1080"
+            loading="lazy"
+          >
+        </div>
+        <div class="hero-bg-slide" data-slide="2" data-facility="Tri-Services Psychological Assessment &amp; Briefing Theatre">
+          <img 
+            src="assets/images/live/psych-hall.webp" 
+            alt="Tri-Services Psychological Assessment Hall" 
+            class="hero-bg-img"
+            width="1920" 
+            height="1080"
+            loading="lazy"
+          >
+        </div>
+        <div class="hero-bg-slide" data-slide="3" data-facility="Candidate Stay Dormitory (~300m from 2 AFSB Mysuru)">
+          <img 
+            src="assets/images/live/ssb-dormitory.webp" 
+            alt="Candidate Stay Facilities ~300m from 2 AFSB Mysuru" 
+            class="hero-bg-img"
+            width="1920" 
+            height="1080"
+            loading="lazy"
+          >
+        </div>
+        <div class="hero-bg-slide" data-slide="4" data-facility="All India Rank 1 National Merit Recognition (Kumar Balaji)">
+          <img 
+            src="assets/images/live/kumar-balaji-spotlight-pro.webp" 
+            alt="AIR 1 Kumar Balaji National Merit Spotlight" 
+            class="hero-bg-img"
+            width="1920" 
+            height="1080"
+            loading="lazy"
+          >
+        </div>
+      </div>
+
+      <!-- Directional Gradient Scrim (Heavy contrast on text side, clear photo on right) -->
+      <div class="hero-bg-overlay" aria-hidden="true"></div>
+
+      <!-- Foreground Content Layer -->
+      <div class="container hero-cinematic-container">
+        <div class="hero-content">
           
-          <div class="hero-content">
-            <div class="hero-eyebrow">
-              <span class="hero-rating-badge">
-                <span class="hero-rating-desktop"><span class="star-rating">★★★★★</span> <strong>4.9/5</strong> on Google (120+ Reviews) · <strong>AIR 1</strong> National Merit · <strong>~300m</strong> to 2 AFSB</span>
-                <span class="hero-rating-mobile"><span class="star-rating">★★★★★</span> <strong>4.9/5</strong> (120+ Reviews) · <strong>AIR 1</strong> Merit</span>
-              </span>
-            </div>
-
-            <h1 id="hero-title" class="hero-title">
-              Leadership is built.
-              <span class="hero-title-break">Not assumed.</span>
-            </h1>
-
-            <p class="hero-lead">
-              Mysuru’s premier defence &amp; leadership academy. Direct mentorship by retired IAF flight commanders and DIPR psychologists for SSB, NDA, CDS, and corporate excellence.
-            </p>
-
-            <div class="hero-actions">
-              <a href="#disciplines" class="btn btn-primary hero-main-cta">
-                Explore Programmes &amp; Batches &rarr;
-              </a>
-              <a href="#founders" class="hero-secondary-cta">
-                Meet The Founders &darr;
-              </a>
-            </div>
+          <div class="hero-eyebrow">
+            <span class="hero-rating-badge">
+              <span class="star-rating">★★★★★</span>
+              <strong>4.9/5</strong> on Google (120+ Reviews) · <strong>AIR 1</strong> National Merit · <strong>~300m</strong> to 2 AFSB
+            </span>
           </div>
 
-          <!-- Hero Large Authentic Photograph & Interactive In-Frame Slideshow -->
-          <div class="hero-visual">
-            <div class="hero-slideshow-frame" id="heroSlideshow" aria-label="Alpha Lead Academy Facilities and Training">
-              
-              <div class="hero-slides-wrapper" id="heroSlidesWrapper">
-                <!-- Slide 1: Live Classroom Mentorship -->
-                <div class="hero-slide active" data-slide="0">
-                  <img 
-                    src="assets/images/live/why-alpha-defence.webp" 
-                    alt="Group Captain Abhinav Chaturvedi (Retd) mentoring candidates at Alpha Lead Academy" 
-                    class="hero-slide-img slide-focus-classroom"
-                    width="640" 
-                    height="480"
-                    loading="eager"
-                  >
-                  <div class="hero-slide-badge">
-                    <span class="pulse-dot"></span> Live SSB Classroom Batch
-                  </div>
-                  <div class="hero-image-caption">
-                    <div class="hero-caption-text">
-                      <span class="hero-caption-author">Direct Assessor Mentorship</span><br>
-                      Group Captain Abhinav Chaturvedi · Mysuru Campus
-                    </div>
-                    <a href="#founders" class="link-arrow" style="font-size: 0.75rem;">Meet Mentors &rarr;</a>
-                  </div>
-                </div>
+          <h1 id="hero-title" class="hero-title">
+            Leadership is built.
+            <span class="hero-title-break">Not assumed.</span>
+          </h1>
 
-                <!-- Slide 2: Real Outdoor GTO Ground -->
-                <div class="hero-slide" data-slide="1">
-                  <img 
-                    src="assets/images/live/gto-obstacles.webp" 
-                    alt="Full-Scale Outdoor GTO Obstacle Training Ground at Alpha Lead Academy" 
-                    class="hero-slide-img slide-focus-ground"
-                    width="640" 
-                    height="480"
-                    loading="lazy"
-                  >
-                  <div class="hero-slide-badge">
-                    <span class="badge-icon-custom">⚔️</span> Full-Scale Outdoor GTO Ground
-                  </div>
-                  <div class="hero-image-caption">
-                    <div class="hero-caption-text">
-                      <span class="hero-caption-author">Progressive Group Obstacles</span><br>
-                      Outdoor Training Grounds · Mysuru Campus
-                    </div>
-                    <a href="#stay" class="link-arrow" style="font-size: 0.75rem;">View Ground &rarr;</a>
-                  </div>
-                </div>
+          <p class="hero-lead">
+            Mysuru’s premier defence &amp; leadership academy. Direct mentorship by retired IAF flight commanders and DIPR psychologists for SSB, NDA, CDS, and corporate excellence.
+          </p>
 
-                <!-- Slide 3: Tri-Services Psychology Testing Hall -->
-                <div class="hero-slide" data-slide="2">
-                  <img 
-                    src="assets/images/live/psych-hall.webp" 
-                    alt="Tri-Services Psychological Assessment and Officer Briefing Hall at Alpha Lead Academy Mysuru" 
-                    class="hero-slide-img slide-focus-hall"
-                    width="640" 
-                    height="480"
-                    loading="lazy"
-                  >
-                  <div class="hero-slide-badge">
-                    <span class="badge-icon-custom">🧠</span> Tri-Services Psychology Hall
-                  </div>
-                  <div class="hero-image-caption">
-                    <div class="hero-caption-text">
-                      <span class="hero-caption-author">Psychological Testing &amp; Officer Briefings</span><br>
-                      Tri-Services Training Theatre · Mysuru Campus
-                    </div>
-                    <a href="#stay" class="link-arrow" style="font-size: 0.75rem;">View Campus &rarr;</a>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Slideshow Navigation Overlay -->
-              <div class="hero-slides-controls" aria-label="Slideshow Controls">
-                <button class="hero-slide-nav hero-slide-prev" id="heroSlidePrev" aria-label="Previous image">&#10094;</button>
-                <div class="hero-slide-dots" id="heroSlideDots">
-                  <button class="hero-dot active" data-index="0" aria-label="Go to Slide 1: Live Classroom"></button>
-                  <button class="hero-dot" data-index="1" aria-label="Go to Slide 2: GTO Ground"></button>
-                  <button class="hero-dot" data-index="2" aria-label="Go to Slide 3: Psychology Hall"></button>
-                </div>
-                <button class="hero-slide-nav hero-slide-next" id="heroSlideNext" aria-label="Next image">&#10095;</button>
-              </div>
-
-            </div>
+          <div class="hero-actions">
+            <a href="#disciplines" class="btn btn-primary hero-main-cta">
+              Explore Programmes &amp; Batches &rarr;
+            </a>
+            <a href="#founders" class="btn hero-secondary-cta">
+              Meet The Founders &darr;
+            </a>
           </div>
 
         </div>
+
       </div>
+
+      <!-- Elegant Side Navigation Arrows for Background Slideshow -->
+      <button type="button" class="hero-nav-arrow hero-nav-arrow-left" id="heroSlidePrev" aria-label="Previous facility photo">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+      <button type="button" class="hero-nav-arrow hero-nav-arrow-right" id="heroSlideNext" aria-label="Next facility photo">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+
+      <!-- Sleek Credibility & Highlights Strip (Pinned inside Hero Above-the-Fold) -->
+      <div class="hero-trust-bar" aria-label="Key Institution Credentials">
+        <div class="container">
+          <div class="trust-bar-grid">
+            
+            <div class="trust-bar-item trust-card-officers">
+              <div class="trust-bar-icon">🎖️</div>
+              <div class="trust-bar-content">
+                <span class="trust-bar-title">Ex-IAF Officers</span>
+                <span class="trust-bar-sub">DIPR Psychologists &amp; Pilots</span>
+              </div>
+            </div>
+
+            <div class="trust-bar-item trust-card-gto">
+              <div class="trust-bar-icon">⚔️</div>
+              <div class="trust-bar-content">
+                <span class="trust-bar-title">Outdoor GTO Ground</span>
+                <span class="trust-bar-sub">Full-Scale Real Obstacle Course</span>
+              </div>
+            </div>
+
+            <div class="trust-bar-item trust-card-afsb">
+              <div class="trust-bar-icon">📍</div>
+              <div class="trust-bar-content">
+                <span class="trust-bar-title">~300m to 2 AFSB</span>
+                <span class="trust-bar-sub">Walking Distance to Centre</span>
+              </div>
+            </div>
+
+            <div class="trust-bar-item trust-card-merit">
+              <div class="trust-bar-icon">⭐</div>
+              <div class="trust-bar-content">
+                <span class="trust-bar-title">AIR 1 National Merit</span>
+                <span class="trust-bar-sub">120+ 5-Star Google Reviews</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
     </section>
 
-    <!-- 02. Four Core Pillars (Revealed on Scroll Down) -->
+    <!-- 02. Four Core Pillars (Pure White with Distinct Color Blocks) -->
     <section class="section section-pillars" id="pillars" aria-labelledby="pillars-heading">
       <div class="container">
         
@@ -303,7 +329,7 @@
 
         <div class="hero-pillars-grid">
           
-          <a href="defence.html" class="hero-pillar-card">
+          <a href="defence.html" class="hero-pillar-card pillar-card-defence">
             <div class="pillar-num">01</div>
             <div class="pillar-content">
               <span class="pillar-tag">Defence Entrance</span>
@@ -313,7 +339,7 @@
             </div>
           </a>
 
-          <a href="corporate.html" class="hero-pillar-card">
+          <a href="corporate.html" class="hero-pillar-card pillar-card-corporate">
             <div class="pillar-num">02</div>
             <div class="pillar-content">
               <span class="pillar-tag">Leadership Training</span>
@@ -323,7 +349,7 @@
             </div>
           </a>
 
-          <a href="career.html" class="hero-pillar-card">
+          <a href="career.html" class="hero-pillar-card pillar-card-career">
             <div class="pillar-num">03</div>
             <div class="pillar-content">
               <span class="pillar-tag">Career Guidance</span>
@@ -333,7 +359,7 @@
             </div>
           </a>
 
-          <a href="ssb-stay.html" class="hero-pillar-card">
+          <a href="ssb-stay.html" class="hero-pillar-card pillar-card-stay">
             <div class="pillar-num">04</div>
             <div class="pillar-content">
               <span class="pillar-tag">Dormitory Stay</span>
@@ -444,8 +470,8 @@
       </div>
     </section>
 
-    <!-- 04. Who We Are — Vision and Mission -->
-    <section id="about" class="section section-subtle" aria-labelledby="about-title">
+    <!-- 04. Who We Are — Vision and Mission (Ice Blue Accent Block) -->
+    <section id="about" class="section section-ice" aria-labelledby="about-title">
       <div class="container">
         
         <div class="about-vision-grid reveal-on-scroll">
@@ -659,8 +685,8 @@
       </div>
     </section>
 
-    <!-- 05. National Merit & Proven Selections -->
-    <section id="results" class="section" aria-labelledby="results-title">
+    <!-- 05. National Merit & Proven Selections (Dark Midnight Navy Hall of Fame) -->
+    <section id="results" class="section section-hall-of-fame" aria-labelledby="results-title">
       <div class="container">
         
         <div class="section-header text-center reveal-on-scroll">
@@ -709,7 +735,7 @@
               <span class="proof-board">🎖️ 24 SSB Bangalore</span>
               <span class="proof-entry">NCC Special Entry &amp; JAG Branch</span>
             </div>
-            <span class="candidate-entry-badge" style="background: rgba(212, 175, 55, 0.15); color: #8C6F12; border-color: rgba(212, 175, 55, 0.3);">NCC + JAG Double Recommendation</span>
+            <span class="candidate-entry-badge badge-gold">NCC + JAG Double Recommendation</span>
             <p class="card-desc" style="font-size: 0.85rem; margin-bottom: 0;">
               Decisive double recommendation for NCC Special Entry and Judge Advocate General (JAG) selection boards.
             </p>

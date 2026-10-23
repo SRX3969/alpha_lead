@@ -283,15 +283,16 @@ function initHeroSlideshow() {
   const container = document.getElementById('heroSlideshow');
   if (!container) return;
 
-  const slides = container.querySelectorAll('.hero-slide');
+  const slides = container.querySelectorAll('.hero-bg-slide, .hero-slide');
   const dots = container.querySelectorAll('.hero-dot');
   const prevBtn = document.getElementById('heroSlidePrev');
   const nextBtn = document.getElementById('heroSlideNext');
+  const facilityLabel = document.getElementById('heroSlideFacilityName');
   if (!slides.length) return;
 
   let currentIndex = 0;
   let timer = null;
-  const interval = 4500;
+  const interval = 5500;
 
   const showSlide = (index) => {
     if (index < 0) {
@@ -309,6 +310,14 @@ function initHeroSlideshow() {
     dots.forEach((dot, i) => {
       dot.classList.toggle('active', i === currentIndex);
     });
+
+    // Update facility label dynamically if present
+    if (facilityLabel && slides[currentIndex]) {
+      const facilityText = slides[currentIndex].getAttribute('data-facility');
+      if (facilityText) {
+        facilityLabel.textContent = facilityText;
+      }
+    }
   };
 
   const nextSlide = () => {

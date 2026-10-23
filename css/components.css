@@ -79,24 +79,97 @@
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--color-border);
   z-index: 1000;
-  transition: padding var(--dur-fast), box-shadow var(--dur-fast);
+  transition: all var(--dur-normal);
 }
 
 .site-header.scrolled {
   box-shadow: 0 4px 20px rgba(12, 30, 54, 0.04);
 }
 
+/* Luxury Frosted Nav Header merging seamlessly into Hero Slideshow (Attachment 2 Style) */
+.site-header.header-cinematic {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background: rgba(10, 18, 32, 0.38);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.site-header.header-cinematic.scrolled {
+  background: rgba(10, 18, 32, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+.site-header.header-cinematic .brand-name {
+  color: #FFFFFF;
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.site-header.header-cinematic .brand-sub {
+  color: #F59E0B;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.site-header.header-cinematic .nav-link {
+  color: rgba(241, 245, 249, 0.82);
+  font-weight: 500;
+  font-size: 0.875rem;
+  letter-spacing: 0.01em;
+  transition: all 0.2s ease;
+}
+
+.site-header.header-cinematic .nav-link:hover,
+.site-header.header-cinematic .nav-link.active {
+  color: #FFFFFF;
+}
+
+.site-header.header-cinematic .nav-link.active::after {
+  background-color: #F59E0B;
+}
+
+/* Warm Gold Luxury CTA Button in Nav (Like Attachment 2) */
+.site-header.header-cinematic .nav-cta-btn {
+  background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%) !important;
+  color: #0F172A !important;
+  font-weight: 700 !important;
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 8px 18px !important;
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35) !important;
+  transition: all 0.2s ease;
+}
+
+.site-header.header-cinematic .nav-cta-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5) !important;
+  background: linear-gradient(135deg, #FBBF24 0%, #D97706 100%) !important;
+}
+
+.site-header.header-cinematic .mobile-nav-toggle span {
+  background-color: #FFFFFF;
+}
+
 .nav-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 76px;
+  height: 56px;
   gap: var(--space-4);
   transition: height var(--dur-fast);
 }
 
 .site-header.scrolled .nav-container {
-  height: 68px;
+  height: 50px;
 }
 
 /* Brand Logo */
@@ -879,6 +952,647 @@
   .hero-image {
     height: 360px;
   }
+}
+
+.hero-cinematic {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 560px;
+  max-height: 920px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #0B192C;
+  overflow: hidden;
+  padding-top: clamp(68px, 10vh, 88px);
+  padding-bottom: clamp(10px, 1.8vh, 18px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hero-bg-slides-wrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.hero-bg-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1.4s cubic-bezier(0.4, 0, 0.2, 1), transform 8s cubic-bezier(0.25, 1, 0.5, 1);
+  transform: scale(1.06);
+  z-index: 1;
+}
+
+.hero-bg-slide.active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1.0);
+  z-index: 2;
+}
+
+.hero-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-bg-slide[data-slide="0"] .hero-bg-img {
+  object-position: center 30%;
+}
+.hero-bg-slide[data-slide="1"] .hero-bg-img {
+  object-position: center 45%;
+}
+.hero-bg-slide[data-slide="2"] .hero-bg-img {
+  object-position: center 40%;
+}
+.hero-bg-slide[data-slide="3"] .hero-bg-img {
+  object-position: center 50%;
+}
+.hero-bg-slide[data-slide="4"] .hero-bg-img {
+  object-position: center 25%;
+}
+
+/* Luxury Multi-Stop Vignette Scrim (Seamless merge at Nav and Feature Boxes) */
+.hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: 
+    linear-gradient(180deg, rgba(8, 16, 30, 0.72) 0%, rgba(8, 16, 30, 0.2) 16%, transparent 32%),
+    linear-gradient(0deg, rgba(8, 16, 30, 0.76) 0%, rgba(8, 16, 30, 0.22) 20%, transparent 38%),
+    linear-gradient(90deg, rgba(8, 16, 30, 0.9) 0%, rgba(8, 16, 30, 0.68) 46%, rgba(8, 16, 30, 0.15) 85%, transparent 100%);
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .hero-bg-overlay {
+    background: linear-gradient(180deg, rgba(8, 16, 30, 0.92) 0%, rgba(8, 16, 30, 0.8) 45%, rgba(8, 16, 30, 0.96) 100%);
+  }
+}
+
+.hero-cinematic-container {
+  position: relative;
+  z-index: 4;
+  width: 100%;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 4px;
+}
+
+.hero-cinematic .hero-content {
+  max-width: 680px;
+}
+
+/* Eyebrow Badge (like ✨ Curated in Bangalore in Attachment 2) */
+.hero-cinematic .hero-eyebrow {
+  margin-bottom: clamp(8px, 1.3vh, 14px);
+}
+
+.hero-cinematic .hero-rating-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(10, 20, 36, 0.6);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 9999px;
+  padding: 5px 14px;
+  color: #FBBF24;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+}
+
+.hero-cinematic .hero-rating-badge .star-rating {
+  color: #F59E0B;
+}
+
+/* Grand, commanding, elegant Headline like "Own the Extraordinary." */
+.hero-cinematic .hero-title {
+  font-family: var(--font-display);
+  color: #FFFFFF;
+  text-shadow: 0 4px 28px rgba(0, 0, 0, 0.7);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  font-size: clamp(34px, 4.2vw, 56px);
+  line-height: 1.06;
+  margin-bottom: clamp(12px, 1.6vh, 18px);
+}
+
+.hero-cinematic .hero-title-break {
+  color: #FFFFFF;
+  display: block;
+}
+
+/* Lead Paragraph: Clean, elegant, generous line-height */
+.hero-cinematic .hero-lead {
+  font-family: var(--font-sans);
+  color: rgba(241, 245, 249, 0.88);
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.6);
+  font-size: clamp(0.95rem, 1.05vw, 1.1rem);
+  font-weight: 400;
+  line-height: 1.58;
+  letter-spacing: -0.01em;
+  margin-bottom: clamp(16px, 2.2vh, 24px);
+  max-width: 580px;
+}
+
+/* Action Buttons (Primary Warm Gold + Secondary Glass Ghost) */
+.hero-cinematic .hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.hero-cinematic .hero-main-cta {
+  background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+  color: #0F172A;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  padding: 11px 22px !important;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 4px 18px rgba(245, 158, 11, 0.38) !important;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-cinematic .hero-main-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.55) !important;
+  background: linear-gradient(135deg, #FBBF24 0%, #D97706 100%);
+  color: #0F172A;
+}
+
+.hero-cinematic .hero-secondary-cta {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  color: #FFFFFF;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-cinematic .hero-secondary-cta:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.45);
+  color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   ELEGANT SIDE NAVIGATION ARROWS (Floating on Either Side of Hero Slideshow)
+   ========================================================================== */
+.hero-nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(10, 18, 32, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  padding: 0;
+}
+
+.hero-nav-arrow-left {
+  left: clamp(14px, 2.4vw, 36px);
+}
+
+.hero-nav-arrow-right {
+  right: clamp(14px, 2.4vw, 36px);
+}
+
+.hero-nav-arrow:hover {
+  background: rgba(15, 28, 50, 0.85);
+  border-color: rgba(245, 158, 11, 0.6);
+  color: #FBBF24;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.5), 0 0 16px rgba(245, 158, 11, 0.3);
+}
+
+.hero-nav-arrow:active {
+  transform: translateY(-50%) scale(0.96);
+}
+
+.hero-nav-arrow svg {
+  width: 22px;
+  height: 22px;
+  transition: transform 0.2s ease;
+}
+
+.hero-nav-arrow-left:hover svg {
+  transform: translateX(-2px);
+}
+
+.hero-nav-arrow-right:hover svg {
+  transform: translateX(2px);
+}
+
+/* ==========================================================================
+   4C. 4 FLOATING FEATURE BOXES (Transparent Behind - Zero Blue Bar!)
+   ========================================================================== */
+.hero-trust-bar {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 0 clamp(8px, 1.4vh, 16px) 0 !important;
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.trust-bar-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  align-items: stretch;
+}
+
+.trust-bar-item {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 9px 13px;
+  background: rgba(11, 20, 36, 0.52);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.32);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.trust-bar-item:hover {
+  transform: translateY(-3px);
+  background: rgba(15, 28, 50, 0.72);
+  border-color: rgba(255, 255, 255, 0.28);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.45);
+}
+
+.trust-bar-icon {
+  font-size: 1.25rem;
+  line-height: 1;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.trust-bar-item:hover .trust-bar-icon {
+  transform: scale(1.08);
+}
+
+/* Distinct Vibrant Accent Badges for Each Credential */
+.trust-card-officers .trust-bar-icon {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.28) 0%, rgba(37, 99, 235, 0.38) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.5);
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.25);
+}
+
+.trust-card-gto .trust-bar-icon {
+  background: linear-gradient(135deg, rgba(52, 211, 153, 0.25) 0%, rgba(16, 185, 129, 0.38) 100%);
+  border: 1px solid rgba(52, 211, 153, 0.5);
+  box-shadow: 0 0 14px rgba(52, 211, 153, 0.25);
+}
+
+.trust-card-afsb .trust-bar-icon {
+  background: linear-gradient(135deg, rgba(251, 146, 60, 0.28) 0%, rgba(239, 68, 68, 0.38) 100%);
+  border: 1px solid rgba(251, 146, 60, 0.5);
+  box-shadow: 0 0 14px rgba(251, 146, 60, 0.25);
+}
+
+.trust-card-merit .trust-bar-icon {
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.32) 0%, rgba(217, 119, 6, 0.45) 100%);
+  border: 1px solid rgba(251, 191, 36, 0.6);
+  box-shadow: 0 0 16px rgba(251, 191, 36, 0.3);
+}
+
+.trust-bar-content {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.trust-bar-title {
+  color: #FFFFFF;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.trust-bar-sub {
+  color: rgba(241, 245, 249, 0.78);
+  font-size: 0.725rem;
+  font-weight: 400;
+  line-height: 1.3;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 960px) {
+  .hero-cinematic {
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    padding-top: 80px !important;
+    padding-bottom: 24px !important;
+  }
+  .hero-cinematic-container {
+    padding-bottom: 16px !important;
+  }
+  .hero-trust-bar {
+    padding: 0 0 12px 0 !important;
+  }
+  .trust-bar-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+  .trust-bar-item {
+    border-right: none !important;
+    background: rgba(11, 20, 36, 0.72) !important;
+    border-radius: 10px !important;
+    padding: 10px 12px !important;
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-cinematic {
+    min-height: auto;
+    padding-top: 76px !important;
+    padding-bottom: 24px;
+  }
+  .hero-cinematic .hero-title {
+    font-size: clamp(30px, 8.2vw, 42px) !important;
+    line-height: 1.1 !important;
+    color: #FFFFFF !important;
+    text-shadow: 0 4px 24px rgba(0, 0, 0, 0.7) !important;
+  }
+  .hero-cinematic .hero-title-break {
+    color: #FFFFFF !important;
+    background: none !important;
+    -webkit-text-fill-color: initial !important;
+    display: block !important;
+  }
+  .hero-cinematic .hero-lead {
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+    color: rgba(241, 245, 249, 0.9) !important;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6) !important;
+    margin-bottom: 20px !important;
+  }
+  .hero-cinematic .hero-actions {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+  .hero-cinematic .hero-main-cta,
+  .hero-cinematic .hero-secondary-cta {
+    text-align: center;
+    justify-content: center;
+    font-size: 0.875rem !important;
+    padding: 11px 18px !important;
+  }
+  .hero-nav-arrow {
+    width: 38px;
+    height: 38px;
+    background: rgba(10, 18, 32, 0.6);
+  }
+  .hero-nav-arrow-left {
+    left: 8px;
+  }
+  .hero-nav-arrow-right {
+    right: 8px;
+  }
+  .hero-nav-arrow svg {
+    width: 18px;
+    height: 18px;
+  }
+  .hero-trust-bar {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 0 12px 0 !important;
+  }
+  .trust-bar-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+  .trust-bar-item {
+    background: rgba(11, 20, 36, 0.72) !important;
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
+    border-radius: 10px !important;
+    padding: 9px 10px !important;
+    gap: 8px !important;
+  }
+  .trust-bar-icon {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 1.1rem !important;
+  }
+  .trust-bar-title {
+    font-size: 0.8rem !important;
+  }
+  .trust-bar-sub {
+    font-size: 0.7rem !important;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* Color-coded Pillar Cards */
+.pillar-card-defence {
+  border-top: 4px solid var(--color-pillar-defence) !important;
+}
+.pillar-card-defence .pillar-num {
+  color: var(--color-pillar-defence) !important;
+}
+.pillar-card-defence .pillar-tag {
+  color: var(--color-pillar-defence) !important;
+}
+
+.pillar-card-corporate {
+  border-top: 4px solid var(--color-pillar-corporate) !important;
+}
+.pillar-card-corporate .pillar-num {
+  color: var(--color-pillar-corporate) !important;
+}
+.pillar-card-corporate .pillar-tag {
+  color: var(--color-pillar-corporate) !important;
+}
+
+.pillar-card-career {
+  border-top: 4px solid var(--color-pillar-career) !important;
+}
+.pillar-card-career .pillar-num {
+  color: var(--color-pillar-career) !important;
+}
+.pillar-card-career .pillar-tag {
+  color: var(--color-pillar-career) !important;
+}
+
+.pillar-card-stay {
+  border-top: 4px solid var(--color-pillar-stay) !important;
+}
+.pillar-card-stay .pillar-num {
+  color: var(--color-pillar-stay) !important;
+}
+.pillar-card-stay .pillar-tag {
+  color: var(--color-pillar-stay) !important;
+}
+
+/* Hall of Fame (#results) Dark Navy Section */
+.section-hall-of-fame {
+  background-color: #0A192F !important;
+  color: #FFFFFF !important;
+}
+
+.section-hall-of-fame .section-header .eyebrow {
+  color: #F59E0B !important;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.section-hall-of-fame .section-title {
+  color: #FFFFFF !important;
+}
+
+.section-hall-of-fame .section-subtitle {
+  color: #94A3B8 !important;
+}
+
+.section-hall-of-fame .candidate-card {
+  background-color: #0F1F38 !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45) !important;
+}
+
+.section-hall-of-fame .candidate-card:hover {
+  border-color: rgba(245, 158, 11, 0.6) !important;
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 20px rgba(245, 158, 11, 0.15) !important;
+}
+
+.section-hall-of-fame .candidate-name {
+  color: #FFFFFF !important;
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+}
+
+/* Fix: candidate-meta-proof box on dark background */
+.section-hall-of-fame .candidate-meta-proof {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-left: 3px solid #F59E0B !important;
+  padding: 8px 10px !important;
+  border-radius: 6px !important;
+  margin: 10px 0 12px 0 !important;
+}
+
+.section-hall-of-fame .candidate-meta-proof .proof-board {
+  color: #FBBF24 !important;
+  font-weight: 700 !important;
+  font-size: 0.8rem !important;
+}
+
+.section-hall-of-fame .candidate-meta-proof .proof-entry {
+  color: #F1F5F9 !important;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+}
+
+/* Fix: candidate-entry-badge on dark card */
+.section-hall-of-fame .candidate-entry-badge {
+  background: rgba(37, 99, 235, 0.22) !important;
+  border: 1px solid rgba(96, 165, 250, 0.45) !important;
+  color: #93C5FD !important;
+  font-weight: 600 !important;
+  font-size: 0.72rem !important;
+  padding: 3px 10px !important;
+  border-radius: 4px !important;
+  margin-bottom: 8px !important;
+  display: inline-block !important;
+}
+
+.section-hall-of-fame .candidate-entry-badge.badge-gold,
+.section-hall-of-fame .badge-gold {
+  background: rgba(245, 158, 11, 0.2) !important;
+  border: 1px solid rgba(245, 158, 11, 0.5) !important;
+  color: #FBBF24 !important;
+}
+
+.section-hall-of-fame .card-desc {
+  color: #E2E8F0 !important;
+  font-size: 0.85rem !important;
+  line-height: 1.6 !important;
+}
+
+.section-hall-of-fame .swipe-hint {
+  color: #94A3B8 !important;
+}
+
+.section-hall-of-fame .results-cta-btn {
+  background: linear-gradient(135deg, #1E3A8A 0%, #2563EB 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4) !important;
+}
+
+.section-hall-of-fame .results-cta-btn:hover {
+  background: linear-gradient(135deg, #172554 0%, #1D4ED8 100%) !important;
+  box-shadow: 0 10px 28px rgba(37, 99, 235, 0.6) !important;
 }
 
 /* ==========================================================================
@@ -2651,6 +3365,21 @@ textarea.form-control {
     line-height: 1.55 !important;
     color: #475569 !important;
     margin-bottom: 22px !important; /* Generous breathing room */
+  }
+
+  .hero-cinematic .hero-title {
+    color: #FFFFFF !important;
+    text-shadow: 0 4px 24px rgba(0, 0, 0, 0.7) !important;
+  }
+  .hero-cinematic .hero-title-break {
+    color: #FFFFFF !important;
+    background: none !important;
+    -webkit-text-fill-color: initial !important;
+    display: block !important;
+  }
+  .hero-cinematic .hero-lead {
+    color: rgba(241, 245, 249, 0.9) !important;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6) !important;
   }
   
   /* Compact Hero Visual & Slideshow directly below lead text */
