@@ -1166,14 +1166,14 @@
 }
 
 .hero-cinematic .hero-main-cta {
-  background: linear-gradient(135deg, #E2725B 0%, #C85A43 100%);
-  color: #FFFFFF;
-  font-weight: 600;
+  background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+  color: #0F172A;
+  font-weight: 700;
   font-size: 0.875rem;
   padding: 10px 22px !important;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 18px rgba(226, 114, 91, 0.35) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 18px rgba(245, 158, 11, 0.4) !important;
   transition: all 0.25s ease;
   display: inline-flex;
   align-items: center;
@@ -1182,9 +1182,9 @@
 
 .hero-cinematic .hero-main-cta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(226, 114, 91, 0.5) !important;
-  background: linear-gradient(135deg, #EB7E68 0%, #D45D44 100%);
-  color: #FFFFFF;
+  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.55) !important;
+  background: linear-gradient(135deg, #FBBF24 0%, #D97706 100%);
+  color: #0F172A;
 }
 
 .hero-cinematic .hero-secondary-cta {
