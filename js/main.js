@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initReviewsCarousel();
   initHeroSlideshow();
   initAnalyticsTracking();
+  initMobileStickyBar();
 });
 
 /**
@@ -462,4 +463,24 @@ function initAnalyticsTracking() {
       }
     });
   });
+}
+
+/**
+ * 11. Mobile Sticky Action Bar on Scroll
+ * Reveals Call & WhatsApp buttons ONLY after user scrolls past the hero
+ */
+function initMobileStickyBar() {
+  const bar = document.querySelector('.mobile-sticky-action-bar');
+  if (!bar) return;
+
+  const handleScroll = () => {
+    if (window.scrollY > 250) {
+      bar.classList.add('visible');
+    } else {
+      bar.classList.remove('visible');
+    }
+  };
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  handleScroll();
 }
