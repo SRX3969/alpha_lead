@@ -1127,6 +1127,10 @@
   color: #F59E0B;
 }
 
+.hero-rating-badge .badge-source {
+  display: inline;
+}
+
 /* Grand, commanding, elegant Headline like "Own the Extraordinary." */
 .hero-cinematic .hero-title {
   font-family: var(--font-display);
@@ -1524,9 +1528,19 @@
     margin-bottom: 8px !important;
   }
   .hero-cinematic .hero-rating-badge {
-    font-size: 0.72rem !important;
-    padding: 5px 12px !important;
+    font-size: clamp(0.68rem, 2.7vw, 0.74rem) !important;
+    padding: 5px 11px !important;
+    gap: 6px !important;
     line-height: 1.35 !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+  }
+  .hero-cinematic .hero-rating-badge .star-rating {
+    letter-spacing: 0.5px !important;
+    font-size: 0.78rem !important;
+  }
+  .hero-rating-badge .badge-source {
+    display: none !important;
   }
   .hero-cinematic .hero-title {
     font-size: clamp(28px, 7.6vw, 36px) !important;
