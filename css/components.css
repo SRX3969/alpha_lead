@@ -5405,5 +5405,195 @@ textarea.form-control {
   }
 }
 
+/* ==========================================================================
+   2 AFSB CANDIDATE STAY SPOTLIGHT BANNER (~300m USP)
+   ========================================================================== */
+.section-stay-spotlight {
+  padding: clamp(36px, 5vw, 64px) 0;
+  background: linear-gradient(180deg, #F8FAFC 0%, #EEF2F6 100%);
+}
 
+.stay-spotlight-card {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(24px, 4vw, 48px);
+  align-items: center;
+  background: linear-gradient(135deg, #09172A 0%, #0C1E36 60%, #152A4A 100%);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  border-radius: 20px;
+  padding: clamp(28px, 4vw, 44px);
+  box-shadow: 0 16px 40px rgba(9, 23, 42, 0.22);
+  color: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+}
 
+.stay-spotlight-card::before {
+  content: "";
+  position: absolute;
+  top: -40%;
+  right: -15%;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.stay-spotlight-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  color: #FBBF24;
+  padding: 5px 14px;
+  border-radius: 9999px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.stay-pulse-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #22C55E;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.35);
+  animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+
+.stay-spotlight-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.45rem, 2.8vw, 2.1rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: #FFFFFF;
+  margin-bottom: 14px;
+}
+
+.stay-spotlight-heading span {
+  color: #FBBF24;
+}
+
+.stay-spotlight-lead {
+  color: #CBD5E1;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 22px;
+}
+
+.stay-spotlight-perks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-bottom: 26px;
+}
+
+.stay-perk-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 10px 14px;
+}
+
+.stay-perk-icon {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.stay-perk-item strong {
+  display: block;
+  font-size: 0.85rem;
+  color: #FFFFFF;
+}
+
+.stay-perk-item span {
+  display: block;
+  font-size: 0.75rem;
+  color: #94A3B8;
+}
+
+.stay-spotlight-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.stay-spotlight-visual {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.stay-spotlight-img {
+  width: 100%;
+  height: 100%;
+  max-height: 340px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.stay-spotlight-card:hover .stay-spotlight-img {
+  transform: scale(1.03);
+}
+
+.stay-distance-tag {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(10, 20, 36, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  color: #FBBF24;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Nav Stay highlight badge */
+.nav-stay-highlight {
+  position: relative;
+}
+
+.nav-pill-tag {
+  background: #F59E0B;
+  color: #0F172A;
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 6px;
+  margin-left: 5px;
+  vertical-align: middle;
+  letter-spacing: 0.02em;
+  display: inline-block;
+}
+
+@media (max-width: 900px) {
+  .stay-spotlight-card {
+    grid-template-columns: 1fr;
+    padding: 24px;
+    gap: 20px;
+  }
+  .stay-spotlight-perks {
+    grid-template-columns: 1fr;
+  }
+}
