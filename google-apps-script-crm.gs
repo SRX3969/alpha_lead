@@ -159,8 +159,7 @@ function doPost(e) {
     }
 
     var ss = SpreadsheetApp.getActiveSpreadsheet();
-    var category = (data.category || '').toLowerCase();
-    var sheetName = data.sheetTab || resolveSheetName(category);
+    var sheetName = resolveSheetName(data);
 
     var sheet = ss.getSheetByName(sheetName);
     if (!sheet) {
@@ -213,24 +212,65 @@ function doGet(e) {
 }
 
 /**
- * Map category code to proper Sheet Name
+ * Intelligent multi-layer sheet router:
+ * 1. Checks direct sheetTab / sheet / tab name
+ * 2. Checks category code ('stay', 'defence', 'career', 'corporate', 'callback')
+ * 3. Inspects specific fields (checkInDate -> stay, company -> corporate, etc.)
+ * 4. Inspects sourcePage and formType text for keywords
+ * 5. Falls back cleanly to 'General Inquiries'
  */
-function resolveSheetName(cat) {
-  if (cat === 'defence') return 'Defence & SSB';
-  if (cat === 'career') return 'Career Guidance';
-  if (cat === 'corporate') return 'Corporate Solutions';
+function resolveSheetName(data) {
+  if (!data) return 'General Inquiries';
+
+  // 1. Direct tab name requested
+  var direct = data.sheetTab || data.sheet || data.tab || data.targetSheet;
+  if (direct && SHEET_DEFINITIONS[direct]) {
+    return direct;
+  }
+
+  // 2. Explicit Category Code
+  var cat = (data.category || '').toLowerCase();
   if (cat === 'stay') return 'SSB Stay (2 AFSB)';
+  if (cat === 'defence') return 'Defence & SSB';
+  if (cat === 'corporate') return 'Corporate Solutions';
+  if (cat === 'career') return 'Career Guidance';
   if (cat === 'callback') return 'Express Callbacks';
+  if (cat === 'general') return 'General Inquiries';
+
+  // 3. Field-specific detection
+  if (data.checkInDate || data.reportingBatch) return 'SSB Stay (2 AFSB)';
+  if (data.company || data.focusArea) return 'Corporate Solutions';
+  if (data.academicStatus || data.targetGoals) return 'Career Guidance';
+  if (data.entryType) return 'Defence & SSB';
+
+  // 4. Source Page / Form Type string keywords
+  var text = ((data.formType || '') + ' ' + (data.sourcePage || '') + ' ' + (data.message || '') + ' ' + (data.interest || '')).toLowerCase();
+  if (text.indexOf('stay') !== -1 || text.indexOf('2 afsb') !== -1 || text.indexOf('dormitory') !== -1 || text.indexOf('accommodation') !== -1) {
+    return 'SSB Stay (2 AFSB)';
+  }
+  if (text.indexOf('defence') !== -1 || text.indexOf('ssb') !== -1 || text.indexOf('nda') !== -1 || text.indexOf('cds') !== -1 || text.indexOf('afcat') !== -1) {
+    return 'Defence & SSB';
+  }
+  if (text.indexOf('corporate') !== -1 || text.indexOf('executive') !== -1) {
+    return 'Corporate Solutions';
+  }
+  if (text.indexOf('career') !== -1 || text.indexOf('employability') !== -1 || text.indexOf('launchpad') !== -1) {
+    return 'Career Guidance';
+  }
+  if (text.indexOf('callback') !== -1 || text.indexOf('express') !== -1) {
+    return 'Express Callbacks';
+  }
+
   return 'General Inquiries';
 }
 
 /**
- * Build column values array for a specific sheet
+ * Build column values array for a specific sheet with complete field alias fallbacks
  */
 function buildRow(sheetName, d, slNo, timestamp) {
-  var name = d.fullName || d.name || 'Candidate';
-  var phone = d.phone || d.mobile || '';
-  var email = d.email || '';
+  var name = d.fullName || d.name || d.candidateName || d.contactName || 'Candidate';
+  var phone = d.phone || d.mobile || d.whatsapp || '';
+  var email = d.email || d.emailAddress || '';
   var page = d.sourcePage || '';
 
   if (sheetName === 'Defence & SSB') {

@@ -144,14 +144,23 @@ function initFormValidation(formId) {
     const leadData = {
       category: category,
       sheetTab: sheetTab,
+      sheet: sheetTab,
+      tab: sheetTab,
+      targetSheet: sheetTab,
       formType: formId === 'contactForm' ? `Main Form (${sheetTab})` : 'Quick Callback Modal',
       sourcePage: document.title || window.location.pathname,
       timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
       
-      // Captured form fields
+      // Captured form fields (with complete aliases for backward and forward compatibility)
       fullName: fullName || 'Candidate',
+      name: fullName || 'Candidate',
+      candidateName: fullName || 'Candidate',
+      contactName: fullName || 'Candidate',
       phone: phone || '',
+      mobile: phone || '',
+      whatsapp: phone || '',
       email: email || '',
+      emailAddress: email || '',
       programme: programme || '',
       entryType: entryType || '',
       academicStatus: academicStatus || '',
@@ -236,7 +245,7 @@ function initFormValidation(formId) {
       fetch(FORM_CONFIG.googleScriptUrl, {
         method: 'POST',
         mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify(leadData)
       }).catch(err => console.warn('Google Sheets dispatch error:', err));
     }
