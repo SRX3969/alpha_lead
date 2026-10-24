@@ -5588,12 +5588,51 @@ textarea.form-control {
 }
 
 @media (max-width: 900px) {
+  .section-stay-spotlight {
+    padding: clamp(24px, 4vw, 36px) 0;
+  }
   .stay-spotlight-card {
     grid-template-columns: 1fr;
-    padding: 24px;
-    gap: 20px;
+    padding: clamp(20px, 4vw, 28px);
+    gap: 18px;
+  }
+  .stay-spotlight-badge {
+    font-size: 0.74rem;
+    padding: 4px 11px;
+    white-space: nowrap;
+    max-width: 100%;
+  }
+  .stay-spotlight-heading {
+    font-size: clamp(1.3rem, 5vw, 1.65rem);
+    line-height: 1.22;
+    margin-bottom: 10px;
+  }
+  .stay-spotlight-lead {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    margin-bottom: 16px;
   }
   .stay-spotlight-perks {
     grid-template-columns: 1fr;
+    gap: 9px;
+    margin-bottom: 20px;
+  }
+  .stay-perk-item {
+    padding: 8px 12px;
+  }
+  .stay-spotlight-actions {
+    gap: 10px;
+  }
+  .stay-spotlight-actions .btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    padding: 10px 16px;
+  }
+  .stay-spotlight-visual {
+    max-height: 240px;
+  }
+  .stay-spotlight-img {
+    max-height: 240px;
   }
 }
